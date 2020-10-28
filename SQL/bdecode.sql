@@ -42,6 +42,7 @@ create table nave(
  eslora numeric
  );
 
+
 /*Cargue*/
 COPY nave(omimatricu, nombrenave,codigo_pais,id_agencia_arribo,codigotiponave,anoconstru,trb,dwt,eslora)
 FROM '/mnt/c/wamp64/www/bde/SQL/csv/nave.csv'
@@ -49,3 +50,33 @@ DELIMITER ';'
 CSV HEADER;
 /*----------------------------------------------------------------------------*/
 
+/*----------------------------------------------------------------------------*/
+/*Creacion y cargue de capa categoria parque nacional natural
+/*----------------------------------------------------------------------------*/
+create table categoria_pnn(
+ id_categoria char(2) primary key,
+ nom_categoria char(50) not null
+ );
+ 
+/*Cargue*/
+COPY categoria_pnn(id_categoria, nom_categoria)
+FROM '/mnt/c/wamp64/www/bde/SQL/csv/categoria_pnn.csv'
+DELIMITER ';'
+CSV HEADER;
+/*----------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------*/
+/*Creacion y cargue de capa parque nacional natural
+/*----------------------------------------------------------------------------*/
+create table pnn(
+ id_pnn char(10) primary key,
+ nom_parque char(100) not null,
+ id_categoria char(2) references categoria_pnn
+ );
+
+/*Cargue*/
+COPY pnn(id_pnn, nom_parque,id_categoria)
+FROM '/mnt/c/wamp64/www/bde/SQL/csv/pnn.csv'
+DELIMITER ';'
+CSV HEADER;
+/*----------------------------------------------------------------------------*/
