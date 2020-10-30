@@ -48,6 +48,7 @@ CSV HEADER;
 /*----------------------------------------------------------------------------*/
 /*Creacion y cargue de tabla nave
 /*----------------------------------------------------------------------------*/
+
 create table nave(
  omimatricu char(20) primary key,
  nombrenave char(40) not null,
@@ -60,12 +61,21 @@ create table nave(
  eslora numeric
  );
 
+/*Limpieza de los registros de la tabla naves*/
+DELETE FROM nave; 
+
+/*Actalización de llaves foráneas sobre la tabla naves*/
+alter table nave add constraint codigotiponave FOREIGN KEY (codigotiponave) REFERENCES tiponave (cod_tiponave);
+alter table nave add constraint codigo_pais FOREIGN KEY (codigo_pais) REFERENCES paises (codigo_pais);
+alter table nave add constraint id_agencia_arribo FOREIGN KEY (id_agencia_arribo) REFERENCES agencianave (id_agencia_arribo);
 
 /*Cargue*/
 COPY nave(omimatricu, nombrenave,codigo_pais,id_agencia_arribo,codigotiponave,anoconstru,trb,dwt,eslora)
 FROM '/mnt/c/wamp64/www/bde/SQL/csv/nave.csv'
 DELIMITER ';'
 CSV HEADER;
+
+
 /*----------------------------------------------------------------------------*/
 
 /*----------------------------------------------------------------------------*/
@@ -98,9 +108,6 @@ FROM '/mnt/c/wamp64/www/bde/SQL/csv/pnn.csv'
 DELIMITER ';'
 CSV HEADER;
 /*----------------------------------------------------------------------------*/
-
-
-
 
 
 /*----------------------------------------------------------------------------*/
@@ -152,6 +159,7 @@ create table capitanias(
 	id_capitania char(4) primary key,
 	nom_capitania char(15) unique	
 );
+
 
 /*----------------------------------------------------------------------------*/
 
@@ -205,5 +213,30 @@ create table arribos_naves_puertos(
 	primary key(pto_origen,pto_destino,omimatricu,fecha_arribos)
 );
 
+
+/*----------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------*/
+/*Creacion y cargue de la tabla linea de costa
+/*----------------------------------------------------------------------------*/
+
+create table linea_costa(
+	id_linea int
+);
+alter table linea_costa add column id_capitania char(4);
+alter table linea_costa add constraint id_capitania FOREIGN KEY (id_capitania) REFERENCES capitanias (id_capitania);
+
+/*----------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------*/
+/*Creacion y cargue de la tabla instalación portuaria
+/*----------------------------------------------------------------------------*/
+
+create table instalacion_portuaria(
+	codigoinst char(6), 
+	instalacion char (100)
+);
+alter table instalacion_portuaria add column id_capitania char(4);
+alter table instalacion_portuaria add constraint id_capitania FOREIGN KEY (id_capitania) REFERENCES capitanias (id_capitania);
 
 /*----------------------------------------------------------------------------*/
