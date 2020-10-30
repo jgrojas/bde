@@ -11,6 +11,24 @@ create database simar;
 /*----------------------------------------------------------------------------*/
 
 /*----------------------------------------------------------------------------*/
+/*Creacion path de almacenamiento de info*/
+/*----------------------------------------------------------------------------*/
+
+do $$ 
+declare path text := '/mnt/c/wamp64/www/bde/SQL/';	
+begin
+raise notice '%',path;
+end $$;
+
+
+do $$ 
+begin
+raise notice '%',path;
+end $$;
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
 /*Creacion y cargue de tabla tiponave
 /*----------------------------------------------------------------------------*/
 create table tiponave(
@@ -79,4 +97,113 @@ COPY pnn(id_pnn, nom_parque,id_categoria)
 FROM '/mnt/c/wamp64/www/bde/SQL/csv/pnn.csv'
 DELIMITER ';'
 CSV HEADER;
+/*----------------------------------------------------------------------------*/
+
+
+
+
+
+/*----------------------------------------------------------------------------*/
+/*Creacion y cargue de la tabla agencianave
+/*----------------------------------------------------------------------------*/
+create table agencianave(
+ id_agencia_arribo char(20) primary key,
+ agencia_arribo char(100) not null 
+ );
+
+
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
+/*Creacion y cargue de la tabla nave_agencianave
+/*----------------------------------------------------------------------------*/
+drop table nave_agencianave;
+create table nave_agencianave(
+	id_agencia_arribo char(20),
+	omimatricu char(20),
+	foreign key (id_agencia_arribo) references agencianave (id_agencia_arribo),
+	foreign key (omimatricu) references nave (omimatricu),
+	primary key (id_agencia_arribo,omimatricu)
+);
+
+
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
+/*Creacion y cargue de la tabla paises
+/*----------------------------------------------------------------------------*/
+drop table paises; 
+create table paises(
+ abreviatura_pais char(3) primary key ,
+ nombre char(50) not null,
+ codigo_pais char(3) unique 
+);
+
+
+/*----------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------*/
+/*Creacion y cargue de la tabla capitanias
+/*----------------------------------------------------------------------------*/
+
+create table capitanias(
+	id_capitania char(4) primary key,
+	nom_capitania char(15) unique	
+);
+
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
+/*Creacion y cargue de la tabla puerto
+/*----------------------------------------------------------------------------*/
+
+create table puertos(
+ id_puerto char(5),
+ nom_puerto char(10) not null,
+ id_capitania char(4),
+ abreviatura_pais char(3),
+ foreign key (id_capitania) references capitanias (id_capitania),
+ foreign key (abreviatura_pais) references paises (abreviatura_pais),
+ primary key (id_puerto)
+);
+
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
+/*Creacion y cargue de la tabla razon_arribos
+/*----------------------------------------------------------------------------*/
+
+create table razon_arribos(
+	id_razon char(1) primary key,
+	nom_razon char(25)
+);
+
+
+
+/*----------------------------------------------------------------------------*/
+
+
+
+/*----------------------------------------------------------------------------*/
+/*Creacion y cargue de la tabla arribos_naves_puertos
+/*----------------------------------------------------------------------------*/
+
+create table arribos_naves_puertos(
+	pto_origen char(5), 
+	pto_destino char(5),
+	omimatricu char(20),
+	id_razon char(1),
+	fecha_arribos date,	
+	foreign key (pto_origen) references puertos (id_puerto),
+	foreign key (pto_destino) references puertos (id_puerto),
+	foreign key (omimatricu) references nave (omimatricu),
+	foreign key (id_razon) references razon_arribos (id_razon),
+	primary key(pto_origen,pto_destino,omimatricu,fecha_arribos)
+);
+
+
 /*----------------------------------------------------------------------------*/
