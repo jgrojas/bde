@@ -69,6 +69,7 @@ alter table nave add constraint codigotiponave FOREIGN KEY (codigotiponave) REFE
 alter table nave add constraint codigo_pais FOREIGN KEY (codigo_pais) REFERENCES paises (abreviatura_pais);
 alter table nave add constraint id_agencia_arribo FOREIGN KEY (id_agencia_arribo) REFERENCES agencianave (id_agencia_arribo);
 
+
 /*Cargue*/
 COPY nave(omimatricu, nombrenave,codigo_pais,id_agencia_arribo,codigotiponave,anoconstru,trb,dwt,eslora)
 FROM '/mnt/c/wamp64/www/bde/SQL/csv/nave.csv'
@@ -148,50 +149,59 @@ create unique index nav_agennav_id_idx on nave_agencianave (id_agencia_arribo,om
 /*----------------------------------------------------------------------------*/
 /*Creacion y cargue de la tabla paises
 /*----------------------------------------------------------------------------*/
-drop table paises; 
+drop table paises cascade; 
 create table paises(
  abreviatura_pais char(3) primary key ,
- nombre char(50) not null,
- codigo_pais char(3) unique 
+ nombre char(50) not null
 );
 create unique index paises_id_idx on paises (abreviatura_pais);
 /*Cargue*/
-COPY paises(abreviatura_pais, nombre,codigo_pais)
+COPY paises(abreviatura_pais, nombre)
 FROM '/mnt/c/wamp64/www/bde/SQL/csv/paises.csv'
 DELIMITER ';'
 CSV HEADER;
 /*----------------------------------------------------------------------------*/
+insert into paises (abreviatura_pais, nombre)values('CAF','Republica Centroafricana')
+		
 
 /*----------------------------------------------------------------------------*/
 /*Creacion y cargue de la tabla capitanias
 /*----------------------------------------------------------------------------*/
-
+--drop table capitanias cascade;
 create table capitanias(
 	id_capitania char(4) primary key,
 	nom_capitania char(15) unique	
 );
 select AddGeometryColumn ('capitanias','geometry',4326,'POLYGON',2, false);
 create unique index capitania_id_idx on capitanias (id_capitania);
-
+/*Cargue*/
+COPY capitanias(id_capitania, nom_capitania,geometry)
+FROM '/mnt/c/wamp64/www/bde/SQL/csv/capitanias.csv'
+DELIMITER ';'
+CSV HEADER;
 /*----------------------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------------------*/
 /*Creacion y cargue de la tabla puerto
 /*----------------------------------------------------------------------------*/
-
+drop table puertos cascade;
 create table puertos(
  id_puerto char(5),
  nom_puerto char(10) not null,
- id_capitania char(4),
  abreviatura_pais char(3),
  foreign key (id_capitania) references capitanias (id_capitania),
  foreign key (abreviatura_pais) references paises (abreviatura_pais),
  primary key (id_puerto)
 );
+
 select AddGeometryColumn ('puertos','geometry',4326,'POINT',2, false);
 create unique index puertos_id_idx on puertos (id_puerto);
 /*----------------------------------------------------------------------------*/
+alter table puertos add column id_capitania char(4);
+alter table puertos add constraint id_capitania FOREIGN KEY (id_capitania) REFERENCES capitanias (id_capitania);
+alter table puertos add constraint id_puerto primary KEY (id_puerto)
+alter table puertos add constraint abreviatura_pais FOREIGN KEY (abreviatura_pais) REFERENCES paises (abreviatura_pais);
 
 
 /*----------------------------------------------------------------------------*/
@@ -203,7 +213,11 @@ create table razon_arribos(
 	nom_razon char(25)
 );
 create unique index razon_arribo_idx on razon_arribos (id_razon);
-
+/*Cargue*/
+COPY razon_arribos(id_razon, nom_razon)
+FROM '/mnt/c/wamp64/www/bde/SQL/csv/razon_arribos.csv'
+DELIMITER ';'
+CSV HEADER;
 
 /*----------------------------------------------------------------------------*/
 
@@ -212,20 +226,27 @@ create unique index razon_arribo_idx on razon_arribos (id_razon);
 /*----------------------------------------------------------------------------*/
 /*Creacion y cargue de la tabla arribos_naves_puertos
 /*----------------------------------------------------------------------------*/
-
+drop table arribos_naves_puertos
 create table arribos_naves_puertos(
 	pto_origen char(5), 
-	pto_destino char(5),
+	id_capitania char(4),
 	omimatricu char(20),
 	id_razon char(1),
-	fecha_arribos date,	
+	fecha_arribos timestamp,	
 	foreign key (pto_origen) references puertos (id_puerto),
-	foreign key (pto_destino) references puertos (id_puerto),
+	foreign key (id_capitania) references capitanias (id_capitania),
 	foreign key (omimatricu) references nave (omimatricu),
 	foreign key (id_razon) references razon_arribos (id_razon),
-	primary key(pto_origen,pto_destino,omimatricu,fecha_arribos)
+	primary key(pto_origen,id_capitania,omimatricu,fecha_arribos)
 );
-create unique index arribo_nave_puerto_idx on arribos_naves_puertos (pto_origen,pto_destino,omimatricu,fecha_arribos);
+create unique index arribo_nave_puerto_idx on arribos_naves_puertos (pto_origen,id_capitania,omimatricu,fecha_arribos);
+/*Cargue*/
+SET datestyle = dmy;
+COPY arribos_naves_puertos(pto_origen, id_capitania,omimatricu,id_razon,fecha_arribos)
+FROM '/mnt/c/wamp64/www/bde/SQL/csv/arribos.csv'
+DELIMITER ';'
+CSV HEADER;
+
 
 /*----------------------------------------------------------------------------*/
 

@@ -1,134 +1,195 @@
-abreviatura_pais;nombre;codigo_pais
-AFG;AFGANISTAN;004
-ALB;ALBANIA;008
-DZA;ARGELIA;012
-AND;ANDORRA;020
-ATG;ANTIGUA;028
-ARG;ARGENTINA;032
-AUS;AUSTRALIA;036
-AUT;AUSTRIA;040
-BHS;BAHAMAS;044
-BGD;BANGLADESH;050
-BRD;BARBADOS;052
-BEL;BELGICA;056
-BMU;ISLAS BERMUDAS;060
-BOL;BOLIVIA;068
-BRA;BRASIL;076
-BLZ;BELIZE;084
-VGB;ISLAS VIRGENES, BRITANICAS;092
-BRN;BRUNEI;096
-BGR;BULGARIA;100
-KHM;CAMBOYA;116
-CMR;CAMERUN;120
-CAN;CANADA;124
-CPV;CABO VERDE;132
-CYM;ISLAS CAYMAN;136
-LKA;SRI LANKA;144
-CHL;CHILE;152
-CHN;CHINA;156
-TWN;TAIWAN;158
-CCK;COOK, ISLAS;166
-COL;COLOMBIA;170
-COM;COMOROS;174
-CRI;COSTA RICA;188
-HRV;CROACIA;191
-CYP;CHIPRE;196
-CZE;CHECOSLOVAQUIA;203
-BEN;BENIN;204
-DNK;DINAMARCA;208
-DMA;DOMINICA;212
-DOM;REPUBLICA DOMINICANA;214
-ECU;ECUADOR;218
-SLV;EL SALVADOR;222
-FRO;FAEROES ,ISLAS;234
-FLK;ISLAS MALVINAS;238
-FIN;FINLANDIA;246
-FRA;FRANCIA;250
-DJI;DJIBOUTI;262
-GAB;GABON;266
-DEU;ALEMANIA;276
-GIB;GIBRALTAR;292
-GRC;GRECIA;300
-GRD;GRANADA;308
-GTM;GUATEMALA;320
-HND;HONDURAS;340
-HKG;HONG KONG;344
-HUN;HUNGRIA;348
-ISL;ISLANDIA;352
-IND;INDIA;356
-IRL;IRLANDA;372
-ISR;ISRAEL;376
-ITA;ITALIA;380
-JAM;JAMAICA;388
-JPN;JAPON;392
-PRK;KOREA DEL NORTE, DEMOCRATICA;408
-KOR;COREA DEL SUR, REPUBLICA DE;410
-LBN;LIBANO;422
-LVA;LETONIA;428
-LBR;LIBERIA;430
-LBY;LIBIA;434
-LTU;LITUANIA;440
-LUX;LUXEMBURGO;442
-MYS;MALASIA;458
-MLT;MALTA;470
-MTQ;MARTINICA;474
-MRT;MAURITANIA;478
-MUS;MAURICIO;480
-MEX;MEXICO;484
-MCO;MONACO;492
-MDA;MOLDAVIA;498
-MSR;MONSERRAT;500
-MAR;MARRUECOS;504
-NPL;NEPAL;524
-NLD;HOLANDA;528
-ANT;ANTILLAS HOLANDESAS;530
-CUW;CURACAO;531
-ABW;ARUBA;533
-VUT;VANUATU;548
-NZL;NUEVA ZELANDIA;554
-NIC;NICARAGUA;558
-NOR;NORUEGA;578
-FSM;ESTADOS FEDERADOS MICRONESIA;583
-MHL;ISLAS MARSHALL;584
-PLW;REPUBLICA DE PALAOS;585
-PAK;PAKISTAN;586
-PAN;PANAMA;591
-PNG;PAPUA, NUEVA GUINEA;598
-PER;PERU;604
-PHL;FILIPINAS;608
-POL;POLONIA;616
-PRT;PORTUGAL;620
-PRI;PUERTO RICO;630
-QAT;QATAR;634
-RUS;RUSIA;643
-KNA;SAINT KITTS & NEVIS;659
-MAF;SAN MARTIN (PARTE HOLANDESA);663
-SPM;SAN PEDRO Y MIGUELON;666
-VCT;SAN VINCENT AND THE GRENADINES;670
-STP;SANTO TOME Y PRINCIPE;678
-SAU;ARABIA SAUDITA;682
-SYC;SEYCHELLES;690
-SLE;SIERRA LEONA;694
-SGP;SINGAPUR;702
-SVK;SLOVAQUIA;703
-VNM;VIETNAM;704
-SVN;ESLOVENIA;705
-ZAF;SUDAFRICA;710
-ESP;ESPANA;724
-SWE;SUECIA;752
-CHE;SUIZA;756
-THA;TAILANDIA;764
-TGO;TOGO;768
-TTO;TRINIDAD & TOBAGO;780
-ARE;UNION DE EMIRATOS ARABES;784
-TUR;TURQUIA;792
-TCA;TURCAS Y CAICOS, ISLAS;796
-TUV;TUVALU;798
-GBR;REINO UNIDO;826
-IMN;ISLA DE MAN;833
-TZA;TANZANIA;834
-USA;USA;840
-VIR;ISLAS VIRGENES, ESTADOS UNIDOS;850
-VEN;VENEZUELA;862
-WLF;WALLIS Y  FUTURA, ISLAS;876
-YEM;YEMEN;887
+abreviatura_pais;nombre
+ABW;Aruba
+AFG;Afganistan
+AGO;Angola
+AIA;Anguilla
+ALB;Albania
+AND;Andorra
+ANT;Netherlands Antilles
+ARE;United Arab Emirates
+ARG;Argentina
+ASM;American Samoa
+ATG;Antigua And Barbuda
+AUS;Australia
+AUT;Austria
+BEL;Belgium
+BEN;Benin
+BGD;Bangladesh
+BGR;Bulgaria
+BHR;Bahrain
+BHS;Bahamas
+BLZ;Belize
+BMU;Bermuda
+BOL;Bolivia
+BRA;Brazil
+BRB;Barbados
+BRD;Barbados
+BRN;Brunei Darussalam
+CAN;Canada
+CCK;Cook, Islas
+CHE;Switzerland
+CHL;Chile
+CHN;China
+CIV;Cote D'Ivoire
+CMR;Equatorial Guinea
+COD;Democratic Republic Of The Congo
+COG;Congo
+COL;Colombia
+COM;Comoros
+CPV;Cape Verde
+CRI;Costa Rica
+CUB;Cuba
+CUW;Curacao
+CYM;Cayman Islands
+CYP;Cyprus
+CZE;Checoslovaquia
+DEU;Germany
+DJI;Djibouti
+DMA;Dominica
+DNK;Denmark
+DOM;Dominican Republic
+DZA;Algeria
+ECU;Ecuador
+EGY;Egypt
+ESH;Western Sahara
+ESP;Spain
+EST;Estonia
+FIN;Finland
+FJI;Fiji
+FLK;Falkland Islands (Malvinas)
+FRA;France
+FRO;Faroe Islands
+FSM;Estados Federados Micronesia
+GAB;Gabon
+GBR;U.K. Of Great Britain And Northern Ireland
+GEO;Georgia
+GHA;Ghana
+GIB;Gibraltar
+GIN;Guinea
+GLP;Guadeloupe
+GMB;Gambia
+GNB;Guinea-Bissau
+GNQ;Equatorial Guinea
+GRC;Greece
+GRD;Grenada
+GTM;Guatemala
+GUF;French Guiana
+GUM;Guam
+GUY;Guyana
+HKG;Hong Kong
+HND;Honduras
+HRV;Croatia
+HTI;Dominican Republic
+HUN;Hungria
+IDN;Indonesia
+IMN;Isla De Man
+IMY;Isle Of Man
+IND;India
+IRL;Ireland
+IRN;Iran  (Islamic Republic Of)
+IRQ;Iraq
+ISL;Iceland
+ISR;Israel
+ITA;Italy
+JAM;Jamaica
+JEY;Jersey
+JPN;Japan
+KEN;Kenya
+KHM;Cambodia
+KIR;Kiribati
+KNA;Saint Kitts And Nevis
+KOR;Republic Of Korea
+KWT;Kuwait
+LBN;Libano
+LBR;Liberia
+LBY;Libyan Arab Jamahiriya
+LCA;Saint Lucia
+LKA;Sri Lanka
+LTU;Lithuania
+LUX;Luxemburgo
+LVA;Latvia
+MAC;Macao
+MAF;San Martin (Parte Holandesa)
+MAR;Morocco
+MCO;Monaco
+MDA;Moldavia
+MDG;Madagascar
+MDV;Maldives
+MEX;Mexico
+MHL;Marshall Islands
+MLI;Ner
+MLT;Malta
+MMR;Myanmar
+MNE;Montenegro
+MNP;Northern Mariana Islands
+MOZ;Mozambique
+MRT;Mauritania
+MSR;Monserrat
+MTQ;Martinique
+MUS;Mauritius
+MYS;Malaysia
+MYT;Mayotte
+NAM;Namibia
+NCL;New Caledonia
+NGA;Nigeria
+NIC;Nicaragua
+NLD;Netherlands
+NOR;Norway
+NPL;Nepal
+NRU;Nauru
+NZL;New Zealand
+OMN;Oman
+PAK;Pakistan
+PAN;Panama
+PER;Peru
+PHL;Philippines
+PLW;Republica De Palaos
+PNG;Papua New Guinea
+POL;Poland
+PRI;Puerto Rico
+PRK;Dem People'S Rep Of Korea
+PRT;Portugal
+PRY;Paraguay
+PYF;French Polynesia
+QAT;Qatar
+REU;Reunion
+ROU;Bulgaria
+RUS;Russian Federation
+SAU;Saudi Arabia
+SGP;Singapore
+SHN;Saint Helena
+SLB;Solomon Islands
+SLE;Sierra Leone
+SLV;El Salvador
+SPM;San Pedro Y Miguelon
+STP;Sao Tome And Principe
+SUR;Suriname
+SVK;Slovaquia
+SVN;Slovenia
+SWE;Sweden
+SYC;Seychelles
+SYR;Jordan
+TCA;Turks And Caicos Islands
+TGO;Togo
+THA;Thailand
+TLS;Timor-Leste
+TON;Tonga
+TTO;Trinidad And Tobago
+TUN;Tunisia
+TUR;Turkey
+TUV;Tuvalu
+TWN;China
+TZA;Cod
+UKR;Ukraine
+URY;Uruguay
+USA;United States Of America
+VCT;Saint Vincent And The Grenadines
+VEN;Venezuela
+VGB;British Virgin Islands
+VIR;United States Virgin Island
+VNM;Viet Nam
+VUT;Vanuatu
+WLF;Wallis Y  Futura, Islas
+WSM;Samoa
+YEM;Yemen
+ZAF;South Africa
