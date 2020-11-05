@@ -48,11 +48,11 @@ CSV HEADER;
 /*----------------------------------------------------------------------------*/
 /*Creacion y cargue de tabla nave
 /*----------------------------------------------------------------------------*/
-
+--drop table nave cascade;
 create table nave(
  omimatricu char(20) primary key,
  nombrenave char(40) not null,
- codigo_pais char(6) not null,
+ codigo_pais char(3) not null,
  id_agencia_arribo char(20) not null,
  codigotiponave int,
  anoconstru char(4),
@@ -66,7 +66,7 @@ DELETE FROM nave;
 
 /*Actalización de llaves foráneas sobre la tabla naves*/
 alter table nave add constraint codigotiponave FOREIGN KEY (codigotiponave) REFERENCES tiponave (cod_tiponave);
-alter table nave add constraint codigo_pais FOREIGN KEY (codigo_pais) REFERENCES paises (codigo_pais);
+alter table nave add constraint codigo_pais FOREIGN KEY (codigo_pais) REFERENCES paises (abreviatura_pais);
 alter table nave add constraint id_agencia_arribo FOREIGN KEY (id_agencia_arribo) REFERENCES agencianave (id_agencia_arribo);
 
 /*Cargue*/
@@ -105,9 +105,7 @@ create table pnn(
 create unique index pnn_id_idx on pnn (id_pnn);
 /*Cargue*/
 select AddGeometryColumn ('pnn','geometry',4326,'POLYGON',2, false);
-ogr2ogr -f 'PostgreSQL' PG:'dbname=simar user=postgres' '/mnt/c/wamp64/www/bde/SQL/shp/Parques.shp' -skip-failures
-
-
+--ogr2ogr -f 'PostgreSQL' PG:'dbname=simar user=postgres' '/mnt/c/wamp64/www/bde/SQL/shp/Parques.shp' -skip-failures
 COPY pnn(id_pnn, nom_parque,id_categoria)
 FROM '/mnt/c/wamp64/www/bde/SQL/csv/pnn.csv'
 DELIMITER ';'
@@ -123,7 +121,11 @@ create table agencianave(
  agencia_arribo char(100) not null 
  );
 create unique index agencianave_id_idx on agencianave (id_agencia_arribo);
-
+/*Cargue*/
+COPY agencianave(id_agencia_arribo, agencia_arribo)
+FROM '/mnt/c/wamp64/www/bde/SQL/csv/agencianave.csv'
+DELIMITER ';'
+CSV HEADER;
 /*----------------------------------------------------------------------------*/
 
 
@@ -153,7 +155,11 @@ create table paises(
  codigo_pais char(3) unique 
 );
 create unique index paises_id_idx on paises (abreviatura_pais);
-
+/*Cargue*/
+COPY paises(abreviatura_pais, nombre,codigo_pais)
+FROM '/mnt/c/wamp64/www/bde/SQL/csv/paises.csv'
+DELIMITER ';'
+CSV HEADER;
 /*----------------------------------------------------------------------------*/
 
 /*----------------------------------------------------------------------------*/
