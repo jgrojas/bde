@@ -28,7 +28,7 @@ select nom_capitania, count(nom_capitania)
 from capitanias c
 	inner join arribos_naves_puertos anp on (c.id_capitania=anp.id_capitania)
 group by nom_capitania
-order by count(nom_capitania) 
+order by count(nom_capitania) desc 
 ;
 
 /*Arribos por capitanía en un periodo de tiempo definido*/
@@ -38,7 +38,7 @@ from capitanias c
 	inner join arribos_naves_puertos anp on (c.id_capitania=anp.id_capitania)
 where fecha_arribos <'2018-01-16' and fecha_arribos > '2015-01-16'
 group by nom_capitania
-order by count(nom_capitania) 
+order by count(nom_capitania) desc
 ;
 
 /*Arribos por mes*/
