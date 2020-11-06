@@ -16,9 +16,7 @@ class home extends Controller
     						->select(DB::RAW('nom_capitania, count(nom_capitania) as total'))
     						->groupby('nom_capitania')
     						->orderby('total','DESC')
-    						->get();
-
-    	return $arribos_capitanias;
+    						->get();    	
     		
         return view('pages.home');
     } 

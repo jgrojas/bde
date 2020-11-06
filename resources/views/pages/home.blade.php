@@ -102,7 +102,7 @@
 						<div class="col-lg-6 center col-padding parallax" style="background-image: url('demos/barber/images/sections/1.jpg');" data-bottom-top="background-position:0px 100px;" data-top-bottom="background-position:0px -300px;">
 							<div class="vertical-middle dark">
 								<div class="heading-block border-0 center">
-									<h2 class="nott ls0" style="font-size: 54px">How We Do</h2>
+									<h2 class="nott ls0" style="font-size: 54px">Reporte Global</h2>
 								</div>
 							</div>
 						</div>
@@ -118,8 +118,9 @@
 												<a href="#"><img src="demos/barber/images/icons/scessior.svg" alt="Image"></a>
 											</div>
 											<div class="fbox-content">
-												<h3>Well Trained Barbers</h3>
-												<p>Proactively matrix go forward manufactured products before premium innovation. Collaboratively fashion.</p>
+												<h3>Cantidad de Arribos</h3>
+												<p>Durante el periodo 2012-2020 han arribado al país XX número de naves de las XX (X%) han arribo en 2020.</p>
+												Gráfica de número de arribos por año
 											</div>
 										</div>
 									</div>
@@ -129,8 +130,9 @@
 												<a href="#"><img src="demos/barber/images/icons/moustache.svg" alt="Image"></a>
 											</div>
 											<div class="fbox-content">
-												<h3>10 Years Expirience</h3>
-												<p>Dynamically transition seamless metrics after premium e-business. Phosfluorescently parallel task distinctive.</p>
+												<h3>Cantidad de Arribos por capitanía</h3>
+												<p>A continuación se presenta las cinco capitanías con más arribos en 2020</p>
+												TABLA
 											</div>
 										</div>
 									</div>
@@ -140,8 +142,8 @@
 												<a href="#"><img src="demos/barber/images/icons/comb.svg" alt="Image"></a>
 											</div>
 											<div class="fbox-content">
-												<h3>Branded Pr0ducts</h3>
-												<p>Distinctively initiate alternative information with bricks-and-clicks e-commerce. Quickly evolve superior.</p>
+												<h3>Principales origenes que ingresan al país</h3>
+												<p></p>
 											</div>
 										</div>
 									</div>
