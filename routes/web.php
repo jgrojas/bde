@@ -16,3 +16,7 @@ use App\Http\Controllers\home;
 
 Route::get('/',[home::class, 'index']);
 
+Route::get('mapa', function () {
+    return view('pages/Mapa1');
+});
+
