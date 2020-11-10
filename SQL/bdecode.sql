@@ -104,6 +104,9 @@ create table pnn(
  id_categoria char(2) references categoria_pnn
  );
 create unique index pnn_id_idx on pnn (id_pnn);
+alter table pnn add constraint id_categoria FOREIGN KEY (id_categoria) REFERENCES categoria_pnn (id_categoria);
+
+
 /*Cargue*/
 select AddGeometryColumn ('pnn','geometry',4326,'POLYGON',2, false);
 --ogr2ogr -f 'PostgreSQL' PG:'dbname=simar user=postgres' '/mnt/c/wamp64/www/bde/SQL/shp/Parques.shp' -skip-failures
@@ -232,14 +235,20 @@ create table arribos_naves_puertos(
 	id_capitania char(4),
 	omimatricu char(20),
 	id_razon char(1),
-	fecha_arribos timestamp,	
+	fecha_arribo timestamp,	
 	foreign key (pto_origen) references puertos (id_puerto),
 	foreign key (id_capitania) references capitanias (id_capitania),
 	foreign key (omimatricu) references nave (omimatricu),
 	foreign key (id_razon) references razon_arribos (id_razon),
 	primary key(pto_origen,id_capitania,omimatricu,fecha_arribos)
 );
-create unique index arribo_nave_puerto_idx on arribos_naves_puertos (pto_origen,id_capitania,omimatricu,fecha_arribos);
+alter table arribos_naves_puertos add constraint pto_origen FOREIGN KEY (pto_origen) REFERENCES puertos (id_puerto);
+alter table arribos_naves_puertos add constraint id_capitania FOREIGN KEY (id_capitania) REFERENCES capitanias (id_capitania);
+alter table arribos_naves_puertos add constraint omimatricu FOREIGN KEY (omimatricu) REFERENCES nave (omimatricu);
+alter table arribos_naves_puertos add constraint id_razon FOREIGN KEY (id_razon) REFERENCES razon_arribos (id_razon);
+alter table arribos_naves_puertos add constraint id_arribo primary KEY (pto_origen,id_capitania,omimatricu,fecha_arribo)
+
+create unique index arribo_nave_puerto_idx on arribos_naves_puertos (pto_origen,id_capitania,omimatricu,fecha_arribo);
 /*Cargue*/
 SET datestyle = dmy;
 COPY arribos_naves_puertos(pto_origen, id_capitania,omimatricu,id_razon,fecha_arribos)
