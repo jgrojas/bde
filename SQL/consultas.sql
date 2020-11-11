@@ -9,7 +9,7 @@ Autores: Angie Montoya, Gabriel Rojas */
 
 select nom_tiponave,count(nom_tiponave)
 from nave n
-    inner join tiponave t on (t.cod_tiponave=n.codigotiponave) inner join arribos_naves_puertos anp on (n.omimatricu=anp.omimatricu) 
+    inner join tiponave t on (t.cod_tiponave=n.codigotiponave) inner join arribos_naves_puertos anp on (n.omimatricula=anp.omimatricula) 
 group by nom_tiponave
 ;
 
@@ -17,7 +17,7 @@ group by nom_tiponave
 
 select nom_tiponave,count(nom_tiponave)
 from nave n
-    inner join tiponave t on (t.cod_tiponave=n.codigotiponave) inner join arribos_naves_puertos anp on (n.omimatricu=anp.omimatricu)
+    inner join tiponave t on (t.cod_tiponave=n.codigotiponave) inner join arribos_naves_puertos anp on (n.omimatricula=anp.omimatricula)
 where fecha_arribo <'2019-09-26' and fecha_arribo >'2015-09-26'
 group by nom_tiponave
 ;
@@ -64,10 +64,9 @@ order by count(nom_puerto) desc limit 10
 ;
 
 /*Rutas que intersectan con reservas naturales*/
-select pt.nom_puerto, count(pt.nom_puerto), p.nom_parque, anp.geometry 
+select pt.nom_puerto, count(pt.nom_puerto), p.nom_parque, anp.geometry
 FROM pnn p, arribos_naves_puertos anp
 	inner join puertos pt on (pt.id_puerto =anp.pto_origen)
 WHERE st_intersects(p.geometry, anp.geometry)
 group by pt.nom_puerto, p.nom_parque,anp.geometry 
 ;
-
