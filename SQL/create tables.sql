@@ -6,7 +6,7 @@ Autores: Angie Montoya, Gabriel Rojas */
 /*----------------------------------------------------------------------------*/
 /*Creacion de base de datos simar*/
 /*----------------------------------------------------------------------------*/
-CREATE DATABASE simar_test ENCODING 'UTF8' OWNER postgres;
+CREATE DATABASE simar ENCODING 'UTF8' OWNER postgres;
 /*----------------------------------------------------------------------------*/
 
 
@@ -175,3 +175,7 @@ create unique index nav_agennav_id_idx on nave_agencianave (id_agencia_arribo,om
 create unique index paises_id_idx on paises (abreviatura_pais);
 create unique index capitania_id_idx on capitanias (id_capitania);
 create unique index puertos_id_idx on puertos (id_puerto);
+create unique index arribos_id_idx on arribos_naves_puertos (id_capitania,omimatricula,pto_origen,fecha_arribo);
+create index id_pnn_geom on pnn using GIST (geometry);
+create index id_arribos_geom on arribos_naves_puertos using GIST (geometry);
+create index id_capitanias_geom on capitanias using GIST (geometry);
