@@ -34,7 +34,7 @@ select nom_capitania, count(nom_capitania)
 from capitanias c
 	inner join arribos_naves_puertos anp on (c.id_capitania=anp.id_capitania)
 group by nom_capitania
-order by count(nom_capitania) desc 
+order by count(nom_capitania) desc limit 5
 ;
 /*----------------------------------------------------------------------------*/
 
