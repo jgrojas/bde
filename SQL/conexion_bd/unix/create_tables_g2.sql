@@ -14,14 +14,14 @@ Autores: Angie Montoya, Gabriel Rojas */
 /*----------------------------------------------------------------------------*/
 /*Creacion de esquema simar*/
 /*----------------------------------------------------------------------------*/
-CREATE SCHEMA simar1;
+CREATE SCHEMA simar;
 /*----------------------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------------------*/
 /*Creacion de extensión postgis para tablas espaciales*/
 /*----------------------------------------------------------------------------*/
-CREATE EXTENSION IF NOT EXISTS postgis WITH SCHEMA simar1;
+CREATE EXTENSION IF NOT EXISTS postgis WITH SCHEMA simar;
 /*----------------------------------------------------------------------------*/
 
 

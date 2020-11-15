@@ -416,7 +416,7 @@ INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9291250','ALMI STAR ','LBR','800.256.551-8 ',200,'2000',18361,8840,149.9);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9579535','ALMI SUN','LBR','800.182.535-0 ',200,'2000',39.05,3.5,14.5);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9579585','ALMI VOYAGER','LBR','900.180.400-9 ',200,'2000',32987,56899,189.99);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('U-1928203 ','ALMIRANTE ','HND','18.002.138-2',0,'2000',44,0,17.7);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('U-1928203 ','ALMIRANTE ','HND','18.002.138-2',99,'2000',44,0,17.7);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('DL01739Z','ALMUDENA','USA','891.701.623-1 ',516,'2000',44,0,17.7);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('8912522','ALMUHIEDDINE','BLZ','802.019.981-3 ',401,'2000',30053,52342,189.99);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('DL1739Z ','ALMUNENA','USA','900.473.090-7 ',516,'2000',11658,12714,158.53);
@@ -613,7 +613,7 @@ INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('261680','AMETHYST','ESP','900.290.842-2 ',516,'2000',23277,37692,179.97);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('7AGI-3-17-02','AMETHYST','ESP','900.342.455-1 ',516,'2000',29.62,0,12.9);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('7AGT-3-17-02','AMETHYST','ESP','900.342.455-1 ',516,'2000',12899,18510,147.35);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('RH-U52423 ','AMEX I','HND','73072533',0,'2000',41.54,95,18.59);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('RH-U52423 ','AMEX I','HND','73072533',99,'2000',41.54,95,18.59);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('RHU-52423 ','AMEX I','HND','18.002.138-2',510,'2000',17.63,0,16.3);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9631383','AMI ','BHS','900.180.400-9 ',200,'2000',34.9,60,16.79);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('859751','AMIABLE ','AUS','900.473.090-7 ',516,'2000',20,20,15);
@@ -895,7 +895,7 @@ INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9423918','ANTONIS ANGELICOUSSIS ','GRC','900.477.097-6 ',401,'2000',7341,12523,115.33);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9087271','ANTONIS G PAPPADAKIS','MLT','800.067.129-1 ',401,'2000',42096,74543,228.5);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9393668','ANUKET RUBY ','PAN','800.256.551-8 ',221,'2000',42983,73981,228);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('CP-02-558-B ','ANYELO FERNEY ','COL','16.468.714-8',0,'2000',247,65,29);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('CP-02-558-B ','ANYELO FERNEY ','COL','16.468.714-8',99,'2000',247,65,29);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('CP-02-0558-B','ANYELO FERNEY ','COL','16.468.714-8',1,'2000',28,0,13);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('973170','AÑEJO ','USA','900.504.340-8 ',516,'2000',8,0,12.3);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9414888','AOM ELENA ','PAN','800.067.129-1 ',401,'2000',31280,56955,189.99);
@@ -2221,7 +2221,7 @@ INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('DW208 ','BOHEMIEN','FRA','900.473.090-7 ',516,'2000',12,0,10.8);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('7527306','BOI BRANCO','LBN','800.116.249-8 ',180,'2000',6,0,9.75);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('831396','BOJANGLES IV','CAN','73072533',516,'2000',19.11,0,14.27);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9625516','BOLETTE DOLPHIN ','SGP','860.532.426-7 ',0,'2000',15,0,18.2);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9625516','BOLETTE DOLPHIN ','SGP','860.532.426-7 ',99,'2000',15,0,18.2);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9301433','BOMAR CAEN','PRT','890.916.161-9 ',130,'2000',18,0,14.33);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9275036','BOMAR JULIANA ','LBR','890.916.161-9 ',130,'2000',23.64,0,14.6);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9376892','BOMAR REGENT','MHL','800.235.053-1 ',130,'2000',15899,24228,159.92);
@@ -2615,7 +2615,7 @@ INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9537977','CABRERA ','MLT','900.477.097-6 ',401,'2000',29737,49999,183);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9473315','CABRILLO','LBR','800.116.249-8 ',401,'2000',43044,81810,228.99);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('CP-02-0507','CACHAMA ','COL','16.468.714-8',1,'2000',11918,19971,146.5);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('CP-2-0507 ','CACHAMA ','COL','16.468.714-8',0,'2000',29768,49999,183);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('CP-2-0507 ','CACHAMA ','COL','16.468.714-8',99,'2000',29768,49999,183);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('743807','CACIQUE ','CYM','900.504.340-8 ',810,'2000',11645,19702,144.03);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('1007691','CACIQUE ','CYM','800.181.561-8 ',810,'2000',29562,49999,183);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9524669','CACTUS K','PAN','835.001.707-2 ',401,'2000',11918,19972.96,146.5);
@@ -2650,7 +2650,7 @@ INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9574078','CALIFORNIA HIGHWAY','PAN','860.006.765-3 ',145,'2000',93152,179185,291.97);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9775','CALIPSA ','USA','900.141.249-6 ',516,'2000',93152,179185,291.97);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9297929','CALIPSO ','BHS','860.532.426-7 ',401,'2000',75871,149321,269.89);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('1263','CALIPSO ','USA','900.025.233-2 ',0,'2000',38194,71393,224.94);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('1263','CALIPSO ','USA','900.025.233-2 ',99,'2000',38194,71393,224.94);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('CP-05-2715-B','CALIPSO IV','COL','900.504.340-8 ',8,'2000',85721,165693,288.15);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9777606','CALLAO EXPRESS','DEU','802.008.802-6 ',130,'2000',77211,150903,274.07);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('627','CALLE II','DNK','900.025.233-2 ',516,'2000',20236,32269,177.13);
@@ -2870,13 +2870,13 @@ INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('MC-05-610 ','CAPIDAHL','COL','800.220.366-6 ',7,'2000',93031,182097,292);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9515058','CAPIDAHL','VCT','800.220.366-6 ',903,'2000',93664,183142,291.95);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('SSR83545','CAPISCE ','GBR','900.371.443-5 ',516,'2000',31538,55782,190);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('L-1918158 ','CAPITAN CHARLES ','HND','900.177.167-6 ',0,'2000',88494,177656,289);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('L-1918158 ','CAPITAN CHARLES ','HND','900.177.167-6 ',99,'2000',88494,177656,289);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('795','CAPITAN FRANCITO','NIC','15242762',510,'2000',110,150,20.7);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('8969616','CAPITAN JAVIER','HND','4092211',119,'2000',88249,171516,288.88);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('48232PEXT ','CAPITAN STIR','PAN','73072533',119,'2000',91642,171059.8,289.9);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('48232-PEXT','CAPITAN STIR','PAN','73072533',119,'2000',91349,176330,292);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('49074-17','CAPITAN STIR','PAN','900.504.340-8 ',119,'2000',87431,175480,289);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('U-1818041 ','CAPITANA','HND','18.002.138-2',0,'2000',44336,81391,229);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('U-1818041 ','CAPITANA','HND','18.002.138-2',99,'2000',44336,81391,229);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('43865PEXP-3 ','CAPITANO','PAN','31.377.890-1',810,'2000',92732,181267,291.98);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('4365-PEXT-4 ','CAPITANO','PAN','900.189.529-0 ',510,'2000',89441,169138,289.9);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9163958','CAPO VATICANO ','PAN','800.195.272-5 ',903,'2000',93565,180149.5,292.1);
@@ -2892,7 +2892,7 @@ INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('8508072','CAPT HYDE ','HND','18.002.138-2',510,'2000',90399,180274,288.93);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('U-1821518 ','CAPT HYE','HND','18.002.138-2',510,'2000',17609,24133,182.83);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('1102','CAPT LLOYD','NIC','15242762',119,'2000',17433,28438,170);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('RHU25186','CAPT LOLE ','HND','15242762',0,'2000',92379,180646,291.89);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('RHU25186','CAPT LOLE ','HND','15242762',99,'2000',92379,180646,291.89);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9558115','CAPT ROBERT ','USA','800.116.249-8 ',903,'2000',89441,169126,289.9);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('552745696','CAPT VIRGIL ','USA','18.002.138-2',810,'2000',93452,183049,291.99);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('MC-07-0209','CAPT. GEOVANNIE ','COL','18.002.138-2',6,'2000',87322,172569,289);
@@ -2995,7 +2995,7 @@ INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9223954','CARNIVAL PRIDE','PAN','800.194.221-5 ',110,'2000',154,0,23);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9333163','CARNIVAL SPLENDOR ','PAN','800.194.221-5 ',110,'2000',9,0,11.97);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9138850','CARNIVAL TRIUMPH','BHS','800.194.221-5 ',110,'2000',392.39,304.58,46.57);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('RHU-25117 ','CARNIVAL X','HND','73072533',0,'2000',18.57,0,12.42);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('RHU-25117 ','CARNIVAL X','HND','73072533',99,'2000',18.57,0,12.42);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('8522810','CARNIVAL X','HND','73072533',510,'2000',25.39,0,15.97);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9446879','CARO','LBR','800.113.951-7 ',401,'2000',20,0,17.2);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('DQ013 ','CAROI ','FRA','900.371.443-5 ',516,'2000',9,0,12.8);
@@ -3055,7 +3055,7 @@ INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('4172PEXT','CASIMIRO','PAN','900.504.340-8 ',810,'2000',4.5,4,8.8);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9829095','CASPIAN SEA ','LBR','800.256.551-8 ',200,'2000',893,1393,68.58);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('32443','CASSANDRA ','FRA','900.473.090-7 ',516,'2000',399,500,53.76);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9561746','CASSANDRA VI','MYS','860.005.101-9 ',0,'2000',7.54,0,12.26);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9561746','CASSANDRA VI','MYS','860.005.101-9 ',99,'2000',7.54,0,12.26);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('1248306','CASSIE','USA','900.025.233-2 ',518,'2000',67.62,59.74,24.2);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('840395','CASSIOPE W','CAN','900.025.233-2 ',516,'2000',60975,164.16,199.99);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('LE7202','CASSIOPEIA','NOR','900.473.090-7 ',516,'2000',110556,12870,290.23);
@@ -4396,7 +4396,7 @@ INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('BC827003','DEO JUVANTE ','BEL','900.025.233-2 ',516,'2000',31226,56056,189.99);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('DG569 ','DEPUIS TOUJOURS ','FRA','900.473.090-7 ',516,'2000',16978,28473,169.26);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('B-02-06992','DERIAN IX ','ECU','16483412',510,'2000',31091,53800,189.99);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('B-02-06510','DERIAN V','ECU','12.905.045-1',0,'2000',14034,19801,155.89);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('B-02-06510','DERIAN V','ECU','12.905.045-1',99,'2000',14034,19801,155.89);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('15070-6030','DEROVADE','FRA','900.342.455-1 ',516,'2000',8254,14246,134.16);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('AY885648','DERSOU','FRA','900.342.455-1 ',516,'2000',64,0,22.71);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('951130','DESDEMONA ','GBR','900.330.976-3 ',516,'2000',10,0,11.2);
@@ -4592,7 +4592,7 @@ INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('BJ765 ','DON QUICHOTTE ','FRA','900.342.455-1 ',516,'2000',1640.44,1640,78.83);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9138525','DON QUIJOTE ','SGP','806.004.569-0 ',171,'2000',17,0,12.83);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('819401','DON QUIJOTE ','CAN','73072533',516,'2000',59022,18134,199.95);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('ADSS-6009 ','DON RAMON ','VEN','839.000.441-9 ',0,'2000',78,42,20.73);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('ADSS-6009 ','DON RAMON ','VEN','839.000.441-9 ',99,'2000',78,42,20.73);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9693628','DON SAVERIO ','VCT','900.590.941-0 ',903,'2000',22.61,0,13.7);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('MC-05-709 ','DON SAVERIO ','COL','900.477.097-6 ',7,'2000',34508,61143,199.9);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('41526-10-A','DON TITO I','PAN','806.009.758-9 ',810,'2000',2466,2466,87.29);
@@ -4638,7 +4638,7 @@ INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('023942F ','DORADO','DEU','900.371.443-5 ',516,'2000',7.09,3.5,11.05);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9308895','DORADO LEADER ','PAN','802.008.802-6 ',171,'2000',52,0,18.28);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('824598','DORCILYN','CAN','900.504.340-8 ',516,'2000',10584,10288,150.3);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('MC-01-311 ','DORIA ','COL','15242762',0,'2000',10584,10600,150.3);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('MC-01-311 ','DORIA ','COL','15242762',99,'2000',10584,10600,150.3);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('43865-PEXT','DORIA ','PAN','900.342.455-1 ',810,'2000',10584,10288,150.3);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9637129','DORIC BREEZE','LBR','800.256.551-8 ',221,'2000',16488,11800,178.85);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9453523','DORIC CHAMPION','LBR','800.113.951-7 ',401,'2000',31779,30145,204.9);
@@ -4939,8 +4939,8 @@ INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('734931','ELEMBRUJO II','GBR','900.330.976-3 ',516,'2000',161233,306999,332.99);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('AQYM-CA-0027','EL AGUILA ','VEN','900.735.620-6 ',119,'2000',70,0,25.23);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('CP-02-0621','EL ANDARIEGO','COL','16.468.714-8',1,'2000',29182,50409,182.98);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('CP-020621 ','EL ANDARIEGO','COL','12.905.045-1',0,'2000',6,8,10.97);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('CP020621','EL ANDARIEGO','COL','12.905.045-1',0,'2000',19354,29517,181);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('CP-020621 ','EL ANDARIEGO','COL','12.905.045-1',99,'2000',6,8,10.97);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('CP020621','EL ANDARIEGO','COL','12.905.045-1',99,'2000',19354,29517,181);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('MC-01-463 ','EL ARRIERO','COL','835.000.630-1 ',6,'2000',38888,74117,224.97);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('44720-PEXT','EL BENDECIDO','PAN','839.000.441-9 ',119,'2000',14,0,12.75);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('44905-13','EL BENDECIDO','PAN','31.952.153-6',119,'2000',91971,175885.8,291.8);
@@ -5389,7 +5389,7 @@ INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9172105','EVER REGAL','TWN','900.477.097-6 ',401,'2000',19.27,1.9,13.85);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9423578','EVER RELIANCE ','PAN','900.469.304-2 ',401,'2000',15.75,1,12.22);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9061112','EVER RESULT ','PAN','811.001.005-3 ',130,'2000',10,0,13.5);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9510035-6260003 ','EVER RICH NO. 636 ','KOR','800.195.272-5 ',0,'2000',62929,115444.4,249.86);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9510035-6260003 ','EVER RICH NO. 636 ','KOR','800.195.272-5 ',99,'2000',62929,115444.4,249.86);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9300465','EVER SAFETY ','PAN','811.001.005-3 ',130,'2000',17679,28701,176.63);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9300477','EVER SALUTE ','PAN','811.001.005-3 ',130,'2000',13,0,11.58);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9300415','EVER SMILE','GBR','860.001.560-8 ',130,'2000',45,0,15.17);
@@ -5426,7 +5426,7 @@ INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9309241','EVROTAS ','LBR','860.532.426-7 ',200,'2000',42830,5285,225.38);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('B816801 ','EVY ','BEL','900.504.340-8 ',516,'2000',33126,58606,197);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('1216013','EXCALIBUR ','USA','9085696',516,'2000',64,18,20.6);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('CP-01-1814-A','EXCALIBUR ','COL','900.087.622-1 ',0,'2000',48039,15075,179.99);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('CP-01-1814-A','EXCALIBUR ','COL','900.087.622-1 ',99,'2000',48039,15075,179.99);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9230050','EXCALIBUR ','BEL','800.067.129-1 ',4,'2000',79668,151848,269.2);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('698579','EXCALIBUR ','USA','901.190.594-5 ',518,'2000',2854,3181,91);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9260653','EXCELLENT PESCADORES','PAN','800.246.993-7 ',401,'2000',23432,33912.1,180);
@@ -5470,7 +5470,7 @@ INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9428425','FAGELGRACHT ','NLD','860.532.426-7 ',119,'2000',14762,23468,154.38);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9652480','FAIR OCEAN','PAN','900.477.097-6 ',401,'2000',32309,57991,189.99);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('240898','FAIR WATHER ','USA','900.504.340-8 ',810,'2000',53103,58912,294.13);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('U-1911427 ','FAIR WINDS','HND','18.002.138-2',0,'2000',380,0,47.21);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('U-1911427 ','FAIR WINDS','HND','18.002.138-2',99,'2000',380,0,47.21);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9552666','FAIRCHEM ALDEBARAN','LBR','12.904.400-7',221,'2000',75246,78618,300);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9692416','FAIRCHEM BLADE','PAN','800.067.129-1 ',200,'2000',75246,78733,299.99);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9360960','FAIRCHEM BRONCO ','MHL','900.824.728-4 ',200,'2000',75246,78741,299.99);
@@ -5886,7 +5886,7 @@ INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9461673','FREJA TAURUS','GBR','800.182.535-0 ',200,'2000',24031,33992,180);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9062996','FREMANTLE EXPRESS ','GBR','860.006.765-3 ',130,'2000',31236,55582,182.97);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9550503','FREY','PAN','800.220.366-6 ',903,'2000',23456,34403,180);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('7553760','FREYA ','FRA','900.290.842-2 ',0,'2000',23456,34356.8,180);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('7553760','FREYA ','FRA','900.290.842-2 ',99,'2000',23456,34356.8,180);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('VI5181TC','FREYA ','USA','900.371.443-5 ',516,'2000',37,0,18);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('V15181TC','FREYA ','USA','73072533',516,'2000',37,0,18);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('755376','FREYA ','FRA','900.504.340-8 ',516,'2000',23425.5,34437.7,180);
@@ -8669,7 +8669,7 @@ INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('47581-PEXT','LA PERLA III','PAN','900.342.455-1 ',516,'2000',18.03,18.03,14.25);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('47654-16','LA PERLA III','PAN','900.342.455-1 ',516,'2000',6.05,4,10.82);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('912449','LA POSTE','GBR','900.290.842-2 ',516,'2000',14,0,14.99);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('CP-01-2630-A','LA QASHQAI','COL','16.468.714-8',0,'2000',8.43,0,11.21);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('CP-01-2630-A','LA QASHQAI','COL','16.468.714-8',99,'2000',8.43,0,11.21);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('860706','LA QUINTA ','AUS','900.342.455-1 ',516,'2000',15,0,12.61);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('7BA216106 ','LA REBELDIA ','ESP','9085696',516,'2000',30.89,30.89,15.36);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('1226125','LA ROCHELLE ','USA','900.025.233-2 ',516,'2000',30.89,30.89,15.36);
@@ -9244,8 +9244,8 @@ INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9530307','LUCY SNUG ','ITA','800.246.993-7 ',401,'2000',26671,34359.9,210);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('834853','LUDICROUS ','CAN','9085696',516,'2000',906.35,1400,72.74);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9715220','LUENHO','HKG','800.246.993-7 ',401,'2000',10,0,10.5);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('CP-O2-0502','LUISA FERNANDA','COL','16.468.714-8',0,'2000',24,0,13);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('CP--02-0502 ','LUISA FERNANDA','COL','16.468.714-8',0,'2000',134,150,22);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('CP-O2-0502','LUISA FERNANDA','COL','16.468.714-8',99,'2000',24,0,13);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('CP--02-0502 ','LUISA FERNANDA','COL','16.468.714-8',99,'2000',134,150,22);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('CP-02-0502','LUISA FERNANDA 1','COL','16.468.714-8',1,'2000',7.26,7.26,11.55);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9420318','LUISIA COLOSSUS ','PAN','806.004.303-9 ',401,'2000',13,12,13);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('43872-PEXT','LUKA','PAN','900.330.976-3 ',516,'2000',14,0,13.26);
@@ -9589,7 +9589,7 @@ INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9515228','MAITACA ARROW ','BHS','860.532.426-7 ',401,'2000',75752,81002,305.6);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('910968','MAITAI','GBR','900.504.340-8 ',516,'2000',20987,33157,179.9);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('CP-05-1500-B','MAJAYURA','COL','900.342.455-1 ',8,'2000',94416,118341.7,299.99);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('CP05-1500-B ','MAJAYURA','COL','900.342.455-1 ',0,'2000',9,0,14.6);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('CP05-1500-B ','MAJAYURA','COL','900.342.455-1 ',99,'2000',9,0,14.6);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9194995','MAJESTIC','GRC','800.256.551-8 ',200,'2000',44865,69990,210);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9694438','MAJESTIC','SGP','802.008.802-6 ',130,'2000',67.36,0,22.5);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9582520','MAJESTIC SKY','SGP','830.506.584-3 ',401,'2000',0,0,0);
@@ -10401,7 +10401,7 @@ INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9293959','MISS CLAUDIA','MHL','800.256.551-8 ',200,'2000',23,0,13);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('654723','MISS COLOMBIA ','USA','800.195.272-5 ',810,'2000',27,0,14.55);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('300112','MISS DOLORES','TZA','18.002.138-2',510,'2000',90,60,13.9);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('SL100044','MISS DOLORES','SLE','18.002.138-2',0,'2000',90,90,13.9);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('SL100044','MISS DOLORES','SLE','18.002.138-2',99,'2000',90,90,13.9);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('515781','MISS HIS OF NORUMBEGA ','USA','73072533',516,'2000',90,90,13.9);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9261803','MISS JANE TIDE','USA','860.005.101-9 ',830,'2000',11,0,17.5);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('8424836','MISS LIS','USA','800.195.272-5 ',903,'2000',16.79,0,12.98);
@@ -10409,9 +10409,9 @@ INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('MC-07-0134','MISS RAZIMAN','COL','827.000.202-1 ',3,'2000',10.2,0,12.8);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('625125','MISS ROUKETTE ','FRA','900.290.842-2 ',516,'2000',11,0,14.9);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('BR625125','MISS ROUKETTE ','FRA','900.025.233-2 ',516,'2000',14.96,0,11.97);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('U-1822588 ','MISS SHARIKA','HND','18.002.138-2',0,'2000',7.64,0,8.95);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('U-1822588 ','MISS SHARIKA','HND','18.002.138-2',99,'2000',7.64,0,8.95);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('1093','MISS SHARLETT ','NIC','18.002.138-2',119,'2000',45026,82851.5,228.9);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('CP-07-0975-B','MISS SHIRLEY','COL','18.002.138-2',0,'2000',44.35,10.5,21.95);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('CP-07-0975-B','MISS SHIRLEY','COL','18.002.138-2',99,'2000',44.35,10.5,21.95);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9481946','MISS SIMONA ','ITA','900.477.097-6 ',401,'2000',113042,11932.45,336.96);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('FL3260NV','MISS SOFHIE ','USA','806.004.474-1 ',810,'2000',113042,11932.45,336.99);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('916539','MISS TIGGY','VGB','806.013.086-3 ',516,'2000',113042,115231,337);
@@ -11636,7 +11636,7 @@ INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9450337','NORTHERN JUBILEE','LBR','802.008.802-6 ',130,'2000',27051,34576.1,210);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9294989','NORTHERN JULIE','DEU','800.249.687-1 ',130,'2000',55534,65935,294.12);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9466984','NORTHERN JUPITER','LBR','800.235.053-1 ',130,'2000',55534,65921,294.12);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9450351','NORTHERN JUSTICE','LBR','800.235.053-1 ',0,'2000',55487,65981,294.12);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9450351','NORTHERN JUSTICE','LBR','800.235.053-1 ',99,'2000',55487,65981,294.12);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9450349','NORTHERN JUVENILE ','LBR','811.001.005-3 ',130,'2000',55487,66051,294.12);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9412945','NORTHERN LIGHT','HKG','800.246.993-7 ',401,'2000',55487,65883,294.12);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9318022','NORTHERN LIGHT','MHL','900.180.400-9 ',221,'2000',27051,34558,210);
@@ -12596,7 +12596,7 @@ INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('822126','PERLETICO CUARTO','BEL','900.290.842-2 ',516,'2000',35,0,11.51);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('K784563 ','PERLETICO CUARTO','BEL','73072533',516,'2000',27.51,4.5,16.55);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('22126','PERLETICO CUARTO','BEL','900.290.842-2 ',516,'2000',42382,52683,268.8);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('4640400','PERLETICO IV','BEL','900.290.842-2 ',0,'2000',7.37,0,9.95);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('4640400','PERLETICO IV','BEL','900.290.842-2 ',99,'2000',7.37,0,9.95);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('860825','PERLINE ','AUS','900.025.233-2 ',516,'2000',27962,43952,187.5);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9715438','PERLY ','PAN','800.113.951-7 ',401,'2000',83562,149996,274.5);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('1131526','PERMANENTLY TEMPORARY ','USA','900.504.340-8 ',516,'2000',24079,33465,180);
@@ -14364,7 +14364,7 @@ INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9553139','SEACLIFF','PAN','802.010.775-1 ',401,'2000',22468,35510,176.99);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9570101','SEACLIPPER','HKG','800.256.551-8 ',221,'2000',162252,319428.9,333);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('1178883','SEACLUSION','USA','900.504.340-8 ',810,'2000',16,25,12.59);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9464297','SEACOR LEE','USA','860.005.101-9 ',0,'2000',8,0,12.8);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9464297','SEACOR LEE','USA','860.005.101-9 ',99,'2000',8,0,12.8);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('42213-11','SEACRAWLER','PAN','900.177.167-6 ',119,'2000',26,25,12.74);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('8661824','SEACRAWLER','PAN','31.377.890-1',200,'2000',19.72,0,13.03);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9297890','SEACROSS','BHS','800.067.129-1 ',200,'2000',12,0,12);
@@ -14703,7 +14703,7 @@ INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('B762579 ','SHIDE ','BEL','900.342.455-1 ',516,'2000',32372,58064,189.99);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9589786','SHIMANAMI QUEEN ','PAN','806.004.303-9 ',401,'2000',18,0,15.4);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9377717','SHIMANAMI STAR','BHS','835.001.500-5 ',401,'2000',10.7,0,10.7);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('11182','SHIN YEOU NO. 16','TWN','800.195.272-5 ',0,'2000',107448,208925.6,299.95);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('11182','SHIN YEOU NO. 16','TWN','800.195.272-5 ',99,'2000',107448,208925.6,299.95);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('919762','SHINE OF EXETER ','GBR','900.025.233-2 ',516,'2000',35581,44053.1,222.5);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9696101','SHINE ON','BHS','900.624.883-1 ',401,'2000',6.43,0,7.77);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9581784','SHINY HALO','PAN','900.477.097-6 ',401,'2000',13.5,0,13.95);
@@ -15638,10 +15638,10 @@ INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('711034','SUNDEER ','GBR','39300088',516,'2000',302,0,44.26);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('565392','SUNDOWNER ','USA','73072533',516,'2000',13.26,0,14.19);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9362580','SUNERGON','NLD','800.116.249-8 ',119,'2000',1044,1294,62.75);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('2969','SUNG HA NO. 21','NIC','800.195.272-5 ',0,'2000',45,28,19.8);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('2969','SUNG HA NO. 21','NIC','800.195.272-5 ',99,'2000',45,28,19.8);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('2970','SUNG HA NO. 22','NIC','800.195.272-5 ',510,'2000',29,0,15.24);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('2971','SUNG HA NO. 23','NIC','800.195.272-5 ',0,'2000',17,0,40.7);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('2972','SUNG HA NO. 25','NIC','800.195.272-5 ',0,'2000',28.6,25,15.14);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('2971','SUNG HA NO. 23','NIC','800.195.272-5 ',99,'2000',17,0,40.7);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('2972','SUNG HA NO. 25','NIC','800.195.272-5 ',99,'2000',28.6,25,15.14);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('2973','SUNG HA NO. 26','NIC','800.195.272-5 ',510,'2000',14,0,12.73);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('2979','SUNG HA NO. 27','NIC','800.195.272-5 ',510,'2000',16,0,13.3);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('2978','SUNG HA NO. 28','NIC','800.195.272-5 ',510,'2000',16,16,12.44);
@@ -15700,7 +15700,7 @@ INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('DL1324AK','SURURU','USA','900.342.455-1 ',516,'2000',62557,113691,249);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9344370','SUSAN K ','ATG','830.506.584-3 ',119,'2000',54763,5340,243.2);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9120853','SUSAN MÆRSK ','DNK','800.235.053-1 ',130,'2000',40060,76838,225);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('CP-07-1569','SUSANA IV ','COL','806.004.474-1 ',0,'2000',32637,53506,190);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('CP-07-1569','SUSANA IV ','COL','806.004.474-1 ',99,'2000',32637,53506,190);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('DL5998AJ','SUSANITA','USA','806.004.474-1 ',810,'2000',32957,57015,189.99);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9215880','SUSANNE SCHULTE ','SGP','860.005.101-9 ',130,'2000',31.61,0,14.67);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9185499','SUSANNE VICTORY ','NOR','900.824.728-4 ',200,'2000',31.61,0,14.67);
@@ -15906,7 +15906,7 @@ INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('T-22520 ','TANOOKI ','AUT','900.025.233-2 ',516,'2000',30241,49999,183.3);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9474620','TANSANIT','LBR','800.067.129-1 ',401,'2000',40030,75912,225);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9497086','TANTA T ','MHL','860.532.426-7 ',401,'2000',30024,44990,183);
-INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('10111550','TANYA LEE ','BLZ','900.177.167-6 ',0,'2000',30024,46219,183);
+INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('10111550','TANYA LEE ','BLZ','900.177.167-6 ',99,'2000',30024,46219,183);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('7667003901','TAO ','FRA','73072533',516,'2000',28381,45999,182.94);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('27822783','TAO ','CHE','891.701.623-1 ',516,'2000',23740,0,0);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('XPE3231 ','TAO ','DNK','900.025.233-2 ',516,'2000',30128,45990,183);
