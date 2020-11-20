@@ -19,6 +19,7 @@ cd "$( cd "$( dirname "$0" )" && pwd )" > /dev/null
 "$PGBIN/psql" -d "$SIMARDB" -f "table_categoria_pnn_g2.sql"
 "$PGBIN/psql" -d "$SIMARDB" -f "table_pnn_g2.sql"
 "$PGBIN/psql" -d "$SIMARDB" -f "table_capitanias_g2.sql"
+"$PGBIN/psql" -d "$SIMARDB" -f "table_lineacosta_g2.sql"
 "$PGBIN/psql" -d "$SIMARDB" -f "table_puertos_g2.sql"
 "$PGBIN/psql" -d "$SIMARDB" -f "table_razon_arribos_g2.sql"
 "$PGBIN/psql" -d "$SIMARDB" -f "table_arribos_naves_puertos_g2.sql"

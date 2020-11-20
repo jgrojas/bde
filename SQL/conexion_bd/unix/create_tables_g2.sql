@@ -183,7 +183,9 @@ create unique index nav_agennav_id_idx on simar.nave_agencianave (id_agencia_arr
 create unique index paises_id_idx on simar.paises (abreviatura_pais);
 create unique index capitania_id_idx on simar.capitanias (id_capitania);
 create unique index puertos_id_idx on simar.puertos (id_puerto);
+create unique index lineacosta_id_idx on simar.linea_costa (id_linea);
 create unique index arribos_id_idx on simar.arribos_naves_puertos (id_capitania,omimatricula,pto_origen,fecha_arribo);
 create index id_pnn_geom on simar.pnn using GIST (geometry);
 create index id_arribos_geom on simar.arribos_naves_puertos using GIST (geometry);
 create index id_capitanias_geom on simar.capitanias using GIST (geometry);
+create index id_linea_geom on simar.linea_costa using GIST (geometry);

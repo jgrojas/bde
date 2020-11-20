@@ -88,11 +88,11 @@ order by count(nom_puerto) desc limit 10
 /*----------------------------------------------------------------------------*/
 /*Rutas que intersectan con reservas naturales*/
 /*----------------------------------------------------------------------------*/
-select pt.nom_puerto, count(pt.nom_puerto), p.nom_parque, anp.geometry
+select distinct(anp.geometry,anp.pto_origen),pt.nom_puerto,p.nom_parque
 from pnn p, arribos_naves_puertos anp
 	inner join puertos pt on (pt.id_puerto =anp.pto_origen)
 where st_intersects(p.geometry, anp.geometry)
-group by pt.nom_puerto, p.nom_parque,anp.geometry 
+group by  p.nom_parque,anp.geometry,anp.pto_origen,pt.nom_puerto 
 ;
 /*----------------------------------------------------------------------------*/
 
@@ -116,3 +116,10 @@ select nom_puerto, p.geometry,
 from puertos p
 order by st_distance limit 1;
 /*----------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------*/
+/*Embarcación a menos de 1km de costa*/
+/*----------------------------------------------------------------------------*/
+select st_buffer(geometry, 100)
+from linea_costa;
+
