@@ -69,9 +69,9 @@ CREATE TABLE simar.paises (
 CREATE TABLE simar.nave (
     omimatricula character(20) PRIMARY KEY,
     nombrenave character(40) NOT NULL,
-    codigo_pais character(3) REFERENCES paises(abreviatura_pais),
-    id_agencia_arribo character(20) NOT NULL REFERENCES agencianave(id_agencia_arribo),
-    codigotiponave integer REFERENCES tiponave(cod_tiponave),
+    codigo_pais character(3) REFERENCES simar.paises(abreviatura_pais),
+    id_agencia_arribo character(20) NOT NULL REFERENCES simar.agencianave(id_agencia_arribo),
+    codigotiponave integer REFERENCES simar.tiponave(cod_tiponave),
     anoconstru character(4),
     trb numeric,
     dwt numeric,
@@ -84,8 +84,8 @@ CREATE TABLE simar.nave (
 /*Creacion de tabla nave_agencianave*/
 /*----------------------------------------------------------------------------*/ 
 CREATE TABLE simar.nave_agencianave (
-    id_agencia_arribo character(50) REFERENCES agencianave(id_agencia_arribo),
-    omimatricula character(20) REFERENCES nave(omimatricula),
+    id_agencia_arribo character(50) REFERENCES simar.agencianave(id_agencia_arribo),
+    omimatricula character(20) REFERENCES simar.nave(omimatricula),
     PRIMARY KEY(id_agencia_arribo,omimatricula)
 );
 /*----------------------------------------------------------------------------*/
@@ -106,7 +106,7 @@ CREATE TABLE simar.categoria_pnn (
 /*----------------------------------------------------------------------------*/
 CREATE TABLE simar.pnn (
     id_pnn text PRIMARY KEY,
-    id_categoria text REFERENCES categoria_pnn(id_categoria),
+    id_categoria text REFERENCES simar.categoria_pnn(id_categoria),
     nom_parque text,
     geometry geometry(Geometry,4326)
 );
@@ -129,7 +129,7 @@ CREATE TABLE simar.capitanias (
 /*----------------------------------------------------------------------------*/
 CREATE TABLE simar.linea_costa (
     id_linea bigint PRIMARY KEY,
-    id_capitania text REFERENCES capitanias(id_capitania),
+    id_capitania text REFERENCES simar.capitanias(id_capitania),
     geometry geometry(Geometry,4326)
 );
 /*----------------------------------------------------------------------------*/
@@ -141,7 +141,7 @@ CREATE TABLE simar.linea_costa (
 CREATE TABLE simar.puertos (
     id_puerto text PRIMARY KEY,
     nom_puerto text,
-    abreviatura_pais text REFERENCES paises(abreviatura_pais),
+    abreviatura_pais text REFERENCES simar.paises(abreviatura_pais),
     geometry geometry(Point,4326)
 );
 /*----------------------------------------------------------------------------*/
@@ -161,10 +161,10 @@ CREATE TABLE simar.razon_arribos (
 /*Creacion de tabla arribos_naves_puertos*/
 /*----------------------------------------------------------------------------*/
 CREATE TABLE simar.arribos_naves_puertos (
-    id_capitania text NOT NULL REFERENCES capitanias(id_capitania),
-    omimatricula text NOT NULL REFERENCES nave(omimatricula),
-    id_razonarribo text REFERENCES razon_arribos(id_razon),
-    pto_origen text NOT NULL REFERENCES puertos(id_puerto),
+    id_capitania text NOT NULL REFERENCES simar.capitanias(id_capitania),
+    omimatricula text NOT NULL REFERENCES simar.nave(omimatricula),
+    id_razonarribo text REFERENCES simar.razon_arribos(id_razon),
+    pto_origen text NOT NULL REFERENCES simar.puertos(id_puerto),
     geometry geometry(LineString,4326),
     fecha_arribo timestamp NOT NULL,
     PRIMARY KEY(id_capitania,omimatricula,pto_origen,fecha_arribo)
