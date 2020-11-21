@@ -1,3 +1,6 @@
+\pset footer off
+SET client_min_messages TO WARNING;
+\set ON_ERROR_STOP ON
 INSERT INTO simar.nave_agencianave (id_agencia_arribo, omimatricula) VALUES ('835.001.707-2 ','8512944');
 INSERT INTO simar.nave_agencianave (id_agencia_arribo, omimatricula) VALUES ('800.246.993-7 ','8512968');
 INSERT INTO simar.nave_agencianave (id_agencia_arribo, omimatricula) VALUES ('860.532.426-7 ','8512982');

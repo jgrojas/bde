@@ -1,3 +1,6 @@
+\pset footer off
+SET client_min_messages TO WARNING;
+\set ON_ERROR_STOP ON
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('K806038 ','2','BEL','73072533',516,'2000',6.5,0,11.13);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9426154',' BULK URUGUAY ','LBR','800.067.129-1 ',401,'2000',60,62,18.5);
 INSERT INTO simar.nave (omimatricula, nombrenave, codigo_pais, id_agencia_arribo, codigotiponave, anoconstru, trb, dwt, eslora) VALUES('9429431',' IOLCOS HARMONY ','MLT','800.067.129-1 ',401,'2000',40,70,16.76);
