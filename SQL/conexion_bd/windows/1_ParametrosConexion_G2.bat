@@ -1,6 +1,6 @@
 REM Por favor suministre sus datos de conexion aqui
 set PGPORT=5432
-set PGHOST=172.21.28.238
+set PGHOST=172.18.144.242
 set PGUSER=postgres
 set SIMARDB=simarprueba
 set PGBIN=C:\Program Files\PostgreSQL\12\bin

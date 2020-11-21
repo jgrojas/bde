@@ -23,14 +23,15 @@ class home extends Controller
     						->limit(5)
     						->get();  
 
-        $principales_zarpes=DB::TABLE('arribos_naves_puertos')
-                            ->join('puertos','puertos.id_puerto','=','arribos_naves_puertos.pto_origen')
+        $principales_zarpes=DB::TABLE('arribos_naves_puertos') 
+                            ->join('puertos','puertos.id_puerto','=','arribos_naves_puertos.pto_origen') 
                             ->join('paises','paises.abreviatura_pais','=','puertos.abreviatura_pais')
-                            ->select(DB::RAW('nom_puerto,count(nom_puerto) as total,nombre,puertos.geometry'))
-                            ->groupby('nom_puerto, geometry, nombre')
+                            ->select(DB::RAW('puertos.nom_puerto,paises.nombre,count(arribos_naves_puertos.pto_origen) as total,puertos.geometry'))
+                            ->groupby('puertos.nom_puerto','paises.nombre','puertos.geometry') 
                             ->orderby('total','DESC') 
                             ->limit(10) 
-                            ->get();	
+                            ->get();
+        return $principales_zarpes;
     		
         return view('pages.home', array('arribos_capitanias'=>$arribos_capitanias,'num_naves'=>$num_naves));
     } 
