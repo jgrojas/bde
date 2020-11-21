@@ -1,3 +1,6 @@
+\pset footer off
+SET client_min_messages TO WARNING;
+\set ON_ERROR_STOP ON
 INSERT INTO simar.puertos (id_puerto,nom_puerto,abreviatura_pais,geometry) VALUES ('CGDJE','Djeno Terminal','COG','SRID=4326;POINT (11.914946265000026 -4.914767961999985)');
 INSERT INTO simar.puertos (id_puerto,nom_puerto,abreviatura_pais,geometry) VALUES ('CASKI','Charlotte (Skidegate)','CAN','SRID=4326;POINT (-132.03070000000002 53.247333868)');
 INSERT INTO simar.puertos (id_puerto,nom_puerto,abreviatura_pais,geometry) VALUES ('USHOI','Homer','USA','SRID=4326;POINT (-151.4137 59.604333868000026)');

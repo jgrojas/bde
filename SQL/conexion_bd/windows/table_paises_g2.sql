@@ -1,3 +1,6 @@
+\pset footer off
+SET client_min_messages TO WARNING;
+\set ON_ERROR_STOP ON
 INSERT INTO simar.paises (abreviatura_pais, nombre) VALUES('ABW','Aruba ');
 INSERT INTO simar.paises (abreviatura_pais, nombre) VALUES('AFG','Afganistan');
 INSERT INTO simar.paises (abreviatura_pais, nombre) VALUES('AGO','Angola');

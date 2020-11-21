@@ -1,3 +1,6 @@
+\pset footer off
+SET client_min_messages TO WARNING;
+\set ON_ERROR_STOP ON
 INSERT INTO simar.categoria_pnn (id_categoria, nom_categoria) VALUES('C1','Distritos Nacionales de Manejo Integrado');
 INSERT INTO simar.categoria_pnn (id_categoria, nom_categoria) VALUES('C2','Distritos Regionales de Manejo Integrado');
 INSERT INTO simar.categoria_pnn (id_categoria, nom_categoria) VALUES('C3','Parque Nacional Natural ');

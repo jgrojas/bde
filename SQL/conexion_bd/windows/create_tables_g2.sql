@@ -3,6 +3,10 @@
 Autores: Angie Montoya, Gabriel Rojas */
 /*----------------------------------------------------------------------------*/
 
+\pset footer off
+SET client_min_messages TO WARNING;
+\set ON_ERROR_STOP ON
+
 
 /*----------------------------------------------------------------------------*/
 /*Creacion de base de datos simar*/
@@ -15,6 +19,7 @@ Autores: Angie Montoya, Gabriel Rojas */
 /*Creacion de esquema simar*/
 /*----------------------------------------------------------------------------*/
 CREATE SCHEMA simar;
+
 /*----------------------------------------------------------------------------*/
 
 

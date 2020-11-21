@@ -1,3 +1,6 @@
+\pset footer off
+SET client_min_messages TO WARNING;
+\set ON_ERROR_STOP ON
 INSERT INTO simar.razon_arribos (id_razon,nom_razon) VALUES ('A','Apoyo y Asistencia');
 INSERT INTO simar.razon_arribos (id_razon,nom_razon) VALUES ('B','Aprovisionamiento');
 INSERT INTO simar.razon_arribos (id_razon,nom_razon) VALUES ('C','Arribo Forzoso');

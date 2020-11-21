@@ -1,4 +1,8 @@
-﻿INSERT INTO simar.agencianave (id_agencia_arribo, agencia_arribo) VALUES('835.001.707-2 ','SCS ADUANERA INC');
+﻿\pset footer off
+SET client_min_messages TO WARNING;
+\set ON_ERROR_STOP ON
+
+INSERT INTO simar.agencianave (id_agencia_arribo, agencia_arribo) VALUES('835.001.707-2 ','SCS ADUANERA INC');
 INSERT INTO simar.agencianave (id_agencia_arribo, agencia_arribo) VALUES('835.001.707-2 ','SCS ADUANERA INC');
 INSERT INTO simar.agencianave (id_agencia_arribo, agencia_arribo) VALUES('800.246.993-7 ','SEAPORT S.A.');
 INSERT INTO simar.agencianave (id_agencia_arribo, agencia_arribo) VALUES('860.532.426-7 ','NAVES S.A.S.');

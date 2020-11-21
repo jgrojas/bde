@@ -1,3 +1,6 @@
+\pset footer off
+SET client_min_messages TO WARNING;
+\set ON_ERROR_STOP ON
 INSERT INTO simar.tiponave (cod_tiponave, nom_tiponave, categoria_trb, categoria_eslora) VALUES(1,'PASAJE ',1,1);
 INSERT INTO simar.tiponave (cod_tiponave, nom_tiponave, categoria_trb, categoria_eslora) VALUES(110,'TRANSPORTADOR PASAJEROS (CRUCERO)',2,1);
 INSERT INTO simar.tiponave (cod_tiponave, nom_tiponave, categoria_trb, categoria_eslora) VALUES(111,'TRANSPORTE DE CARGA Y PASAJEROS',1,0);
