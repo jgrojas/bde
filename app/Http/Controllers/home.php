@@ -10,6 +10,10 @@ class home extends Controller
 {
     public function index()
     {
+        $num_naves=DB::TABLE('arribos_naves_puertos')
+                            ->select(DB::RAW('count(id_capitania) as total'))
+                            ->get();
+
 
     	$arribos_capitanias=DB::TABLE('capitanias')
     						->join('arribos_naves_puertos','arribos_naves_puertos.id_capitania','=','capitanias.id_capitania')
@@ -19,6 +23,6 @@ class home extends Controller
     						->limit(5)
     						->get();    	
     		
-        return view('pages.home', array('arribos_capitanias'=>$arribos_capitanias));
+        return view('pages.home', array('arribos_capitanias'=>$arribos_capitanias,'num_naves'=>$num_naves));
     } 
 }
