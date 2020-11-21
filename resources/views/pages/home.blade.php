@@ -119,7 +119,7 @@
 											</div>
 											<div class="fbox-content">
 												<h3>Cantidad de Arribos</h3>
-												<p>Durante el periodo 2012-2020 han arribado al país XX número de naves de las XX (X%) han arribo en 2020.</p>
+												<p>Durante el periodo 2012-2020 han arribado al país {{$num_naves[0]->total}} número de naves de las XX (X%) han arribo en 2020.</p>
 												Gráfica de número de arribos por año
 											</div>
 										</div>
