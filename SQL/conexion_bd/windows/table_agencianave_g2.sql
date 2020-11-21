@@ -1,4 +1,5 @@
 ﻿INSERT INTO simar.agencianave (id_agencia_arribo, agencia_arribo) VALUES('835.001.707-2 ','SCS ADUANERA INC');
+INSERT INTO simar.agencianave (id_agencia_arribo, agencia_arribo) VALUES('835.001.707-2 ','SCS ADUANERA INC');
 INSERT INTO simar.agencianave (id_agencia_arribo, agencia_arribo) VALUES('800.246.993-7 ','SEAPORT S.A.');
 INSERT INTO simar.agencianave (id_agencia_arribo, agencia_arribo) VALUES('860.532.426-7 ','NAVES S.A.S.');
 INSERT INTO simar.agencianave (id_agencia_arribo, agencia_arribo) VALUES('802.008.802-6 ','NAVENAL S.A.S ');
