@@ -1,6 +1,6 @@
 # Por favor suministre sus datos de conexion aqui
 export PGPORT=5432
-export PGHOST=172.18.144.242
+export PGHOST=172.21.28.238
 export PGUSER=postgres
 export SIMARDB=simarprueba
 export PGBIN=/usr/lib/postgresql/12/bin

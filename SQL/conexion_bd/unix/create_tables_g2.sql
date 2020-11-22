@@ -24,9 +24,9 @@ CREATE SCHEMA simar;
 
 
 /*----------------------------------------------------------------------------*/
-/*Creacion de extensión postgis para tablas espaciales*/
+/*Creacion de extensiÃ³n postgis para tablas espaciales*/
 /*----------------------------------------------------------------------------*/
-CREATE EXTENSION IF NOT EXISTS postgis WITH SCHEMA simar;
+/*CREATE EXTENSION IF NOT EXISTS postgis WITH SCHEMA simar;*/
 /*----------------------------------------------------------------------------*/
 
 
@@ -177,7 +177,7 @@ CREATE TABLE simar.arribos_naves_puertos (
 
 
 /*----------------------------------------------------------------------------*/
-/*-------------------Creacion de índices sobre las tablas---------------------*/
+/*-------------------Creacion de Ã­ndices sobre las tablas---------------------*/
 /*----------------------------------------------------------------------------*/
 create unique index tiponave_id_idx on simar.tiponave (cod_tiponave);
 create unique index nave_id_idx on simar.nave (omimatricula);
