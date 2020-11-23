@@ -164,7 +164,34 @@
 											</div>
 											<div class="fbox-content">
 												<h3>Principales origenes que ingresan al país</h3>
-												<p></p>
+												<p></p>	
+												<div class="col-md-12" id="map_point_puerto" style="height: 200px"></div>										
+												<div class="col-md-12">
+													<?php $int=1 ?>												
+													<table class="table table-hover">
+													  <thead>
+														<tr>
+														  <th>#</th>
+														  <th>Nombre del puerto</th>
+														  <th>País de origen</th>
+														  <th>Total</th>
+														  
+														</tr>
+													  </thead>
+													  <tbody>
+													  	@foreach($principales_zarpes as $zarpes)
+															<tr onclick=puerto_point('{{$zarpes->id_puerto}}')>
+															  <td>{{$int}}</td>
+															  <td>{{$zarpes->nom_puerto}}</td>
+															  <td>{{$zarpes->nombre}}</td>
+															  <td>{{$zarpes->total}}</td>															  
+															</tr>
+															<?php $int=$int+1 ?>														
+														@endforeach													
+													  </tbody>
+													</table>
+												</div>
+												
 											</div>
 										</div>
 									</div>
@@ -275,4 +302,61 @@
 
 			</div>
 		</section><!-- #content end -->
+@endsection
+
+@section('javascripts')
+<script type="text/javascript">
+	
+	function puerto_point(cod_puerto){
+		console.log(principales_zarpes)
+		console.log(cod_puerto)
+		//var marker = L.marker([51.5, -0.09]).addTo(mymap);
+	}
+
+	var map_point_puerto = L.map('map_point_puerto', {
+        center: [10, -72],
+        zoom: 2,
+        minZoom: 2,
+        scrollWheelZoom: true,
+        maxZoom: 13,        
+        zoomControl:true
+    });
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {	    
+	    maxZoom: 18,
+	    id: 'mapbox/streets-v11',
+	    tileSize: 512,
+	    zoomOffset: -1,
+	    accessToken: 'your.mapbox.access.token'
+	}).addTo(map_point_puerto);
+
+    var principales_zarpes={!!json_encode($principales_zarpes)!!}
+
+	geojson_temp={
+		type: 'FeatureCollection',
+	    features: []
+	};
+
+	for (i = 0; i < principales_zarpes.length; i++){		
+		objeto={
+				type: 'Feature',
+		   		properties: {
+				   	'id_puerto': principales_zarpes[i].id_puerto,
+	                'nom_puerto': principales_zarpes[i].nom_puerto,                
+	                'abreviatura_pais': principales_zarpes[i].abreviatura_pais,
+	                'nombre': principales_zarpes[i].nombre,
+	                'total': principales_zarpes[i].total,	                
+			 	},
+			 	'geometry': jQuery.parseJSON(principales_zarpes[i].geometry)
+			}
+			x=geojson_temp.features.length				
+			geojson_temp.features[x]=objeto		
+	}
+
+	principales_zarpes=geojson_temp;
+	var zarpes = new L.geoJson(principales_zarpes,{}).addTo(map_point_puerto);
+	console.log(principales_zarpes)
+
+
+</script>
 @endsection

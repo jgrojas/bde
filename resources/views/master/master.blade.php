@@ -27,10 +27,10 @@
 	<script src="js/jquery.js"></script>
 	<script src="js/plugins.min.js"></script>
 	<script src="https://maps.google.com/maps/api/js?key=YOUR-API-KEY"></script>
-
+	
 	<!-- Footer Scripts
 	============================================= -->
 	<script src="js/functions.js"></script>
-
+	@yield('javascripts')
 </body>
 </html>
