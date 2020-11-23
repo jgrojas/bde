@@ -14,6 +14,13 @@ class home extends Controller
                             ->select(DB::RAW('count(id_capitania) as total'))
                             ->get();
 
+        $num_naves2020=DB::TABLE('arribos_naves_puertos')
+                            ->whereBetween('arribos_naves_puertos.fecha_arribo',['2020-01-01','2020-11-21'])
+                            ->select(DB::RAW('count(id_capitania) as total'))
+                            ->get();  
+
+        $num_naves2020_p=round(($num_naves2020[0]->total/$num_naves[0]->total)*100);
+
     	$arribos_capitanias=DB::TABLE('capitanias')
     						->join('arribos_naves_puertos','arribos_naves_puertos.id_capitania','=','capitanias.id_capitania')
     						->select(DB::RAW('nom_capitania, count(nom_capitania) as total'))
@@ -46,19 +53,14 @@ class home extends Controller
                             ->groupby('nom_capitania')
                             ->orderby('total','DESC')
                             ->limit(5)
-                            ->get(); 
-
-        $num_naves2020=DB::TABLE('arribos_naves_puertos')
-                            ->whereBetween('arribos_naves_puertos.fecha_arribo',['2020-01-01','2020-11-21'])
-                            ->select(DB::RAW('count(id_capitania) as total'))
-                            ->get();  
+                            ->get();         
     	
-        $punto_cercano=DB::TABLE('puertos')
+        /*$punto_cercano=DB::TABLE('puertos')
                             ->select(DB::RAW("nom_puerto,geometry,st_distance(ST_Transform(ST_SetSRID(ST_GeomFromText('POINT(-71.107 12.028)'),4326),3857),ST_Transform(geometry,3857)) as distancia"))
                             ->orderby('distancia')
                             ->limit(1)
-                            ->get();
+                            ->get();*/
 
-        return view('pages.home', array('arribos_capitanias'=>$arribos_capitanias,'num_naves'=>$num_naves));
+        return view('pages.home', array('arribos_capitanias'=>$arribos_capitanias,'num_naves'=>$num_naves,'num_naves2020'=>$num_naves2020,'num_naves2020_p'=>$num_naves2020_p));
     } 
 }
