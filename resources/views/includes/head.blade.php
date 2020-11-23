@@ -26,10 +26,9 @@
 
 	<link rel="stylesheet" href="css/colors.php?color=BF9456" type="text/css" />
 
-
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
 	<script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
-
+	
 	<!-- Document Title
 	============================================= -->
 	<title>Simar | Colombia</title>

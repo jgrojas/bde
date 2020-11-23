@@ -8,7 +8,7 @@
 				============================================= -->
 				<div class="footer-widgets-wrap center clearfix">
 
-					<img src="demos/barber/images/slider-logo.svg" width="200" alt="Image">
+					<img src="images/slider-logo_bw.png" width="200" alt="Image">
 
 					<div class="topmargin-lg clearfix">
 						<a href="#" class="social-icon si-small si-rounded si-borderless inline-block si-facebook">

@@ -2,7 +2,7 @@
 <html dir="ltr" lang="en-US">
 @include('includes.head')
 
-<body class="stretched page-transition" data-loader-html="<img class='infinite animated pulse' src='demos/barber/images/slider-logo.svg' width='300'>">
+<body class="stretched page-transition" data-loader-html="<img class='infinite animated pulse' src='images/slider-logo_bw.png' width='300'>">
 
 	<!-- Document Wrapper
 	============================================= -->
@@ -27,7 +27,7 @@
 	<script src="js/jquery.js"></script>
 	<script src="js/plugins.min.js"></script>
 	<script src="https://maps.google.com/maps/api/js?key=YOUR-API-KEY"></script>
-	
+
 	<!-- Footer Scripts
 	============================================= -->
 	<script src="js/functions.js"></script>

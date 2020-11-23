@@ -228,7 +228,7 @@
 						<div class="row">
 							<!-- Barber Category 1
 							============================================= -->
-							<div class="col-md-4 center bottommargin-lg">
+							<!-- <div class="col-md-4 center bottommargin-lg">
 								<div class="feature-box media-box">
 									<div class="fbox-media" style="padding: 0 40px;">
 										<a href="#"><img class="rounded-circle img-thumbnail" src="demos/barber/images/features/shave.jpg" alt="Why choose Us?"><span>Shave</span><div class="sale-flash badge badge-warning py-2 px-3 rounded-0">-30% OFF*</div></a>
@@ -239,11 +239,11 @@
 										<a href="#" class="more-link text-uppercase ls1 font-weight-bold" style="margin: 20px 0 0 0; font-style: normal;">Read More</a>
 									</div>
 								</div>
-							</div>
+							</div> -->
 
 							<!-- Barber Category 2
 							============================================= -->
-							<div class="col-md-4 center bottommargin-lg">
+							<!-- <div class="col-md-4 center bottommargin-lg">
 								<div class="feature-box media-box">
 									<div class="fbox-media" style="padding: 0 40px;">
 										<a href="#"><img class="rounded-circle img-thumbnail" src="demos/barber/images/features/haircut.jpg" alt="Effective Planning"><span>Haircut</span></a>
@@ -254,11 +254,11 @@
 										<a href="#" class="more-link text-uppercase ls1 font-weight-bold" style="margin: 20px 0 0 0; font-style: normal;">Read More</a>
 									</div>
 								</div>
-							</div>
+							</div> -->
 
 							<!-- Barber Category 3
 							============================================= -->
-							<div class="col-md-4 center bottommargin-lg">
+							<!-- <div class="col-md-4 center bottommargin-lg">
 								<div class="feature-box media-box">
 									<div class="fbox-media" style="padding: 0 40px;">
 										<a href="#"><img class="rounded-circle img-thumbnail" src="demos/barber/images/features/hairwash.jpg" alt="Why choose Us?"><span>Hairwash</span></a>
@@ -269,7 +269,7 @@
 										<a href="#" class="more-link text-uppercase ls1 font-weight-bold" style="margin: 20px 0 0 0; font-style: normal;">Read More</a>
 									</div>
 								</div>
-							</div>
+							</div> -->
 						</div>
 
 					</div>
@@ -279,7 +279,7 @@
 
 				<!-- Sección`para el mapa
 				============================================= -->
-				<div id="price" class="section page-section parallax pb-0 mb-0 dark" style="background-image: url('demos/barber/images/sections/3.jpg'); background-size: cover; height: 600px" data-bottom-top="background-position:0px 0px;" data-top-bottom="background-position:0px -300px;"></div>
+				<div id="price" class="section page-section parallax pb-0 mb-0 dark" style="background-image: url('images/3.jpg'); background-size: cover; height: 600px" data-bottom-top="background-position:0px 0px;" data-top-bottom="background-position:0px -300px;"></div>
 
 				<div class="container bottommargin dark clearfix" style="margin-top: -500px">
 					<div class="heading-block bottommargin-lg center clearfix">
@@ -294,11 +294,11 @@
 				
 				
 
-				<a href="#" class="button button-full bg-color font-secondary center" style="padding: 60px 0; background-image: url('demos/barber/images/sections/4.jpg'); background-repeat: no-repeat; background-position: 10% 50%; background-size: cover;">
+				<!-- <a href="#" class="button button-full bg-color font-secondary center" style="padding: 60px 0; background-image: url('demos/barber/images/sections/4.jpg'); background-repeat: no-repeat; background-position: 10% 50%; background-size: cover;">
 					<div class="container clearfix">
 						Book your visit online and save upto <strong>25% Discount</strong> &rarr;
 					</div>
-				</a>
+				</a> -->
 
 			</div>
 		</section><!-- #content end -->
@@ -355,7 +355,7 @@
 
 	principales_zarpes=geojson_temp;
 	var zarpes = new L.geoJson(principales_zarpes,{}).addTo(map_point_puerto);
-	console.log(principales_zarpes)
+	
 
 
 </script>
