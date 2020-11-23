@@ -307,10 +307,12 @@
 @section('javascripts')
 <script type="text/javascript">
 	
-	function puerto_point(cod_puerto){
-		console.log(principales_zarpes)
-		console.log(cod_puerto)
-		//var marker = L.marker([51.5, -0.09]).addTo(mymap);
+	function puerto_point(cod_puerto){				
+		for (i = 0; i < principales_zarpes.features.length; i++){			
+			if(principales_zarpes.features[i].properties.id_puerto==cod_puerto){				
+				map_point_puerto.setView([principales_zarpes.features[i].geometry.coordinates[1], principales_zarpes.features[i].geometry.coordinates[0]], 12);
+			}
+		}	
 	}
 
 	var map_point_puerto = L.map('map_point_puerto', {
@@ -354,9 +356,20 @@
 	}
 
 	principales_zarpes=geojson_temp;
-	var zarpes = new L.geoJson(principales_zarpes,{}).addTo(map_point_puerto);
+	var zarpes = new L.geoJson(principales_zarpes,{onEachFeature: interaccion_zarpes}).addTo(map_point_puerto);	
 	
+	function interaccion_zarpes(feature, layer) {	
+		text='Puerto: '+feature.properties.nom_puerto+'<br>Total: '+feature.properties.total
+		layer.bindTooltip(text);
+		layer.on(
+		{
+			click: function (e) {				
+				map_point_puerto.setView(e.latlng, 7);
+			}
+		});
+	};
 
+	
 
 </script>
 @endsection
