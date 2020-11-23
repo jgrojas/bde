@@ -62,6 +62,6 @@ class home extends Controller
                             ->limit(1)
                             ->get();
 
-        return view('pages.home', array('arribos_capitanias'=>$arribos_capitanias,'num_naves'=>$num_naves,'num_naves2020'=>$num_naves2020,'num_naves2020_p'=>$num_naves2020_p,'principales_zarpes'=>$principales_zarpes));
+        return view('pages.home', array('arribos_capitanias'=>$arribos_capitanias,'num_naves'=>$num_naves,'num_naves2020'=>$num_naves2020,'num_naves2020_p'=>$num_naves2020_p,'principales_zarpes'=>$principales_zarpes,'tipos_naves'=>$tipos_naves));
     } 
 }

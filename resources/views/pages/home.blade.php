@@ -164,7 +164,7 @@
 											</div>
 											<div class="fbox-content">
 												<h3>Principales origenes que ingresan al país</h3>
-												<p></p>	
+												<p>(Haga click sobre la tabla para navegar al punto)</p>	
 												<div class="col-md-12" id="map_point_puerto" style="height: 200px"></div>										
 												<div class="col-md-12">
 													<?php $int=1 ?>												
@@ -201,9 +201,33 @@
 												<a href="#"><img src="images/arrow-right.svg" alt="Image"></a>
 											</div>
 											<div class="fbox-content">
-												<h3>Great Location</h3>
-												<p>Holisticly fashion cooperative ROI without unique intellectual capital. Synergistically engage orthogonal.</p>
+												<h3>Distribución de ingresos por Tipo de Nave</h3>
+												<p></p>												
+												<div class="col-md-12">
+													<?php $int=1 ?>												
+													<table class="table table-hover">
+													  <thead>
+														<tr>
+														  <th>#</th>
+														  <th>Tipo de nave</th>														  
+														  <th>Total</th>
+														  
+														</tr>
+													  </thead>
+													  <tbody>
+													  	@foreach($tipos_naves as $naves)
+															<tr>
+															  <td>{{$int}}</td>
+															  <td>{{$naves->nom_tiponave}}</td>															  
+															  <td>{{$naves->total}}</td>															  
+															</tr>
+															<?php $int=$int+1 ?>														
+														@endforeach													
+													  </tbody>
+													</table>
+												</div>
 											</div>
+
 										</div>
 									</div>
 									<div class="col-lg-10 col-md-8">
