@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\home;
+use App\Http\Controllers\reportenaveController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,7 @@ use App\Http\Controllers\home;
 */
 
 Route::get('/',[home::class, 'index']);
+Route::get('reportenave',[reportenaveController::class, 'index']);
 
 Route::get('mapa', function () {
     return view('pages/Mapa1');

@@ -20,9 +20,9 @@
 						============================================= -->
 						<nav class="primary-menu not-dark text-lg-center">
 							<ul class="menu-container one-page-menu" data-easing="easeInOutExpo" data-speed="1300" data-offset="60">
-								<li class="menu-item active"><a class="menu-link" href="#" data-href="#wrapper">Home</a></li>
+								<li class="menu-item active"><a class="menu-link" href="/" data-href="#wrapper">Home</a></li>
 								<li class="menu-item"><a class="menu-link" href="#" data-offset="56" data-href="#global">Reporte Global</a></li>
-								<li class="menu-item"><a class="menu-link" href="#" data-href="#price">Reporte por Nave</a></li>
+								<li class="menu-item"><a class="menu-link" href="reportenave" data-href="reportenave">Reporte por Nave</a></li>
 								<li class="menu-item"><a class="menu-link" href="#" data-href="#shop">Mapa</a></li>
 								<li class="menu-item"><a class="menu-link" href="#" data-href="#testimonial">Testimonial</a></li>
 								<li class="menu-item"><a class="menu-link" href="#" data-href="#contact">Contact</a></li>

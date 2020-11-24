@@ -10,7 +10,7 @@
 
 		@include('includes.header')
 
-		@yield('slider')
+		@include('includes.slider')
 		
 		@yield('content')		
 
@@ -27,6 +27,12 @@
 	<script src="js/jquery.js"></script>
 	<script src="js/plugins.min.js"></script>
 	<script src="https://maps.google.com/maps/api/js?key=YOUR-API-KEY"></script>
+
+	<!-- Bootstrap Select Plugin -->
+	<script src="js/components/bs-select.js"></script>
+
+	<!-- Select Splitter Plugin -->
+	<script src="js/components/selectsplitter.js"></script>
 
 	<!-- Footer Scripts
 	============================================= -->
