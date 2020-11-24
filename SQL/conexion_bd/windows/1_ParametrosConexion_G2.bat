@@ -1,10 +1,10 @@
 REM Por favor suministre sus datos de conexion aqui
 set PGPORT=5432
-set PGHOST=172.21.28.238
+set PGHOST=bde2020.cpzvmgzzg0iz.us-east-2.rds.amazonaws.com
 set PGUSER=postgres
-set SIMARDB=simarprueba
+set SIMARDB=postgres
 set PGBIN=C:\Program Files\PostgreSQL\12\bin
-set PGPASSWORD=postgres
+set PGPASSWORD=GoXA6LbecbxuZ4ipix9H
 
 REM cd to path of the shell script
 cd /d %~dp0
