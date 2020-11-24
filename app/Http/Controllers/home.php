@@ -55,6 +55,13 @@ class home extends Controller
                             ->groupby('nom_capitania')
                             ->orderby('total','DESC')
                             ->limit(5)
+                            ->get(); 
+
+        $arribos_capitaniasVista=DB::TABLE('arribos_capitanias')
+                            ->select(DB::RAW('nom_capitania, count(nom_capitania) as total'))
+                            ->groupby('nom_capitania')
+                            ->orderby('total','DESC')
+                            ->limit(5)
                             ->get();         
     	
         $punto_cercano=DB::TABLE('puertos')
@@ -63,6 +70,14 @@ class home extends Controller
                             ->limit(1)
                             ->get();
 
-        return view('pages.home', array('arribos_capitanias'=>$arribos_capitanias,'num_naves'=>$num_naves,'num_naves2020'=>$num_naves2020,'num_naves2020_p'=>$num_naves2020_p,'principales_zarpes'=>$principales_zarpes,'tipos_naves'=>$tipos_naves));
+        $razon_arribo=DB::TABLE('arribos_naves_puertos')
+                            ->join('razon_arribos','razon_arribos.id_razon','=','arribos_naves_puertos.id_razonarribo')
+                            ->select(DB::RAW('nom_razon,count(nom_razon) as total'))
+                            ->groupby('nom_razon')
+                            ->orderby('total','DESC')
+                            ->limit(5)
+                            ->get();
+
+        return view('pages.home', array('arribos_capitanias'=>$arribos_capitanias,'num_naves'=>$num_naves,'num_naves2020'=>$num_naves2020,'num_naves2020_p'=>$num_naves2020_p,'principales_zarpes'=>$principales_zarpes,'tipos_naves'=>$tipos_naves,'razon_arribo'=>$razon_arribo));
     } 
 }

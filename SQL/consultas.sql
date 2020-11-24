@@ -7,10 +7,22 @@ Autores: Angie Montoya, Gabriel Rojas */
 /*----------------------------------------------------------------------------*/
 /*Tipos de naves arribadas al país en el periodo de estudio*/
 /*----------------------------------------------------------------------------*/
-select nom_tiponave,count(nom_tiponave)
+select nom_tiponave,count(nom_tiponave) as total
 from nave n
     inner join tiponave t on (t.cod_tiponave=n.codigotiponave) inner join arribos_naves_puertos anp on (n.omimatricula=anp.omimatricula) 
 group by nom_tiponave
+;
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
+/*Razones de arribo en el país*/
+/*----------------------------------------------------------------------------*/
+select ra.nom_razon ,count(ra.nom_razon) as total
+from arribos_naves_puertos anp
+    inner join razon_arribos ra on (anp.id_razonarribo =ra.id_razon) 
+group by ra.nom_razon 
+order by total desc limit 5
 ;
 /*----------------------------------------------------------------------------*/
 
@@ -27,7 +39,7 @@ group by nom_tiponave
 /*----------------------------------------------------------------------------*/
 
 
- /*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
 /*Arribos por capitanía en el periodo de estudio*/
 /*----------------------------------------------------------------------------*/
 select nom_capitania, count(nom_capitania) 
@@ -35,6 +47,28 @@ from capitanias c
 	inner join arribos_naves_puertos anp on (c.id_capitania=anp.id_capitania)
 group by nom_capitania
 order by count(nom_capitania) desc limit 5
+;
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
+/*Vista de arribos por capitanía*/
+/*----------------------------------------------------------------------------*/
+create view arribos_capitanias as
+select c.nom_capitania, anp.id_capitania 
+from capitanias c
+	inner join arribos_naves_puertos anp on (c.id_capitania=anp.id_capitania)
+;
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
+/*Arribos por capitanía desde la vista*/
+/*----------------------------------------------------------------------------*/
+select nom_capitania, count(nom_capitania) as total 
+from arribos_capitanias ac
+group by(nom_capitania)
+order by (total) desc limit 5
 ;
 /*----------------------------------------------------------------------------*/
 
