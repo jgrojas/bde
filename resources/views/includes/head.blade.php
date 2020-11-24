@@ -24,6 +24,8 @@
 	<link rel="stylesheet" href="css/custom.css" type="text/css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
+	<link rel="stylesheet" href="css/components/bs-select.css" type="text/css">
+
 	<link rel="stylesheet" href="css/colors.php?color=BF9456" type="text/css" />
 
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
