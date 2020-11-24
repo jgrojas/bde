@@ -33,10 +33,10 @@ class home extends Controller
         $principales_zarpes=DB::TABLE('arribos_naves_puertos') 
                             ->join('puertos','puertos.id_puerto','=','arribos_naves_puertos.pto_origen') 
                             ->join('paises','paises.abreviatura_pais','=','puertos.abreviatura_pais')
-                            ->select(DB::RAW('puertos.id_puerto,puertos.nom_puerto,paises.abreviatura_pais,paises.nombre,count(arribos_naves_puertos.pto_origen) as total, ST_AsGeoJSON(puertos.geometry) as geometry'))
+                            ->select(DB::RAW('puertos.id_puerto,puertos.nom_puerto,paises.abreviatura_pais,paises.nombre,count(arribos_naves_puertos.pto_origen) as total, ST_AsGeoJSON(puertos.geometry) as geometry'))                            
                             ->groupby('puertos.id_puerto','puertos.nom_puerto','paises.abreviatura_pais','paises.nombre','puertos.geometry') 
-                            ->orderby('total','DESC') 
-                            ->limit(10) 
+                            ->orderby('total','DESC')
+                            ->limit(50)
                             ->get();        
 
         $tipos_naves=DB::TABLE('tiponave')
@@ -45,6 +45,7 @@ class home extends Controller
                             ->select(DB::RAW('tiponave.nom_tiponave,count(tiponave.nom_tiponave) as total'))
                             ->groupby('tiponave.nom_tiponave')
                             ->orderby('total','DESC')
+                            ->limit(10)
                             ->get();
 
         $arribos_capitanias2020=DB::TABLE('capitanias')
