@@ -62,7 +62,8 @@ CREATE TABLE tiponave (
 /*----------------------------------------------------------------------------*/
 CREATE TABLE paises (
     abreviatura_pais character(3) PRIMARY KEY,
-    nombre character(50) NOT NULL
+    nombre character(70) NOT NULL,
+	alfa_dos character(2)NOT NULL
 );
 /*----------------------------------------------------------------------------*/
 
