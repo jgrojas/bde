@@ -30,6 +30,7 @@
 										
 										@endforeach	
 									</select>
+									<a href="#" class="button button-3d button-rounded button-green"><i class="icon-repeat"></i>Generar reporte</a>
 								</div>
 								
 								

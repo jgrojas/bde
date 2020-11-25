@@ -1,6 +1,15 @@
 @extends('master/master')
 
+@section('styles')
 
+<style type="text/css">
+.flag{
+	width: 20px;
+}	
+
+</style>
+
+@endsection
 
 
 @section('content')
@@ -128,7 +137,7 @@
 															<tr onclick=puerto_point('{{$zarpes->id_puerto}}')>
 															  <td>{{$int}}</td>
 															  <td>{{$zarpes->nom_puerto}}</td>
-															  <td>{{$zarpes->nombre}}</td>
+															  <td><img class="flag" src="images/flags/{{$zarpes->alfa_dos}}.png"> {{$zarpes->nombre}}</td>
 															  <td>{{$zarpes->total}}</td>															  
 															</tr>
 															<?php $int=$int+1 ?>														
@@ -181,8 +190,31 @@
 												<a href="#"><img src="images/arrow-right.svg" alt="Image"></a>
 											</div>
 											<div class="fbox-content">
-												<h3>Customer Service</h3>
-												<p>Monotonectally evisculate high standards in best practices before exceptional web-readiness. Competently.</p>
+												<h3>Principales razones de arribo</h3>
+												<p></p>
+												<div class="col-md-12">
+													<?php $int=1 ?>												
+													<table class="table table-hover">
+													  <thead>
+														<tr>
+														  <th>#</th>
+														  <th>Razon Arribo</th>														  
+														  <th>Total</th>
+														  
+														</tr>
+													  </thead>
+													  <tbody>
+													  	@foreach($razon_arribo as $razon)
+															<tr>
+															  <td>{{$int}}</td>
+															  <td>{{$razon->nom_razon}}</td>															  
+															  <td>{{$razon->total}}</td>															  
+															</tr>
+															<?php $int=$int+1 ?>														
+														@endforeach													
+													  </tbody>
+													</table>
+												</div>
 											</div>
 										</div>
 									</div>

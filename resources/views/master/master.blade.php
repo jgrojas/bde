@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
 @include('includes.head')
-
+@yield('styles')	
 <body class="stretched page-transition" data-loader-html="<img class='infinite animated pulse' src='images/slider-logo_bw.png' width='300'>">
 
 	<!-- Document Wrapper

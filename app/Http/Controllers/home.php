@@ -22,21 +22,28 @@ class home extends Controller
 
         $num_naves2020_p=round(($num_naves2020[0]->total/$num_naves[0]->total)*100);
 
-    	$arribos_capitanias=DB::TABLE('capitanias')
+    	/*$arribos_capitanias=DB::TABLE('capitanias')
     						->join('arribos_naves_puertos','arribos_naves_puertos.id_capitania','=','capitanias.id_capitania')
     						->select(DB::RAW('nom_capitania, count(nom_capitania) as total'))
     						->groupby('nom_capitania')
     						->orderby('total','DESC')
     						->limit(5)
-    						->get();  
+    						->get();*/  
+
+        $arribos_capitanias=DB::TABLE('arribos_capitanias')
+                                ->select(DB::RAW('nom_capitania, count(nom_capitania) as total'))
+                                ->groupby('nom_capitania')
+                                ->orderby('total','DESC')
+                                ->limit(5)
+                                ->get();
 
         $principales_zarpes=DB::TABLE('arribos_naves_puertos') 
                             ->join('puertos','puertos.id_puerto','=','arribos_naves_puertos.pto_origen') 
                             ->join('paises','paises.abreviatura_pais','=','puertos.abreviatura_pais')
-                            ->select(DB::RAW('puertos.id_puerto,puertos.nom_puerto,paises.abreviatura_pais,paises.nombre,count(arribos_naves_puertos.pto_origen) as total, ST_AsGeoJSON(puertos.geometry) as geometry'))                            
-                            ->groupby('puertos.id_puerto','puertos.nom_puerto','paises.abreviatura_pais','paises.nombre','puertos.geometry') 
+                            ->select(DB::RAW('puertos.id_puerto,puertos.nom_puerto,paises.alfa_dos,paises.nombre,count(arribos_naves_puertos.pto_origen) as total, ST_AsGeoJSON(puertos.geometry) as geometry'))                            
+                            ->groupby('puertos.id_puerto','puertos.nom_puerto','paises.alfa_dos','paises.nombre','puertos.geometry') 
                             ->orderby('total','DESC')
-                            ->limit(50)
+                            ->limit(10)
                             ->get();        
 
         $tipos_naves=DB::TABLE('tiponave')

@@ -157,4 +157,8 @@ order by st_distance limit 1;
 select st_buffer(geometry, 100)
 from linea_costa;
 
+/*----------------------------------------------------------------------------*/
+/*Listado de Naves*/
+/*----------------------------------------------------------------------------*/
 
+select nave.omimatricula, nave.nombrenave from nave 
