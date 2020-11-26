@@ -31,11 +31,9 @@ class home extends Controller
     						->get();*/  
 
         $arribos_capitanias=DB::TABLE('arribos_capitanias')
-                                ->select(DB::RAW('nom_capitania, count(nom_capitania) as total'))
-                                ->groupby('nom_capitania')
-                                ->orderby('total','DESC')
-                                ->limit(5)
-                                ->get();
+                            ->select(DB::RAW('nom_capitania, total'))
+                            ->orderby('total','DESC')
+                            ->get(); 
 
         $principales_zarpes=DB::TABLE('arribos_naves_puertos') 
                             ->join('puertos','puertos.id_puerto','=','arribos_naves_puertos.pto_origen') 
@@ -62,14 +60,7 @@ class home extends Controller
                             ->groupby('nom_capitania')
                             ->orderby('total','DESC')
                             ->limit(5)
-                            ->get(); 
-
-        $arribos_capitaniasVista=DB::TABLE('arribos_capitanias')
-                            ->select(DB::RAW('nom_capitania, count(nom_capitania) as total'))
-                            ->groupby('nom_capitania')
-                            ->orderby('total','DESC')
-                            ->limit(5)
-                            ->get();         
+                            ->get();        
     	
         $punto_cercano=DB::TABLE('puertos')
                             ->select(DB::RAW("nom_puerto,geometry,st_distance(ST_Transform(ST_SetSRID(ST_GeomFromText('POINT(-71.107 12.028)'),4326),3857),ST_Transform(geometry,3857)) as distancia"))

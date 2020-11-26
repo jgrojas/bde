@@ -42,7 +42,7 @@ group by nom_tiponave
 /*----------------------------------------------------------------------------*/
 /*Arribos por capitanía en el periodo de estudio*/
 /*----------------------------------------------------------------------------*/
-select nom_capitania, count(nom_capitania) 
+select nom_capitania, count(nom_capitania) as total
 from capitanias c
 	inner join arribos_naves_puertos anp on (c.id_capitania=anp.id_capitania)
 group by nom_capitania
@@ -55,9 +55,11 @@ order by count(nom_capitania) desc limit 5
 /*Vista de arribos por capitanía*/
 /*----------------------------------------------------------------------------*/
 create view arribos_capitanias as
-select c.nom_capitania, anp.id_capitania 
+select nom_capitania, count(nom_capitania) as total
 from capitanias c
 	inner join arribos_naves_puertos anp on (c.id_capitania=anp.id_capitania)
+group by nom_capitania
+order by count(nom_capitania) desc limit 5
 ;
 /*----------------------------------------------------------------------------*/
 
@@ -65,10 +67,8 @@ from capitanias c
 /*----------------------------------------------------------------------------*/
 /*Arribos por capitanía desde la vista*/
 /*----------------------------------------------------------------------------*/
-select nom_capitania, count(nom_capitania) as total 
+select nom_capitania, total 
 from arribos_capitanias ac
-group by(nom_capitania)
-order by (total) desc limit 5
 ;
 /*----------------------------------------------------------------------------*/
 
