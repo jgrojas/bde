@@ -65,6 +65,29 @@ order by count(nom_capitania) desc limit 5
 
 
 /*----------------------------------------------------------------------------*/
+/*Vista de arribos anual por capitanía*/
+/*----------------------------------------------------------------------------*/
+create view arribos_anual as
+select c.nom_capitania, extract (year from anp.fecha_arribo) as year,count(c.nom_capitania) as total
+from capitanias c
+	inner join arribos_naves_puertos anp on (c.id_capitania=anp.id_capitania)
+group by nom_capitania,year
+;
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
+/*Arribos anual por capitanía*/
+/*----------------------------------------------------------------------------*/
+select year, sum(total)
+from arribos_anual aa 
+group by year
+order by year
+;
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
 /*Arribos por capitanía desde la vista*/
 /*----------------------------------------------------------------------------*/
 select nom_capitania, total 
@@ -105,7 +128,7 @@ where year = 2020
 ;
 /*----------------------------------------------------------------------------*/
 
-
+select count() 
 /*----------------------------------------------------------------------------*/
 /*Principales puertos de origen de las naves arribadas al país"*/
 /*----------------------------------------------------------------------------*/

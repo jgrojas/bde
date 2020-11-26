@@ -85,7 +85,7 @@
 											</div>
 											<div class="fbox-content">
 												<h3>Cantidad de Arribos por capitanía</h3>
-												<p>A continuación se presenta las cinco capitanías con más arribos en 2020</p>
+												<p>A continuación se presenta las cinco capitanías con más arribos entre 2012 y 2020</p>
 
 												<?php $int=1 ?>
 												
@@ -285,7 +285,7 @@
 				<div class="container bottommargin dark clearfix" style="margin-top: -500px">
 					<div class="heading-block bottommargin-lg center clearfix">
 						<!-- <img src="demos/barber/images/icons/wallet-white.svg" alt="Image" height="40" style="margin-bottom: 20px"> -->
-						<h2>Mapa de Arribos a Colombia</h2>
+						<h2>Mapa de Zarpes a Colombia</h2>
 					</div>
 					<iframe id="mapa" class="iframe-placeholder" src="mapa" style="width: 100%; height: 430px"></iframe>    
 					

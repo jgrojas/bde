@@ -38,7 +38,7 @@ SET client_min_messages TO WARNING;
 /*----------------------------------------------------------------------------*/
 /*Creacion de tabla agencianave*/
 /*----------------------------------------------------------------------------*/
-CREATE TABLE agencianave (
+CREATE TABLE public.agencianave (
     id_agencia_arribo character(50) PRIMARY KEY,
     agencia_arribo character(100) NOT NULL
 );
@@ -48,7 +48,7 @@ CREATE TABLE agencianave (
 /*----------------------------------------------------------------------------*/
 /*Creacion de tabla tiponave*/
 /*----------------------------------------------------------------------------*/
-CREATE TABLE tiponave (
+CREATE TABLE public.tiponave (
     cod_tiponave integer PRIMARY KEY,
     nom_tiponave character(100) NOT NULL,
     categoria_trb character(1),
@@ -60,7 +60,7 @@ CREATE TABLE tiponave (
 /*----------------------------------------------------------------------------*/
 /*Creacion de tabla paises*/
 /*----------------------------------------------------------------------------*/
-CREATE TABLE paises (
+CREATE TABLE public.paises (
     abreviatura_pais character(3) PRIMARY KEY,
     nombre character(70) NOT NULL,
 	alfa_dos character(2)NOT NULL
@@ -71,12 +71,12 @@ CREATE TABLE paises (
 /*----------------------------------------------------------------------------*/
 /*Creacion de tabla naves*/
 /*----------------------------------------------------------------------------*/
-CREATE TABLE nave (
+CREATE TABLE public.nave (
     omimatricula character(20) PRIMARY KEY,
     nombrenave character(40) NOT NULL,
-    codigo_pais character(3) REFERENCES paises(abreviatura_pais),
-    id_agencia_arribo character(20) NOT NULL REFERENCES agencianave(id_agencia_arribo),
-    codigotiponave integer REFERENCES tiponave(cod_tiponave),
+    codigo_pais character(3) REFERENCES public.paises(abreviatura_pais),
+    id_agencia_arribo character(20) NOT NULL REFERENCES public.agencianave(id_agencia_arribo),
+    codigotiponave integer REFERENCES public.tiponave(cod_tiponave),
     anoconstru character(4),
     trb numeric,
     dwt numeric,
@@ -88,9 +88,9 @@ CREATE TABLE nave (
 /*----------------------------------------------------------------------------*/
 /*Creacion de tabla nave_agencianave*/
 /*----------------------------------------------------------------------------*/ 
-CREATE TABLE nave_agencianave (
-    id_agencia_arribo character(50) REFERENCES agencianave(id_agencia_arribo),
-    omimatricula character(20) REFERENCES nave(omimatricula),
+CREATE TABLE public.nave_agencianave (
+    id_agencia_arribo character(50) REFERENCES public.agencianave(id_agencia_arribo),
+    omimatricula character(20) REFERENCES public.nave(omimatricula),
     PRIMARY KEY(id_agencia_arribo,omimatricula)
 );
 /*----------------------------------------------------------------------------*/
@@ -99,7 +99,7 @@ CREATE TABLE nave_agencianave (
 /*----------------------------------------------------------------------------*/
 /*Creacion de tabla categoria_pnn*/
 /*----------------------------------------------------------------------------*/
-CREATE TABLE categoria_pnn (
+CREATE TABLE public.categoria_pnn (
     id_categoria character(2) PRIMARY KEY,
     nom_categoria character(50) NOT NULL
 );
@@ -109,9 +109,9 @@ CREATE TABLE categoria_pnn (
 /*----------------------------------------------------------------------------*/
 /*Creacion de tabla pnn*/
 /*----------------------------------------------------------------------------*/
-CREATE TABLE pnn (
+CREATE TABLE public.pnn (
     id_pnn text PRIMARY KEY,
-    id_categoria text REFERENCES categoria_pnn(id_categoria),
+    id_categoria text REFERENCES public.categoria_pnn(id_categoria),
     nom_parque text,
     geometry geometry(Geometry,4326)
 );
@@ -121,7 +121,7 @@ CREATE TABLE pnn (
 /*----------------------------------------------------------------------------*/
 /*Creacion de tabla capitanias*/
 /*----------------------------------------------------------------------------*/
-CREATE TABLE capitanias (
+CREATE TABLE public.capitanias (
     id_capitania text PRIMARY KEY,
     nom_capitania text,
     geometry geometry(Polygon,4326)
@@ -132,9 +132,9 @@ CREATE TABLE capitanias (
 /*----------------------------------------------------------------------------*/
 /*Creacion de tabla linea_costa*/
 /*----------------------------------------------------------------------------*/
-CREATE TABLE linea_costa (
+CREATE TABLE public.linea_costa (
     id_linea bigint PRIMARY KEY,
-    id_capitania text REFERENCES capitanias(id_capitania),
+    id_capitania text REFERENCES public.capitanias(id_capitania),
     geometry geometry(Geometry,4326)
 );
 /*----------------------------------------------------------------------------*/
@@ -143,10 +143,10 @@ CREATE TABLE linea_costa (
 /*----------------------------------------------------------------------------*/
 /*Creacion de tabla puertos*/
 /*----------------------------------------------------------------------------*/
-CREATE TABLE puertos (
+CREATE TABLE public.puertos (
     id_puerto text PRIMARY KEY,
     nom_puerto text,
-    abreviatura_pais text REFERENCES paises(abreviatura_pais),
+    abreviatura_pais text REFERENCES public.paises(abreviatura_pais),
     geometry geometry(Point,4326)
 );
 /*----------------------------------------------------------------------------*/
@@ -155,7 +155,7 @@ CREATE TABLE puertos (
 /*----------------------------------------------------------------------------*/
 /*Creacion de tabla razon_arribos*/
 /*----------------------------------------------------------------------------*/
-CREATE TABLE razon_arribos (
+CREATE TABLE public.razon_arribos (
     id_razon character(1) PRIMARY KEY,
     nom_razon character(25)
 );
@@ -165,11 +165,11 @@ CREATE TABLE razon_arribos (
 /*----------------------------------------------------------------------------*/
 /*Creacion de tabla arribos_naves_puertos*/
 /*----------------------------------------------------------------------------*/
-CREATE TABLE arribos_naves_puertos (
-    id_capitania text NOT NULL REFERENCES capitanias(id_capitania),
-    omimatricula text NOT NULL REFERENCES nave(omimatricula),
-    id_razonarribo text REFERENCES razon_arribos(id_razon),
-    pto_origen text NOT NULL REFERENCES puertos(id_puerto),
+CREATE TABLE public.arribos_naves_puertos (
+    id_capitania text NOT NULL REFERENCES public.capitanias(id_capitania),
+    omimatricula text NOT NULL REFERENCES public.nave(omimatricula),
+    id_razonarribo text REFERENCES public.razon_arribos(id_razon),
+    pto_origen text NOT NULL REFERENCES public.puertos(id_puerto),
     geometry geometry(LineString,4326),
     fecha_arribo timestamp NOT NULL,
     PRIMARY KEY(id_capitania,omimatricula,pto_origen,fecha_arribo)
@@ -179,18 +179,18 @@ CREATE TABLE arribos_naves_puertos (
 /*----------------------------------------------------------------------------*/
 /*-------------------Creacion de índices sobre las tablas---------------------*/
 /*----------------------------------------------------------------------------*/
-create unique index tiponave_id_idx on tiponave (cod_tiponave);
-create unique index nave_id_idx on nave (omimatricula);
-create unique index categoria_pnn_id_idx on categoria_pnn (id_categoria);
-create unique index pnn_id_idx on pnn (id_pnn);
-create unique index agencianave_id_idx on agencianave (id_agencia_arribo);
-create unique index nav_agennav_id_idx on nave_agencianave (id_agencia_arribo,omimatricula);
-create unique index paises_id_idx on paises (abreviatura_pais);
-create unique index capitania_id_idx on capitanias (id_capitania);
-create unique index puertos_id_idx on puertos (id_puerto);
-create unique index lineacosta_id_idx on linea_costa (id_linea);
-create unique index arribos_id_idx on arribos_naves_puertos (id_capitania,omimatricula,pto_origen,fecha_arribo);
-create index id_pnn_geom on pnn using GIST (geometry);
-create index id_arribos_geom on arribos_naves_puertos using GIST (geometry);
-create index id_capitanias_geom on capitanias using GIST (geometry);
-create index id_linea_geom on linea_costa using GIST (geometry);
+create unique index tiponave_id_idx on public.tiponave (cod_tiponave);
+create unique index nave_id_idx on public.nave (omimatricula);
+create unique index categoria_pnn_id_idx on public.categoria_pnn (id_categoria);
+create unique index pnn_id_idx on public.pnn (id_pnn);
+create unique index agencianave_id_idx on public.agencianave (id_agencia_arribo);
+create unique index nav_agennav_id_idx on public.nave_agencianave (id_agencia_arribo,omimatricula);
+create unique index paises_id_idx on public.paises (abreviatura_pais);
+create unique index capitania_id_idx on public.capitanias (id_capitania);
+create unique index puertos_id_idx on public.puertos (id_puerto);
+create unique index lineacosta_id_idx on public.linea_costa (id_linea);
+create unique index arribos_id_idx on public.arribos_naves_puertos (id_capitania,omimatricula,pto_origen,fecha_arribo);
+create index id_pnn_geom on public.pnn using GIST (geometry);
+create index id_arribos_geom on public.arribos_naves_puertos using GIST (geometry);
+create index id_capitanias_geom on public.capitanias using GIST (geometry);
+create index id_linea_geom on public.linea_costa using GIST (geometry);
