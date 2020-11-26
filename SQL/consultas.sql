@@ -185,3 +185,10 @@ from linea_costa;
 /*----------------------------------------------------------------------------*/
 
 select nave.omimatricula, nave.nombrenave from nave 
+
+/*----------------------------------------------------------------------------*/
+/*Último recorrido*/
+/*----------------------------------------------------------------------------*/
+
+select ST_AsGeoJSON(geometry) as geometry from "arribos_naves_puertos" where "omimatricula" = '17970LX2' order by "fecha_arribo" desc limit 1
+
