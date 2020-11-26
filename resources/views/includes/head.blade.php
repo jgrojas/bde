@@ -31,6 +31,8 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
 	<script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
 	
+	<meta name="csrf-token" content="{{ csrf_token() }}">
+	
 	<!-- Document Title
 	============================================= -->
 	<title>Simar | Colombia</title>

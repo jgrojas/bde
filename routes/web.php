@@ -17,6 +17,7 @@ use App\Http\Controllers\reportenaveController;
 
 Route::get('/',[home::class, 'index']);
 Route::get('reportenave',[reportenaveController::class, 'index']);
+Route::post('reportenavepost',[reportenaveController::class, 'report']);
 
 Route::get('mapa', function () {
     return view('pages/Mapa1');
