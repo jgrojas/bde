@@ -54,6 +54,9 @@
 
 @section('javascripts')
 <script type="text/javascript">
+	
+
+
 	function reportenave(){
 		var matricula=$('#naves_list option:selected').val();
 		var name=$('#naves_list option:selected').text();
@@ -111,7 +114,9 @@
 
 	}
 
+	//-------------------------------------------------------------------
 	//Crear el mapa para exploración de localización de la nave
+	//-------------------------------------------------------------------
 
 	var mapexplorer = L.map('mapexplorer', {
         center: [10, -72],
@@ -129,6 +134,8 @@
 	    zoomOffset: -1,
 	}).addTo(mapexplorer);
 
+	//-------------------------------------------------------------------
+	//-------------------------------------------------------------------
 
 
 

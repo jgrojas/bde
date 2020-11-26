@@ -7,6 +7,45 @@
 	width: 20px;
 }	
 
+#plot_arrivos {
+    height: 400px; 
+}
+
+
+.highcharts-figure, .highcharts-data-table table {
+    min-width: 310px; 
+    max-width: 800px;
+    margin: 1em auto;
+}
+
+.highcharts-data-table table {
+    font-family: Verdana, sans-serif;
+    border-collapse: collapse;
+    border: 1px solid #EBEBEB;
+    margin: 10px auto;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+.highcharts-data-table caption {
+    padding: 1em 0;
+    font-size: 1.2em;
+    color: #555;
+}
+.highcharts-data-table th {
+	font-weight: 600;
+    padding: 0.5em;
+}
+.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+    padding: 0.5em;
+}
+.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+    background: #f8f8f8;
+}
+.highcharts-data-table tr:hover {
+    background: #f1f7ff;
+}
+
 </style>
 
 @endsection
@@ -74,7 +113,11 @@
 											<div class="fbox-content">
 												<h3>Cantidad de Arribos</h3>
 												<p>Durante el periodo 2012-2020 han arribado al país {{$num_naves[0]->total}} número de naves de las cuales {{$num_naves2020[0]->total}} ({{$num_naves2020_p}}%) han arribo durante el 2020.</p>
-												Gráfica de número de arribos por año
+												
+												<div id="plot_arrivos">
+													
+												</div>
+
 											</div>
 										</div>
 									</div>
@@ -221,62 +264,8 @@
 								</div>
 							</div>
 						</div>
-
-					</div>
-
-					<div class="container topmargin-lg clearfix">
-
-						<div class="row">
-							<!-- Barber Category 1
-							============================================= -->
-							<!-- <div class="col-md-4 center bottommargin-lg">
-								<div class="feature-box media-box">
-									<div class="fbox-media" style="padding: 0 40px;">
-										<a href="#"><img class="rounded-circle img-thumbnail" src="demos/barber/images/features/shave.jpg" alt="Why choose Us?"><span>Shave</span><div class="sale-flash badge badge-warning py-2 px-3 rounded-0">-30% OFF*</div></a>
-									</div>
-									<div class="fbox-content">
-										<h3><span class="ls0 subtitle font-primary">Your Property in Good Hands.</span></h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi rem, facilis nobis voluptatum est voluptatem accusamus molestiae eaque perspiciatis mollitia.</p>
-										<a href="#" class="more-link text-uppercase ls1 font-weight-bold" style="margin: 20px 0 0 0; font-style: normal;">Read More</a>
-									</div>
-								</div>
-							</div> -->
-
-							<!-- Barber Category 2
-							============================================= -->
-							<!-- <div class="col-md-4 center bottommargin-lg">
-								<div class="feature-box media-box">
-									<div class="fbox-media" style="padding: 0 40px;">
-										<a href="#"><img class="rounded-circle img-thumbnail" src="demos/barber/images/features/haircut.jpg" alt="Effective Planning"><span>Haircut</span></a>
-									</div>
-									<div class="fbox-content">
-										<h3><span class="ls0 subtitle font-primary">Construction Process Organized.</span></h3>
-										<p>Porro repellat vero sapiente amet vitae quibusdam necessitatibus consectetur, labore totam. Accusamus perspiciatis asperiores labore esse.</p>
-										<a href="#" class="more-link text-uppercase ls1 font-weight-bold" style="margin: 20px 0 0 0; font-style: normal;">Read More</a>
-									</div>
-								</div>
-							</div> -->
-
-							<!-- Barber Category 3
-							============================================= -->
-							<!-- <div class="col-md-4 center bottommargin-lg">
-								<div class="feature-box media-box">
-									<div class="fbox-media" style="padding: 0 40px;">
-										<a href="#"><img class="rounded-circle img-thumbnail" src="demos/barber/images/features/hairwash.jpg" alt="Why choose Us?"><span>Hairwash</span></a>
-									</div>
-									<div class="fbox-content">
-										<h3><span class="ls0 subtitle font-primary">We have got you Covered.</span></h3>
-										<p>Quos, non, esse eligendi ab accusantium voluptatem. Maxime eligendi beatae, atque tempora ullam. Vitae delectus quia, consequuntur rerum quo.</p>
-										<a href="#" class="more-link text-uppercase ls1 font-weight-bold" style="margin: 20px 0 0 0; font-style: normal;">Read More</a>
-									</div>
-								</div>
-							</div> -->
-						</div>
-
 					</div>
 				</div>
-
-
 
 				<!-- Sección`para el mapa
 				============================================= -->
@@ -308,6 +297,10 @@
 @section('javascripts')
 <script type="text/javascript">
 	
+	//-------------------------------------------------------------------
+	//Mapa localización de los puertos
+	//-------------------------------------------------------------------
+
 	function puerto_point(cod_puerto){				
 		for (i = 0; i < principales_zarpes.features.length; i++){			
 			if(principales_zarpes.features[i].properties.id_puerto==cod_puerto){				
@@ -370,7 +363,72 @@
 		});
 	};
 
+	//-------------------------------------------------------------------
+	//Crear la gráfica de arrivos por año
+	//-------------------------------------------------------------------
+
+	//plot_arrivos
+
+	var arribos_anual={!!json_encode($arribos_anual)!!}
+	var arribos_anual_array=[];
+
+	for(i=0; i<arribos_anual.length; i++){
+		arribos_anual_array[i]=[arribos_anual[i].year,Math.round(parseInt(arribos_anual[i].sum))];
+	}
+	console.log(arribos_anual_array)
+
 	
+
+	
+	Highcharts.chart('plot_arrivos', {
+	    chart: {
+	        type: 'column'
+	    },
+	    title: {
+	        text: 'Distribución de arrivos para el periodo 2012-2020'
+	    },
+	    subtitle: {
+	        text: 'Source: DIMAR'
+	    },
+	    xAxis: {
+	        type: 'category',
+	        labels: {
+	            rotation: -45,
+	            style: {
+	                fontSize: '13px',
+	                fontFamily: 'Verdana, sans-serif'
+	            }
+	        }
+	    },
+	    yAxis: {
+	        min: 0,
+	        title: {
+	            text: 'Arrivos'
+	        }
+	    },
+	    legend: {
+	        enabled: false
+	    },
+	    tooltip: {
+	        pointFormat: 'Arrivos: {point.y}'
+	    },
+	    series: [{
+	        name: 'Population',
+	        data: arribos_anual_array,
+	        dataLabels: {
+	            enabled: true,
+	            rotation: -90,
+	            color: '#FFFFFF',
+	            align: 'right',
+	            format: '{point.y}', // one decimal
+	            y: 10, // 10 pixels down from the top
+	            style: {
+	                fontSize: '13px',
+	                fontFamily: 'Verdana, sans-serif'
+	            }
+	        }
+	    }]
+	});
 
 </script>
 @endsection
