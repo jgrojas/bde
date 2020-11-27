@@ -249,15 +249,15 @@
 				============================================= -->
 				<div id="price" class="section page-section parallax pb-0 mb-0 dark" style="background-image: url('images/3.jpg'); background-size: cover; height: 600px" data-bottom-top="background-position:0px 0px;" data-top-bottom="background-position:0px -300px;"></div>
 
-				<div class="container bottommargin dark clearfix" style="margin-top: -500px">
+				<!-- <div class="container bottommargin dark clearfix" style="margin-top: -500px">
 					<div class="heading-block bottommargin-lg center clearfix">
-						<!-- <img src="demos/barber/images/icons/wallet-white.svg" alt="Image" height="40" style="margin-bottom: 20px"> -->
+						
 						<h2>Mapa de Zarpes a Colombia</h2>
 					</div>
 					<iframe id="mapa" class="iframe-placeholder" src="mapa" style="width: 100%; height: 430px"></iframe>    
 					
 
-				</div>
+				</div> -->
 
 				
 				

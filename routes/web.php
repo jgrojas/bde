@@ -23,3 +23,6 @@ Route::get('mapa', function () {
     return view('pages/Mapa1');
 });
 
+Route::get('mapaframe', function () {
+    return view('pages/mapaframe');
+});
