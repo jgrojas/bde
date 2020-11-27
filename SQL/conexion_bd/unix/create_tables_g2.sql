@@ -174,6 +174,29 @@ CREATE TABLE public.arribos_naves_puertos (
     fecha_arribo timestamp NOT NULL,
     PRIMARY KEY(id_capitania,omimatricula,pto_origen,fecha_arribo)
 );
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
+/*Creacion de tabla grilla del Caribe*/
+/*----------------------------------------------------------------------------*/
+CREATE TABLE public.grilla_caribe (
+    point_id bigint PRIMARY KEY,
+    geometry geometry(Point,4326)
+);
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
+/*Creacion de tabla oleaje*/
+/*----------------------------------------------------------------------------*/
+CREATE TABLE public.oleaje (
+    id_oleaje bigint PRIMARY KEY,
+    id_grilla bigint NOT NULL REFERENCES public.grilla_caribe(point_id),
+    fecha timestamp NOT NULL,
+    altura_ola numeric
+);
+/*----------------------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------------------*/
@@ -190,7 +213,10 @@ create unique index capitania_id_idx on public.capitanias (id_capitania);
 create unique index puertos_id_idx on public.puertos (id_puerto);
 create unique index lineacosta_id_idx on public.linea_costa (id_linea);
 create unique index arribos_id_idx on public.arribos_naves_puertos (id_capitania,omimatricula,pto_origen,fecha_arribo);
+create unique index point_id_idx on public.grilla_caribe (point_id);
+create unique index oleaje_id_idx on public.oleaje (id_oleaje);
 create index id_pnn_geom on public.pnn using GIST (geometry);
 create index id_arribos_geom on public.arribos_naves_puertos using GIST (geometry);
 create index id_capitanias_geom on public.capitanias using GIST (geometry);
 create index id_linea_geom on public.linea_costa using GIST (geometry);
+create index id_point_geom on public.grilla_caribe using GIST (geometry);

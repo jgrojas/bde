@@ -233,7 +233,30 @@ group by tiponave.categoria_trb;
 
 
 /*----------------------------------------------------------------------------*/
-/*Dsitancia de la nave por la ruta*/
+/*Puerto origen de las naves*/
+/*----------------------------------------------------------------------------*/
+select nave.nombrenave, puertos.nom_puerto, arribos_naves_puertos.fecha_arribo,puertos.geometry 
+from nave
+	inner join arribos_naves_puertos on (arribos_naves_puertos.omimatricula =nave.omimatricula)
+	inner join puertos on (puertos.id_puerto =arribos_naves_puertos.pto_origen)
+group by nave.nombrenave,puertos.nom_puerto,arribos_naves_puertos.fecha_arribo,puertos.geometry;
 /*----------------------------------------------------------------------------*/
 
-	
+
+/*----------------------------------------------------------------------------*/
+/*Trayectos*/
+/*----------------------------------------------------------------------------*/
+create view trayectos as
+select distinct (arribos_naves_puertos.geometry),pto_origen, row_number() OVER () as id
+from arribos_naves_puertos 
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
+/*Trayectos*/
+/*----------------------------------------------------------------------------*/
+
+
+select public.find_route_nave()
+
+LINESTRING (-88.56029999999998 30.34733386800002, -84.78343651002994 20.28348061700625, -75.532602354 10.40628038199998)
