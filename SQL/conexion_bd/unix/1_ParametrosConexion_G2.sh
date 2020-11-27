@@ -23,4 +23,6 @@ cd "$( cd "$( dirname "$0" )" && pwd )" > /dev/null
 "$PGBIN/psql" -d "$SIMARDB" -f "table_puertos_g2.sql"
 "$PGBIN/psql" -d "$SIMARDB" -f "table_razon_arribos_g2.sql"
 "$PGBIN/psql" -d "$SIMARDB" -f "table_arribos_naves_puertos_g2.sql"
+"$PGBIN/psql" -d "$SIMARDB" -f "table_grilla_caribe_g2.sql"
+"$PGBIN/psql" -d "$SIMARDB" -f "table_oleaje_g2.sql"
 
