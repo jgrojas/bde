@@ -199,30 +199,8 @@
 											</div>
 											<div class="fbox-content">
 												<h3>Distribución de ingresos por Tipo de Nave</h3>
-												<p></p>												
-												<div class="col-md-12">
-													<?php $int=1 ?>												
-													<table class="table table-hover">
-													  <thead>
-														<tr>
-														  <th>#</th>
-														  <th>Tipo de nave</th>														  
-														  <th>Total</th>
-														  
-														</tr>
-													  </thead>
-													  <tbody>
-													  	@foreach($tipos_naves as $naves)
-															<tr>
-															  <td>{{$int}}</td>
-															  <td>{{$naves->nom_tiponave}}</td>															  
-															  <td>{{$naves->total}}</td>															  
-															</tr>
-															<?php $int=$int+1 ?>														
-														@endforeach													
-													  </tbody>
-													</table>
-												</div>
+												<p></p>
+												<div id="plot_tipos"></div>
 											</div>
 
 										</div>
@@ -365,9 +343,7 @@
 
 	//-------------------------------------------------------------------
 	//Crear la gráfica de arrivos por año
-	//-------------------------------------------------------------------
-
-	//plot_arribos
+	//-------------------------------------------------------------------	
 
 	var arribos_anual={!!json_encode($arribos_anual)!!}
 	var arribos_anual_array=[];
@@ -375,11 +351,7 @@
 	for(i=0; i<arribos_anual.length; i++){
 		arribos_anual_array[i]=[arribos_anual[i].year,Math.round(parseInt(arribos_anual[i].sum))];
 	}
-	console.log(arribos_anual_array)
 
-	
-
-	
 	Highcharts.chart('plot_arribos', {
 	    chart: {
 	        type: 'column'
@@ -429,6 +401,31 @@
 	        }
 	    }]
 	});
+
+	//-------------------------------------------------------------------
+	//Crear la gráfica de arrivos por año
+	//-------------------------------------------------------------------
+
+	
+
+	var tipos_naves={!!json_encode($tipos_naves)!!}
+	var tipos_naves_array=[];
+
+	for(i=0; i<tipos_naves.length; i++){
+		var randomcolor="#" + Math.floor(Math.random()*16777215).toString(16)
+		tipos_naves_array[i]={name: tipos_naves[i].nom_tiponave, value: tipos_naves[i].total, color: randomcolor};
+	}
+
+	Highcharts.chart('plot_tipos', {    
+    series: [{
+        type: 'treemap',
+        layoutAlgorithm: 'squarified',
+        data: tipos_naves_array
+    }],
+    title: {
+        text: 'Periodo 2012-2020'
+    }
+});
 
 </script>
 @endsection
