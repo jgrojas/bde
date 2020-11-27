@@ -112,9 +112,9 @@
 											</div>
 											<div class="fbox-content">
 												<h3>Cantidad de Arribos</h3>
-												<p>Durante el periodo 2012-2020 han arribado al país {{$num_naves[0]->total}} número de naves de las cuales {{$num_naves2020[0]->total}} ({{$num_naves2020_p}}%) han arribo durante el 2020.</p>
+												<p>Durante el periodo 2012-2020 han arribado al país {{$num_naves[0]->total}} número de naves de las cuales {{$num_naves2020[0]->total}} ({{$num_naves2020_p}}%) han arribado durante el 2020.</p>
 												
-												<div id="plot_arrivos">
+												<div id="plot_arribos">
 													
 												</div>
 
@@ -367,7 +367,7 @@
 	//Crear la gráfica de arrivos por año
 	//-------------------------------------------------------------------
 
-	//plot_arrivos
+	//plot_arribos
 
 	var arribos_anual={!!json_encode($arribos_anual)!!}
 	var arribos_anual_array=[];
@@ -380,12 +380,12 @@
 	
 
 	
-	Highcharts.chart('plot_arrivos', {
+	Highcharts.chart('plot_arribos', {
 	    chart: {
 	        type: 'column'
 	    },
 	    title: {
-	        text: 'Distribución de arrivos para el periodo 2012-2020'
+	        text: 'Distribución de arribos para el periodo 2012-2020'
 	    },
 	    subtitle: {
 	        text: 'Source: DIMAR'
@@ -403,14 +403,14 @@
 	    yAxis: {
 	        min: 0,
 	        title: {
-	            text: 'Arrivos'
+	            text: 'Arribos'
 	        }
 	    },
 	    legend: {
 	        enabled: false
 	    },
 	    tooltip: {
-	        pointFormat: 'Arrivos: {point.y}'
+	        pointFormat: 'Arribos: {point.y}'
 	    },
 	    series: [{
 	        name: 'Population',

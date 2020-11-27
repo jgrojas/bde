@@ -5,6 +5,11 @@ Autores: Angie Montoya, Gabriel Rojas */
 
 
 /*----------------------------------------------------------------------------*/
+/*----------------------------CONSULTAS HOME----------------------------------*/
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
 /*Tipos de naves arribadas al país en el periodo de estudio*/
 /*----------------------------------------------------------------------------*/
 select nom_tiponave,count(nom_tiponave) as total
@@ -180,15 +185,55 @@ order by st_distance limit 1;
 select st_buffer(geometry, 100)
 from linea_costa;
 
+
 /*----------------------------------------------------------------------------*/
-/*Listado de Naves*/
+/*----------------------------CONSULTAS NAVES----------------------------------*/
 /*----------------------------------------------------------------------------*/
 
-select nave.omimatricula, nave.nombrenave from nave 
+
+/*----------------------------------------------------------------------------*/
+/*Listado de Naves con geometría*/
+/*----------------------------------------------------------------------------*/
+select nave.omimatricula, nave.nombrenave 
+from nave 
+inner join arribos_naves_puertos on (arribos_naves_puertos.omimatricula =nave.omimatricula)
+where arribos_naves_puertos.geometry is not null 
+group by nave.omimatricula
 
 /*----------------------------------------------------------------------------*/
 /*Último recorrido*/
 /*----------------------------------------------------------------------------*/
 
-select ST_AsGeoJSON(geometry) as geometry from "arribos_naves_puertos" where "omimatricula" = '17970LX2' order by "fecha_arribo" desc limit 1
+select ST_AsGeoJSON(geometry) as geometry 
+from "arribos_naves_puertos" 
+where "omimatricula" = '17970LX2' 
+order by "fecha_arribo" desc limit 1
 
+
+/*----------------------------------------------------------------------------*/
+/*Naves por eslora*/
+/*----------------------------------------------------------------------------*/
+select count(nave.nombrenave) as total, tiponave.categoria_eslora
+from nave
+	inner join tiponave on (tiponave.cod_tiponave =nave.codigotiponave)
+	inner join arribos_naves_puertos on (arribos_naves_puertos.omimatricula =nave.omimatricula)
+group by tiponave.categoria_eslora;
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
+/*Naves por trb*/
+/*----------------------------------------------------------------------------*/
+select count(nave.nombrenave) as total, tiponave.categoria_trb 
+from nave
+	inner join tiponave on (tiponave.cod_tiponave =nave.codigotiponave)
+	inner join arribos_naves_puertos on (arribos_naves_puertos.omimatricula =nave.omimatricula)
+group by tiponave.categoria_trb;
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
+/*Dsitancia de la nave por la ruta*/
+/*----------------------------------------------------------------------------*/
+
+	
