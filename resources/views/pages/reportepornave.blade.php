@@ -71,12 +71,16 @@
 												  <td id="r_agencia"></td>
 												</tr>
 												<tr>
-												  <td>Slora</td>
-												  <td id="r_slora"></td>
+												  <td>Eslora</td>
+												  <td id="r_eslora"></td>
 												</tr>
 												<tr>
-												  <td>TDR</td>
-												  <td id="r_slora"></td>
+												  <td>TRB</td>
+												  <td id="r_trb"></td>
+												</tr>
+												<tr>
+												  <td>DWT</td>
+												  <td id="r_dwt"></td>
 												</tr>
 												<tr>
 												  <td>Fecha de construcción</td>
@@ -176,6 +180,18 @@
 				console.log(data);
 				//Add track to map
 				var track=data[0];
+				var eslora=data[1][0].eslora;
+				var trb=data[2][0].trb;
+				var construccion=data[3][0].anoconstru;
+				var agencia_nave=data[4][0].agencia_arribo;
+				var bandera=data[5][0].nombre;
+				var dwt=data[6][0].dwt;
+				$("#r_eslora").html(eslora);
+				$("#r_trb").html(trb);
+				$("#r_construccion").html(construccion);
+				$("#r_agencia").html(agencia_nave);
+				$("#r_origen").html(bandera);
+                $("#r_dwt").html(dwt);
 
 				try {	
 					//map.removeLayer(states);					

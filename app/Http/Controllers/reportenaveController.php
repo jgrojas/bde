@@ -67,6 +67,17 @@ class reportenaveController extends Controller
                     ->where('omimatricula','=',$matricula)
                     ->get();
 
+        $bandera=DB::TABLE('nave')
+                    ->join('paises','paises.abreviatura_pais','=','nave.codigo_pais')
+                    ->select(DB::RAW('paises.nombre'))
+                    ->where('omimatricula','=',$matricula)
+                    ->get();
+
+        $dwt=DB::TABLE('nave')
+                    ->select(DB::RAW('nave.dwt'))
+                    ->where('omimatricula','=',$matricula)
+                    ->get();
+
     	$track=DB::TABLE('arribos_naves_puertos')
     				->select(DB::RAW('ST_AsGeoJSON(geometry) as geometry'))
     				->where('omimatricula','=',$matricula)
@@ -74,7 +85,7 @@ class reportenaveController extends Controller
     				->limit(10)    				
     				->get();    
 
-    	$array=[$track];
+    	$array=[$track,$eslora,$trb,$construccion,$agencia_nave,$bandera,$dwt];
 
     	return $array;
     } 
