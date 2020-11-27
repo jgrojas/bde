@@ -48,14 +48,20 @@
 						</div>
 
 						<div class="row clearfix" id="reporte_div" style="display: none">
+							
+							<!-- Caracteristicas de la nave -->
 							<div class="col-md-6 col-12 d-none d-md-block">
 								<div class="card bg-light mb-12">
 								  	<div class="card-header" >
-								  		<h4 style="margin-bottom: 0px !important">Información general de la Nave</h4>
+								  		<h4 style="margin-bottom: 0px !important">Características de la Nave</h4>
 								  	</div>
 								  	<div class="card-body">
 								    	<table class="table table-hover">									  	
-										  	<tbody>									  	
+										  	<tbody>
+										  		<tr>
+												  <td>Origen</td>
+												  <td id="r_origen"></td>
+												</tr>									  	
 												<tr>
 												  <td>Matrícula</td>
 												  <td id="r_matricula"></td>
@@ -72,12 +78,17 @@
 												  <td>TDR</td>
 												  <td id="r_slora"></td>
 												</tr>
+												<tr>
+												  <td>Fecha de construcción</td>
+												  <td id="r_construccion"></td>
+												</tr>	
 										  </tbody>
 										</table>
 								  	</div>
 								</div>
 							</div>
 
+							<!-- Ultimo recorrido -->
 							<div class="col-md-6 col-12 d-none d-md-block">
 								<div class="card bg-light mb-12">
 								  	<div class="card-header" >
@@ -90,6 +101,41 @@
 								  	</div>
 								</div>
 							</div>
+
+							<div class="divider"><i class="icon-circle"></i></div>
+
+							<!-- Número de veces que ha arribado la nave a Colombia -->
+							<div class="col-md-6 col-12 d-none d-md-block">
+								<div class="card bg-light mb-12">
+								  	<div class="card-header" >
+								  		<h4 style="margin-bottom: 0px !important">Número de veces que ha arribado la nave a Colombia</h4>
+								  	</div>
+								  	<div class="card-body">
+								    	
+								  	</div>
+								</div>
+							</div>
+
+							<!-- Alertas espaciales -->
+							<div class="col-md-6 col-12 d-none d-md-block">
+								<div class="card bg-light mb-12">
+								  	<div class="card-header" >
+								  		<h4 style="margin-bottom: 0px !important">Alertas Espaciales</h4>
+								  	</div>
+								  	<div class="card-body">
+								  		<table class="table table-hover">									  	
+										  	<tbody>
+										  		<tr>
+												  <td>Distancia a Parques Nacionales</td>
+												  <td id="r_pnn"></td>
+												</tr>									  														
+										  </tbody>
+										</table>
+								    	
+								  	</div>
+								</div>
+							</div>
+
 						</div>
 					</div>
 				</div>
