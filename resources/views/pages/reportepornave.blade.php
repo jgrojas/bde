@@ -12,7 +12,10 @@
 				============================================= -->
 				<div id="about" class="section m-0 bg-transparent page-section" style="padding: 150px 0">
 					<div class="container clearfix">
-						<div class="row clearfix">							
+						<div class="row clearfix">	
+							<div class="col-md-3 col-6 d-none d-md-block">
+								
+							</div>						
 							<div class="col-md-6 col-12 center" style="padding: 0 50px;">
 								<img src="images/ocean-transportation.png" alt="Image" height="60" style="margin-bottom: 20px">
 								<div class="heading-block bottommargin-sm">
@@ -29,12 +32,57 @@
 										<option data-tokens="{{$nave->nombrenave}}" value="{{$nave->omimatricula}}">{{$nave->nombrenave}}</option>
 										@endforeach	
 									</select>
+									<br><br>
 									<a class="button button-3d button-rounded button-green" onclick="reportenave()"><i class="icon-repeat"></i>Generar reporte</a>
 								</div>
 							</div>
 							<div class="col-md-6 col-12 d-none d-md-block">
+							</div>
+							
+						</div>
+
+						<div class="divider"><i class="icon-circle"></i></div>
+
+						<div class="title-block">
+							<h2 id="card-map-header">Seleccione una Nave para ver el reporte</h2>									
+						</div>
+
+						<div class="row clearfix" id="reporte_div" style="display: none">
+							<div class="col-md-6 col-12 d-none d-md-block">
 								<div class="card bg-light mb-12">
-								  	<div class="card-header" id="card-map-header">Seleccione una Nave para explorar su ubicación</div>
+								  	<div class="card-header" >
+								  		<h4 style="margin-bottom: 0px !important">Información general de la Nave</h4>
+								  	</div>
+								  	<div class="card-body">
+								    	<table class="table table-hover">									  	
+										  	<tbody>									  	
+												<tr>
+												  <td>Matrícula</td>
+												  <td id="r_matricula"></td>
+												</tr>
+												<tr>
+												  <td>Agencia</td>
+												  <td id="r_agencia"></td>
+												</tr>
+												<tr>
+												  <td>Slora</td>
+												  <td id="r_slora"></td>
+												</tr>
+												<tr>
+												  <td>TDR</td>
+												  <td id="r_slora"></td>
+												</tr>
+										  </tbody>
+										</table>
+								  	</div>
+								</div>
+							</div>
+
+							<div class="col-md-6 col-12 d-none d-md-block">
+								<div class="card bg-light mb-12">
+								  	<div class="card-header" >
+								  		<h4 style="margin-bottom: 0px !important">Último recorrido de la nave</h4>
+								  	</div>
 								  	<div class="card-body">
 								    	<div id="mapexplorer" style="height: 300px">
 								    		
@@ -55,13 +103,18 @@
 @section('javascripts')
 <script type="text/javascript">
 	
-
+	
 
 	function reportenave(){
+
+		$('#reporte_div').show();
+		mapexplorer.invalidateSize();
+		//juri_plot1.reflow();
+			
 		var matricula=$('#naves_list option:selected').val();
 		var name=$('#naves_list option:selected').text();
-		$("#card-map-header").html("Reporte de localización para la Nave: " + name + " con matricula " + matricula);
-		
+		$("#card-map-header").html("Reporte para la Nave: " + name);
+		$("#r_matricula").html(matricula);
 		$.ajax({		
 		url: "reportenavepost",
 		data: {array: matricula},
