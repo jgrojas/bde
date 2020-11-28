@@ -247,7 +247,7 @@ group by nave.nombrenave,puertos.nom_puerto,arribos_naves_puertos.fecha_arribo,p
 /*Trayectos*/
 /*----------------------------------------------------------------------------*/
 create view trayectos as
-select distinct (arribos_naves_puertos.geometry),pto_origen, row_number() OVER () as id
+select distinct (arribos_naves_puertos.geometry),pto_origen
 from arribos_naves_puertos 
 /*----------------------------------------------------------------------------*/
 
