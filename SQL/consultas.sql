@@ -253,10 +253,28 @@ from arribos_naves_puertos
 
 
 /*----------------------------------------------------------------------------*/
-/*Trayectos*/
+/*Punto aleatorio de la nave*/
 /*----------------------------------------------------------------------------*/
+select ST_GeneratePoints(geom, 1) 
+from (
+	select ST_Buffer(
+		t.geometry,
+		1, 'endcap=round join=round') AS geom from trayectos t where t.pto_origen = 'HRPUY'
+) AS s 
 
+select t.geometry, t.pto_origen 
+from trayectos t 
 
-select public.find_route_nave()
-
-LINESTRING (-88.56029999999998 30.34733386800002, -84.78343651002994 20.28348061700625, -75.532602354 10.40628038199998)
+select nom_puerto, p.geometry, 
+	st_distance(ST_Transform(ST_SetSRID((select ST_GeneratePoints(geom, 1,1996) 
+										from (
+										select ST_Buffer(
+										t.geometry, 1, 'endcap=round join=round') AS geom 
+										from trayectos t where t.pto_origen = 'HRPUY'
+										) AS s limit 1),4326),3857),ST_Transform(p.geometry,3857)) 
+from puertos p
+order by st_distance limit 1;
+ 
+create view buffer_tracks as
+select ST_Buffer(t.geometry, 1, 'endcap=round join=round') AS geom, t.pto_origen 
+from trayectos t 

@@ -18,6 +18,11 @@ class reportenaveController extends Controller
                     ->orderby('nave.nombrenave')
     				->get();
 
+        $list_rutas=DB::TABLE('trayectos')
+                    ->join('puertos','puertos.id_puerto','=','trayectos.pto_origen')
+                    ->select('trayectos.pto_origen','puertos.nom_puerto')
+                    ->get();
+
         $naves_eslora=DB::TABLE('nave')
                     ->join('tiponave','tiponave.cod_tiponave','=','nave.codigotiponave') 
                     ->join('arribos_naves_puertos','arribos_naves_puertos.omimatricula','=','nave.omimatricula')
@@ -39,7 +44,11 @@ class reportenaveController extends Controller
                     ->groupby('nave.nombrenave','puertos.nom_puerto','arribos_naves_puertos.fecha_arribo','puertos.geometry')
                     ->get();
 
-    	return view('pages.reportepornave',array('list_nave'=>$list_nave));
+        $random_point=DB::TABLE('buffer_tracks')
+                    ->select('ST_GeneratePoints(ST_AsGeoJSON(geometry), 1)')
+                    ->get();
+
+    	return view('pages.reportepornave',array('list_nave'=>$list_nave,'list_rutas'=>$list_rutas));
     }
 
     public function report(Request $request)
