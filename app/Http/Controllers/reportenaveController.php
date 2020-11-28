@@ -44,9 +44,9 @@ class reportenaveController extends Controller
                     ->groupby('nave.nombrenave','puertos.nom_puerto','arribos_naves_puertos.fecha_arribo','puertos.geometry')
                     ->get();
 
-        $random_point=DB::TABLE('buffer_tracks')
+        /*$random_point=DB::TABLE('buffer_tracks')
                     ->select('ST_GeneratePoints(ST_AsGeoJSON(geometry), 1)')
-                    ->get();
+                    ->get();*/
 
     	return view('pages.reportepornave',array('list_nave'=>$list_nave,'list_rutas'=>$list_rutas));
     }
