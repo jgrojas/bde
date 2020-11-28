@@ -37,6 +37,7 @@
 	<!-- Footer Scripts
 	============================================= -->
 	<script src="js/functions.js"></script>
+	
 	@yield('javascripts')
 </body>
 </html>
