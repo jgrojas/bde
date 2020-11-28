@@ -21,6 +21,7 @@ class reportenaveController extends Controller
         $list_rutas=DB::TABLE('trayectos')
                     ->join('puertos','puertos.id_puerto','=','trayectos.pto_origen')
                     ->select('trayectos.pto_origen','puertos.nom_puerto')
+                    ->limit(1)
                     ->get();
 
         $naves_eslora=DB::TABLE('nave')
