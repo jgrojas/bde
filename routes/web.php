@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\home;
 use App\Http\Controllers\reportenaveController;
+use App\Http\Controllers\simuladorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,9 @@ use App\Http\Controllers\reportenaveController;
 
 Route::get('/',[home::class, 'index']);
 Route::get('reportenave',[reportenaveController::class, 'index']);
+Route::get('simulador',[simuladorController::class, 'index']);
 Route::post('reportenavepost',[reportenaveController::class, 'report']);
+
 
 Route::get('mapa', function () {
     return view('pages/Mapa1');

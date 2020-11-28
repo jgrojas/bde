@@ -24,11 +24,7 @@
 								<li class="menu-item"><a class="menu-link" href="#" data-offset="56" data-href="#global">Reporte Global</a></li>
 								<li class="menu-item"><a class="menu-link" href="reportenave#about" data-href="reportenave">Reporte por Nave</a></li>
 								<li class="menu-item"><a class="menu-link" href="mapaframe#about" data-href="#shop">Mapa</a></li>
-								<li class="menu-item"><a class="menu-link" href="#" data-href="#testimonial">Testimonial</a></li>
-								<li class="menu-item"><a class="menu-link" href="#" data-href="#contact">Contact</a></li>
-								<!-- <li class="menu-item">
-									<a href="#" data-scrollto="#contact" data-offset="62" data-easing="easeInOutExpo" data-speed="1300" class="button button-color reverse"><i class="icon-calendar2"></i> Appoinment</a>
-								</li> -->
+								<li class="menu-item"><a class="menu-link" href="simulador" data-href="#testimonial">Simulador</a></li>								
 							</ul>
 						</nav><!-- #primary-menu end -->
 					</div>
