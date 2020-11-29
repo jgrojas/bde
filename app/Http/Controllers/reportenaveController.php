@@ -92,7 +92,7 @@ class reportenaveController extends Controller
     				->select(DB::RAW('ST_AsGeoJSON(geometry) as geometry'))
     				->where('omimatricula','=',$matricula)
     				->orderby('fecha_arribo','DESC')
-    				->limit(10)    				
+    				->limit(1)    				
     				->get();    
 
     	$array=[$track,$eslora,$trb,$construccion,$agencia_nave,$bandera,$dwt];

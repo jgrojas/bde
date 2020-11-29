@@ -162,12 +162,14 @@ from arribos_naves_puertos anp;
 /*----------------------------------------------------------------------------*/
 /*Arribos para el año 2020*/
 /*----------------------------------------------------------------------------*/
-select count(*)
+select count(id_capitania)
 from(
-	select *, extract (year from fecha_arribo) as year
+	select id_capitania, extract (year from fecha_arribo) as year
 	from arribos_naves_puertos anp) as l
 where year = 2020
 ;
+
+
 /*----------------------------------------------------------------------------*/
 
 
