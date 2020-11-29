@@ -81,6 +81,15 @@
 
 	mapsimulator.fitBounds(marker_cluster_group.getBounds());
 
+	var tileIndex =geojsonvt(grilla);
+	// request a particular tile
+	var features = tileIndex.getTile(z, x, y).features;
+	console.log(tileIndex.tileCoords);
+	/*var ships = L.icon({
+	    iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Emoji_u1f6a2.svg/30px-Emoji_u1f6a2.svg.png',
+	    iconSize: [30, 30]
+	});*/
+
 </script>
 
 @endsection
