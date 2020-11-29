@@ -387,3 +387,9 @@ order by longitud desc limit 10
 /*----------------------------------------------------------------------------*/
 /*Número de veces que ha arribado la nave al país*/
 /*----------------------------------------------------------------------------*/
+select n.nombrenave, n.omimatricula, count(anp.omimatricula) as arribos
+from nave n
+	inner join arribos_naves_puertos anp on (anp.omimatricula=n.omimatricula) 
+group by n.omimatricula, n.nombrenave
+order by arribos desc limit 10
+/*----------------------------------------------------------------------------*/

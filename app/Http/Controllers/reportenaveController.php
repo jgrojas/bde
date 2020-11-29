@@ -93,8 +93,15 @@ class reportenaveController extends Controller
                     ->limit(10)
                     ->get();
 
+        $arribos_naves=DB::TABLE('nave')
+                    ->join('arribos_naves_puertos','arribos_naves_puertos.omimatricula','=','nave.omimatricula')
+                    ->select(DB::RAW('nave.nombrenave, nave.omimatricula, count(arribos_naves_puertos.omimatricula) as arribos'))
+                    ->groupby('nave.omimatricula', 'nave.nombrenave')
+                    ->orderby('arribos')
+                    ->limit(10)
+                    ->get();
 
-    	$array=[$track,$detalles_nave,$punto_aleatorio,$longitud_recorridos];
+    	$array=[$track,$detalles_nave,$punto_aleatorio,$longitud_recorridos,$arribos_naves];
     	return $array;
     } 
 
