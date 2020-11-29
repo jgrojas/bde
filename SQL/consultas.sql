@@ -322,7 +322,7 @@ order by distancia limit 1;
 /*Ubicación de la nave en el Caribe*/
 /*----------------------------------------------------------------------------*/
 create or replace view nave_caribe as
-select ST_Buffer(gc.geometry, 0.4, 'endcap=round join=round')
+select ST_Buffer(gc.geometry, 1, 'endcap=round join=round')
 from grilla_caribe gc 
 order by random()
 limit 1 
@@ -363,11 +363,27 @@ order by p.nom_puerto
 
 
 /*----------------------------------------------------------------------------*/
-/*Nave que ha recorrido la ruta más larga*/
+/*Nave con recorrido*/
 /*----------------------------------------------------------------------------*/
-select n.nombrenave, sum(ST_Length(ST_Transform(anp.geometry,3857))) as longitud
+create or replace view naves_recorrido as
+select n.nombrenave, n.omimatricula, anp.geometry 
 from nave n
 	inner join arribos_naves_puertos anp on (anp.omimatricula=n.omimatricula) 
-group by n.nombrenave 
-order by longitud desc
+where anp.geometry is not null
 
+
+
+
+/*----------------------------------------------------------------------------*/
+/*Nave que ha recorrido la ruta más larga*/
+/*----------------------------------------------------------------------------*/
+select nr.omimatricula, nr.nombrenave, sum(ST_Length(ST_Transform(nr.geometry,3857))) as longitud
+from naves_recorrido nr
+group by nr.omimatricula,nr.nombrenave 
+order by longitud desc limit 10
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
+/*Número de veces que ha arribado la nave al país*/
+/*----------------------------------------------------------------------------*/

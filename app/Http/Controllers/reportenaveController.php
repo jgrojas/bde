@@ -86,7 +86,15 @@ class reportenaveController extends Controller
                     ->where('pto_origen','=',$puerto_origen)
                     ->get();*/
 
-    	$array=[$track,$detalles_nave,$punto_aleatorio];
+        $longitud_recorridos=DB::TABLE('naves_recorrido')
+                    ->select(DB::RAW('naves_recorrido.omimatricula, naves_recorrido.nombrenave, sum(ST_Length(ST_Transform(naves_recorrido.geometry,3857))) as longitud'))
+                    ->groupby('naves_recorrido.omimatricula','naves_recorrido.nombrenave')
+                    ->orderby('longitud','DESC')
+                    ->limit(10)
+                    ->get();
+
+
+    	$array=[$track,$detalles_nave,$punto_aleatorio,$longitud_recorridos];
     	return $array;
     } 
 
