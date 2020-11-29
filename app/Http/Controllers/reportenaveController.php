@@ -56,35 +56,10 @@ class reportenaveController extends Controller
     {	
     	$matricula=$request ->input('array');
 
-        $eslora=DB::TABLE('nave')
-                    ->select(DB::RAW('nave.eslora'))
-                    ->where('omimatricula','=',$matricula)
-                    ->get();
-
-        $trb=DB::TABLE('nave')
-                    ->select(DB::RAW('nave.trb'))
-                    ->where('omimatricula','=',$matricula)
-                    ->get();
-
-        $construccion=DB::TABLE('nave')
-                    ->select(DB::RAW('nave.anoconstru'))
-                    ->where('omimatricula','=',$matricula)
-                    ->get();
-
-        $agencia_nave=DB::TABLE('nave')
+        $detalles_nave=DB::TABLE('nave')
                     ->join('agencianave','agencianave.id_agencia_arribo','=','nave.id_agencia_arribo')
-                    ->select(DB::RAW('agencianave.agencia_arribo'))
-                    ->where('omimatricula','=',$matricula)
-                    ->get();
-
-        $bandera=DB::TABLE('nave')
                     ->join('paises','paises.abreviatura_pais','=','nave.codigo_pais')
-                    ->select(DB::RAW('paises.nombre'))
-                    ->where('omimatricula','=',$matricula)
-                    ->get();
-
-        $dwt=DB::TABLE('nave')
-                    ->select(DB::RAW('nave.dwt'))
+                    ->select(DB::RAW('paises.nombre, nave.eslora, nave.trb, nave.anoconstru, agencianave.agencia_arribo, paises.nombre, nave.dwt'))
                     ->where('omimatricula','=',$matricula)
                     ->get();
 
@@ -95,8 +70,7 @@ class reportenaveController extends Controller
     				->limit(1)    				
     				->get();    
 
-    	$array=[$track,$eslora,$trb,$construccion,$agencia_nave,$bandera,$dwt];
-
+    	$array=[$track,$detalles_nave];
     	return $array;
     } 
 

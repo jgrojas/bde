@@ -181,11 +181,11 @@
 				//Add track to map
 				var track=data[0];
 				var eslora=data[1][0].eslora;
-				var trb=data[2][0].trb;
-				var construccion=data[3][0].anoconstru;
-				var agencia_nave=data[4][0].agencia_arribo;
-				var bandera=data[5][0].nombre;
-				var dwt=data[6][0].dwt;
+				var trb=data[1][0].trb;
+				var construccion=data[1][0].anoconstru;
+				var agencia_nave=data[1][0].agencia_arribo;
+				var bandera=data[1][0].nombre;
+				var dwt=data[1][0].dwt;
 				$("#r_eslora").html(eslora);
 				$("#r_trb").html(trb);
 				$("#r_construccion").html(construccion);
