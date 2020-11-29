@@ -189,7 +189,8 @@ order by count(nom_puerto) desc limit 10
 /*----------------------------------------------------------------------------*/
 /*Rutas que intersectan con reservas naturales*/
 /*----------------------------------------------------------------------------*/
-select distinct(t2.geometry,t2.pto_origen),pt.nom_puerto,p.nom_parque,t2.geometry as ruta, p.geometry as parque
+create or replace view rutas_intersect as
+select t2.pto_origen,pt.nom_puerto,p.nom_parque,t2.geometry as ruta, p.geometry as parque
 from pnn p, trayectos t2 
 	inner join puertos pt on (pt.id_puerto =t2.pto_origen)
 where st_intersects(p.geometry, t2.geometry)

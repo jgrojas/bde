@@ -77,10 +77,14 @@ class reportenaveController extends Controller
                     ->get();
 
         $punto_aleatorio=DB::TABLE('buffer_tracks')
-                    ->select(DB::RAW('ST_GeneratePoints(ST_AsGeoJSON(geometry),1) as geometry, buffer_tracks.pto_origen, buffer_tracks.nom_puerto'))
+                    ->select(DB::RAW('ST_GeneratePoints(ST_AsGeoJSON(geom),1) as geometry, buffer_tracks.pto_origen, buffer_tracks.nom_puerto'))
                     ->where('pto_origen','=',$puerto_origen)
                     ->get();
 
+        /*$punto_emergencia=DB::TABLE('puertos')
+                    ->select(DB::RAW('$punto_aleatorio.nom_puerto as origen'))
+                    ->where('pto_origen','=',$puerto_origen)
+                    ->get();*/
 
     	$array=[$track,$detalles_nave,$punto_aleatorio];
     	return $array;
