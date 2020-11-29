@@ -59,7 +59,7 @@ order by count(nom_capitania) desc limit 5
 /*----------------------------------------------------------------------------*/
 /*Vista de arribos por capitanía*/
 /*----------------------------------------------------------------------------*/
-create view arribos_capitanias as
+create or replace view arribos_capitanias as
 select nom_capitania, count(nom_capitania) as total
 from capitanias c
 	inner join arribos_naves_puertos anp on (c.id_capitania=anp.id_capitania)
@@ -72,6 +72,18 @@ order by count(nom_capitania) desc limit 5
 /*----------------------------------------------------------------------------*/
 /*Vista de arribos anual por capitanía*/
 /*----------------------------------------------------------------------------*/
+create or replace view arribos_mensual as
+select c.nom_capitania, extract (month from anp.fecha_arribo) as month,count(c.nom_capitania) as total
+from capitanias c
+	inner join arribos_naves_puertos anp on (c.id_capitania=anp.id_capitania)
+group by nom_capitania,month
+;
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
+/*Vista de arribos mensual por capitanía*/
+/*----------------------------------------------------------------------------*/
 create view arribos_anual as
 select c.nom_capitania, extract (year from anp.fecha_arribo) as year,count(c.nom_capitania) as total
 from capitanias c
@@ -82,12 +94,37 @@ group by nom_capitania,year
 
 
 /*----------------------------------------------------------------------------*/
+/*Trayectos*/
+/*----------------------------------------------------------------------------*/
+create or replace view trayectos as
+select distinct (anp.geometry),anp.pto_origen, p.nom_puerto
+from arribos_naves_puertos anp
+	inner join puertos p on (p.id_puerto =anp.pto_origen)
+	
+create or replace view buffer_tracks as
+select ST_Buffer(t.geometry, 1, 'endcap=round join=round') AS geom, t.pto_origen, t.nom_puerto
+from trayectos t 
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
 /*Arribos anual por capitanía*/
 /*----------------------------------------------------------------------------*/
 select year, sum(total)
 from arribos_anual aa 
 group by year
 order by year
+;
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
+/*Arribos mensual por capitanía*/
+/*----------------------------------------------------------------------------*/
+select month, sum(total)
+from arribos_mensual am 
+group by month
+order by month
 ;
 /*----------------------------------------------------------------------------*/
 
@@ -133,7 +170,7 @@ where year = 2020
 ;
 /*----------------------------------------------------------------------------*/
 
-select count() 
+
 /*----------------------------------------------------------------------------*/
 /*Principales puertos de origen de las naves arribadas al país"*/
 /*----------------------------------------------------------------------------*/
@@ -150,11 +187,11 @@ order by count(nom_puerto) desc limit 10
 /*----------------------------------------------------------------------------*/
 /*Rutas que intersectan con reservas naturales*/
 /*----------------------------------------------------------------------------*/
-select distinct(anp.geometry,anp.pto_origen),pt.nom_puerto,p.nom_parque,anp.geometry as ruta, p.geometry as parque
-from pnn p, arribos_naves_puertos anp
-	inner join puertos pt on (pt.id_puerto =anp.pto_origen)
-where st_intersects(p.geometry, anp.geometry)
-group by  p.nom_parque,anp.geometry,anp.pto_origen,pt.nom_puerto,p.geometry 
+select distinct(t2.geometry,t2.pto_origen),pt.nom_puerto,p.nom_parque,t2.geometry as ruta, p.geometry as parque
+from pnn p, trayectos t2 
+	inner join puertos pt on (pt.id_puerto =t2.pto_origen)
+where st_intersects(p.geometry, t2.geometry)
+group by  p.nom_parque,t2.geometry,t2.pto_origen,pt.nom_puerto,p.geometry 
 ;
 /*----------------------------------------------------------------------------*/
 
@@ -187,7 +224,7 @@ from linea_costa;
 
 
 /*----------------------------------------------------------------------------*/
-/*----------------------------CONSULTAS NAVES----------------------------------*/
+/*----------------------------CONSULTAS NAVES---------------------------------*/
 /*----------------------------------------------------------------------------*/
 
 
@@ -244,37 +281,90 @@ group by nave.nombrenave,puertos.nom_puerto,arribos_naves_puertos.fecha_arribo,p
 
 
 /*----------------------------------------------------------------------------*/
-/*Trayectos*/
-/*----------------------------------------------------------------------------*/
-create view trayectos as
-select distinct (arribos_naves_puertos.geometry),pto_origen
-from arribos_naves_puertos 
-/*----------------------------------------------------------------------------*/
-
-
-/*----------------------------------------------------------------------------*/
 /*Punto aleatorio de la nave*/
 /*----------------------------------------------------------------------------*/
-select ST_GeneratePoints(geom, 1) 
-from (
-	select ST_Buffer(
-		t.geometry,
-		1, 'endcap=round join=round') AS geom from trayectos t where t.pto_origen = 'HRPUY'
-) AS s 
+create or replace view punto_aleatorio as
+select ST_GeneratePoints(geom, 1), bt.pto_origen, bt.nom_puerto 
+from buffer_tracks bt  
+where bt.pto_origen = 'HRPUY'
+/*----------------------------------------------------------------------------*/
 
-select t.geometry, t.pto_origen 
-from trayectos t 
 
-select nom_puerto, p.geometry, 
-	st_distance(ST_Transform(ST_SetSRID((select ST_GeneratePoints(geom, 1,1996) 
-										from (
-										select ST_Buffer(
-										t.geometry, 1, 'endcap=round join=round') AS geom 
-										from trayectos t where t.pto_origen = 'HRPUY'
-										) AS s limit 1),4326),3857),ST_Transform(p.geometry,3857)) 
-from puertos p
+/*----------------------------------------------------------------------------*/
+/*Puerto más cercano por emergencia de la nave*/
+/*----------------------------------------------------------------------------*/
+select o.nom_puerto as origen, p.nom_puerto as puerto_emergencia, p.geometry, o.st_generatepoints, 
+	st_distance(ST_Transform(ST_SetSRID((o.st_generatepoints),4326),3857),ST_Transform(p.geometry,3857)) 
+from puertos p,punto_aleatorio o
 order by st_distance limit 1;
+/*----------------------------------------------------------------------------*/
  
-create view buffer_tracks as
-select ST_Buffer(t.geometry, 1, 'endcap=round join=round') AS geom, t.pto_origen 
-from trayectos t 
+
+/*----------------------------------------------------------------------------*/
+/*Distancia al puerto de Cartagena*/
+/*----------------------------------------------------------------------------*/
+select o.nom_puerto as origen, p.nom_puerto as destino, p.geometry, o.st_generatepoints, 
+	st_distance(ST_Transform(ST_SetSRID((o.st_generatepoints),4326),3857),ST_Transform(p.geometry,3857)) as distancia 
+from puertos p,punto_aleatorio o
+where p.id_puerto = 'COCTG'
+order by distancia limit 1;
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
+/*----------------------------CONSULTAS ESPACIALES----------------------------*/
+/*----------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------*/
+/*Ubicación de la nave en el Caribe*/
+/*----------------------------------------------------------------------------*/
+create or replace view nave_caribe as
+select ST_Buffer(gc.geometry, 0.4, 'endcap=round join=round')
+from grilla_caribe gc 
+order by random()
+limit 1 
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
+/*Oleaje en una fecha definida*/
+/*----------------------------------------------------------------------------*/
+create or replace view oleaje_dia as
+select o2.altura_ola,gc.point_id,gc.geometry 
+from grilla_caribe gc
+	inner join oleaje o2 on (o2.id_grilla =gc.point_id)
+where o2.fecha = '2020-09-10 12:00:00'
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
+/*Categoría del oleaje sobre la posición de una nave*/
+/*----------------------------------------------------------------------------*/
+select ST_Contains(nc.st_buffer, od.geometry) 
+from nave_caribe nc, oleaje_dia od 
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
+/*Tipo de embarcaciones transitaron por un puerto*/
+/*----------------------------------------------------------------------------*/
+select p.nom_puerto,nom_tiponave,count(nom_tiponave) 
+from nave n
+    inner join tiponave t on (t.cod_tiponave=n.codigotiponave) 
+    inner join arribos_naves_puertos anp on (n.omimatricula=anp.omimatricula)
+    inner join puertos p on (p.id_puerto=anp.pto_origen)
+where fecha_arribo <'2019-09-26' and fecha_arribo >'2015-09-26'
+group by p.nom_puerto,nom_tiponave
+order by p.nom_puerto 
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
+/*Nave que ha recorrido la ruta más larga*/
+/*----------------------------------------------------------------------------*/
+select n.nombrenave, sum(ST_Length(ST_Transform(anp.geometry,3857))) as longitud
+from nave n
+	inner join arribos_naves_puertos anp on (anp.omimatricula=n.omimatricula) 
+group by n.nombrenave 
+order by longitud desc
+
