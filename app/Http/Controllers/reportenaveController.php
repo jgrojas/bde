@@ -55,6 +55,7 @@ class reportenaveController extends Controller
     public function report(Request $request)
     {	
     	$matricula=$request ->input('array');
+        $puerto_origen=$request ->input('array'); 
 
         $detalles_nave=DB::TABLE('nave')
                     ->join('agencianave','agencianave.id_agencia_arribo','=','nave.id_agencia_arribo')
@@ -64,11 +65,16 @@ class reportenaveController extends Controller
                     ->get();
 
     	$track=DB::TABLE('arribos_naves_puertos')
-    				->select(DB::RAW('ST_AsGeoJSON(geometry) as geometry'))
+    				->select(DB::RAW('ST_AsGeoJSON(geometry) as geometry,arribos_naves_puertos.pto_origen'))
     				->where('omimatricula','=',$matricula)
     				->orderby('fecha_arribo','DESC')
     				->limit(1)    				
-    				->get();    
+    				->get();   
+
+        $rutas_parques=DB::TABLE('rutas_intersect')
+                    ->select(DB::RAW('rutas_intersect.pto_origen, rutas_intersect.nom_puerto, rutas_intersect.nom_parque, rutas_intersect.ruta, rutas_intersect.parque'))
+                    ->where('pto_origen','=',$puerto_origen)
+                    ->get();
 
     	$array=[$track,$detalles_nave];
     	return $array;
