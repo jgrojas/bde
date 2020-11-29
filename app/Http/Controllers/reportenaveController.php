@@ -56,10 +56,9 @@ class reportenaveController extends Controller
                     ->join('arribos_naves_puertos','arribos_naves_puertos.omimatricula','=','nave.omimatricula')
                     ->select(DB::RAW('nave.nombrenave, nave.omimatricula, count(arribos_naves_puertos.omimatricula) as arribos'))
                     ->groupby('nave.omimatricula', 'nave.nombrenave')
-                    ->orderby('arribos')
+                    ->orderby('arribos','DESC')
                     ->limit(10)
                     ->get();
-        return($longitud_recorridos);
 
     	return view('pages.reportepornave',array('list_nave'=>$list_nave,'list_rutas'=>$list_rutas, 'longitud_recorridos'=> $longitud_recorridos, '$arribos_naves'=>$arribos_naves));
     }
