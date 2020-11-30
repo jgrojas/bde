@@ -16,6 +16,8 @@ select nom_tiponave,count(nom_tiponave) as total
 from nave n
     inner join tiponave t on (t.cod_tiponave=n.codigotiponave) inner join arribos_naves_puertos anp on (n.omimatricula=anp.omimatricula) 
 group by nom_tiponave
+order by total desc
+limit 10
 ;
 /*----------------------------------------------------------------------------*/
 
@@ -245,8 +247,11 @@ group by nave.omimatricula
 
 select ST_AsGeoJSON(geometry) as geometry 
 from "arribos_naves_puertos" 
-where "omimatricula" = '17970LX2' 
+where "omimatricula" = '8003060' 
 order by "fecha_arribo" desc limit 1
+
+
+
 
 
 /*----------------------------------------------------------------------------*/
