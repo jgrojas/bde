@@ -215,8 +215,8 @@ order by st_intersection desc limit 1;
 /*----------------------------------------------------------------------------*/
 /*Puerto más cercano según la ubicación de una nave*/
 /*----------------------------------------------------------------------------*/
-select nom_puerto, p.geometry, 
-	st_distance(ST_Transform(ST_SetSRID(ST_GeomFromText('POINT(-71.107 12.028)'),4326),3857),ST_Transform(p.geometry,3857)) 
+select nom_puerto, p.geometry, ST_GeomFromText('POINT(-73.107 13.028)'),
+	st_distance(ST_Transform(ST_SetSRID(ST_GeomFromText('POINT(-73.107 13.028)'),4326),3857),ST_Transform(p.geometry,3857)) 
 from puertos p
 order by st_distance limit 1;
 /*----------------------------------------------------------------------------*/
