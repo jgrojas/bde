@@ -16,49 +16,7 @@ class reportenaveController extends Controller
                     ->whereNotNull ('arribos_naves_puertos.geometry')
                     ->groupby('nave.omimatricula')
                     ->orderby('nave.nombrenave')
-    				->get();
-
-        $list_rutas=DB::TABLE('trayectos')
-                    ->join('puertos','puertos.id_puerto','=','trayectos.pto_origen')
-                    ->select('trayectos.pto_origen','puertos.nom_puerto')
-                    ->limit(1)
-                    ->get();
-
-        $naves_eslora=DB::TABLE('nave')
-                    ->join('tiponave','tiponave.cod_tiponave','=','nave.codigotiponave') 
-                    ->join('arribos_naves_puertos','arribos_naves_puertos.omimatricula','=','nave.omimatricula')
-                    ->select(DB::RAW('count(nave.nombrenave) as total, tiponave.categoria_eslora'))
-                    ->groupby('tiponave.categoria_eslora')
-                    ->get(); 
-
-        $naves_trb=DB::TABLE('nave')
-                    ->join('tiponave','tiponave.cod_tiponave','=','nave.codigotiponave') 
-                    ->join('arribos_naves_puertos','arribos_naves_puertos.omimatricula','=','nave.omimatricula')
-                    ->select(DB::RAW('count(nave.nombrenave) as total, tiponave.categoria_trb'))
-                    ->groupby('tiponave.categoria_trb')
-                    ->get();
-
-        $nave_puerto=DB::TABLE('nave')
-                    ->join('arribos_naves_puertos','arribos_naves_puertos.omimatricula','=','nave.omimatricula') 
-                    ->join('puertos','puertos.id_puerto','=','arribos_naves_puertos.pto_origen')
-                    ->select(DB::RAW('nave.nombrenave, puertos.nom_puerto, arribos_naves_puertos.fecha_arribo,puertos.geometry'))
-                    ->groupby('nave.nombrenave','puertos.nom_puerto','arribos_naves_puertos.fecha_arribo','puertos.geometry')
-                    ->get();
-
-        $longitud_recorridos=DB::TABLE('naves_recorrido')
-                    ->select(DB::RAW('naves_recorrido.omimatricula, naves_recorrido.nombrenave, sum(ST_Length(ST_Transform(naves_recorrido.geometry,3857))) as longitud'))
-                    ->groupby('naves_recorrido.omimatricula','naves_recorrido.nombrenave')
-                    ->orderby('longitud','DESC')
-                    ->limit(10)
-                    ->get();
-
-        $arribos_naves=DB::TABLE('nave')
-                    ->join('arribos_naves_puertos','arribos_naves_puertos.omimatricula','=','nave.omimatricula')
-                    ->select(DB::RAW('nave.nombrenave, nave.omimatricula, count(arribos_naves_puertos.omimatricula) as arribos'))
-                    ->groupby('nave.omimatricula', 'nave.nombrenave')
-                    ->orderby('arribos','DESC')
-                    ->limit(10)
-                    ->get();
+    				->get();        
 
     	return view('pages.reportepornave',array('list_nave'=>$list_nave,'list_rutas'=>$list_rutas, 'longitud_recorridos'=> $longitud_recorridos, '$arribos_naves'=>$arribos_naves));
     }
@@ -82,6 +40,9 @@ class reportenaveController extends Controller
     				->limit(1)    				
     				->get();   
 
+        $arribos=DB::RAW('select count(s.omimatricula) as arribos, s.fecha from (select omimatricula, extract (year from anp.fecha_arribo) as fecha from arribos_naves_puertos anp where omimatricula = '.$matricula.') as s group by fecha')
+                    ->get();
+
         $rutas_parques=DB::TABLE('rutas_intersect')
                     ->select(DB::RAW('rutas_intersect.pto_origen, rutas_intersect.nom_puerto, rutas_intersect.nom_parque, rutas_intersect.ruta, rutas_intersect.parque'))
                     ->where('pto_origen','=',$puerto_origen)
@@ -97,7 +58,7 @@ class reportenaveController extends Controller
                     ->where('pto_origen','=',$puerto_origen)
                     ->get();*/
 
-    	$array=[$track,$detalles_nave,$punto_aleatorio,$rutas_parques];
+    	$array=[$track,$detalles_nave,$arribos];
     	return $array;
     } 
 

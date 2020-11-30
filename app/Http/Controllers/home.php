@@ -82,6 +82,50 @@ class home extends Controller
                             ->limit(5)
                             ->get();
 
+        //Estas son la consultas que estaban en naves pero parecen ser del reporte global
+
+        $list_rutas=DB::TABLE('trayectos')
+                    ->join('puertos','puertos.id_puerto','=','trayectos.pto_origen')
+                    ->select('trayectos.pto_origen','puertos.nom_puerto')
+                    ->limit(1)
+                    ->get();
+
+        $naves_eslora=DB::TABLE('nave')
+                    ->join('tiponave','tiponave.cod_tiponave','=','nave.codigotiponave') 
+                    ->join('arribos_naves_puertos','arribos_naves_puertos.omimatricula','=','nave.omimatricula')
+                    ->select(DB::RAW('count(nave.nombrenave) as total, tiponave.categoria_eslora'))
+                    ->groupby('tiponave.categoria_eslora')
+                    ->get(); 
+
+        $naves_trb=DB::TABLE('nave')
+                    ->join('tiponave','tiponave.cod_tiponave','=','nave.codigotiponave') 
+                    ->join('arribos_naves_puertos','arribos_naves_puertos.omimatricula','=','nave.omimatricula')
+                    ->select(DB::RAW('count(nave.nombrenave) as total, tiponave.categoria_trb'))
+                    ->groupby('tiponave.categoria_trb')
+                    ->get();
+
+        $nave_puerto=DB::TABLE('nave')
+                    ->join('arribos_naves_puertos','arribos_naves_puertos.omimatricula','=','nave.omimatricula') 
+                    ->join('puertos','puertos.id_puerto','=','arribos_naves_puertos.pto_origen')
+                    ->select(DB::RAW('nave.nombrenave, puertos.nom_puerto, arribos_naves_puertos.fecha_arribo,puertos.geometry'))
+                    ->groupby('nave.nombrenave','puertos.nom_puerto','arribos_naves_puertos.fecha_arribo','puertos.geometry')
+                    ->get();
+
+        $longitud_recorridos=DB::TABLE('naves_recorrido')
+                    ->select(DB::RAW('naves_recorrido.omimatricula, naves_recorrido.nombrenave, sum(ST_Length(ST_Transform(naves_recorrido.geometry,3857))) as longitud'))
+                    ->groupby('naves_recorrido.omimatricula','naves_recorrido.nombrenave')
+                    ->orderby('longitud','DESC')
+                    ->limit(10)
+                    ->get();
+
+        $arribos_naves=DB::TABLE('nave')
+                    ->join('arribos_naves_puertos','arribos_naves_puertos.omimatricula','=','nave.omimatricula')
+                    ->select(DB::RAW('nave.nombrenave, nave.omimatricula, count(arribos_naves_puertos.omimatricula) as arribos'))
+                    ->groupby('nave.omimatricula', 'nave.nombrenave')
+                    ->orderby('arribos','DESC')
+                    ->limit(10)
+                    ->get();
+
         return view('pages.home', array('arribos_capitanias'=>$arribos_capitanias,'num_naves'=>$num_naves,'num_naves2020'=>$num_naves2020,'num_naves2020_p'=>$num_naves2020_p,'principales_zarpes'=>$principales_zarpes,'tipos_naves'=>$tipos_naves,'razon_arribo'=>$razon_arribo,'arribos_anual'=>$arribos_anual));
     } 
 }
