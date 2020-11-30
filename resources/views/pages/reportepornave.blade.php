@@ -115,7 +115,7 @@
 								  		<h4 style="margin-bottom: 0px !important">Número de veces que ha arribado la nave a Colombia</h4>
 								  	</div>
 								  	<div class="card-body">
-								    	
+								    	<div id="table_arribos"></div>
 								  	</div>
 								</div>
 							</div>
@@ -193,9 +193,12 @@
 				$("#r_origen").html(bandera);
                 $("#r_dwt").html(dwt);
 
+                
+
 				try {	
 					//map.removeLayer(states);					
-					mapexplorer.removeLayer(track_geojson);					
+					mapexplorer.removeLayer(track_geojson);
+					$("#table_arribos").empty();					
 				} catch(err) {    	  	
 				}
 
@@ -219,6 +222,27 @@
 				track_geo=geojson_temp;
 				track_geojson = new L.geoJson(track_geo,{}).addTo(mapexplorer);	
 				mapexplorer.fitBounds(track_geojson.getBounds());
+
+				//Create the table with arribos values by year
+
+				var arribos=data[2];
+
+				var content = '<table id="table_arribos_data" class="table table-hover">';
+				content += "<tr><th>Año</th><th>Arribos</th></tr>";
+
+				for(i=0; arribos.length; i++){
+					fecha=arribos[i].fecha;
+					arribos=arribos[i].arribos;
+				    content += '<tr><td>' + fecha + '</td><td>' + arribos + '</td></tr>';
+				}
+
+				content += "</table>";
+
+				console.log(content)
+
+				$('#table_arribos').append(content);
+
+				
 
 			},
         error:function(){
