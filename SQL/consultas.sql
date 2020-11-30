@@ -336,15 +336,17 @@ create or replace view oleaje_dia as
 select o2.altura_ola,gc.point_id,gc.geometry 
 from grilla_caribe gc
 	inner join oleaje o2 on (o2.id_grilla =gc.point_id)
-where o2.fecha = '2020-09-10 12:00:00'
+where o2.fecha = '2020-09-11 12:00:00'
 /*----------------------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------------------*/
 /*Categoría del oleaje sobre la posición de una nave*/
 /*----------------------------------------------------------------------------*/
-select ST_Contains(nc.st_buffer, od.geometry) 
+select nc.st_buffer, avg(od.altura_ola)
 from nave_caribe nc, oleaje_dia od 
+where st_intersects(nc.st_buffer, od.geometry) 
+group by nc.st_buffer  
 /*----------------------------------------------------------------------------*/
 
 
@@ -363,7 +365,7 @@ order by p.nom_puerto
 
 
 /*----------------------------------------------------------------------------*/
-/*Nave con recorrido*/
+/*Nave con track almacenado*/
 /*----------------------------------------------------------------------------*/
 create or replace view naves_recorrido as
 select n.nombrenave, n.omimatricula, anp.geometry 
@@ -387,9 +389,9 @@ order by longitud desc limit 10
 /*----------------------------------------------------------------------------*/
 /*Número de veces que ha arribado la nave al país*/
 /*----------------------------------------------------------------------------*/
-select n.nombrenave, n.omimatricula, count(anp.omimatricula) as arribos
-from nave n
-	inner join arribos_naves_puertos anp on (anp.omimatricula=n.omimatricula) 
-group by n.omimatricula, n.nombrenave
+select nr.nombrenave, nr.omimatricula, count(anp.omimatricula) as arribos
+from naves_recorrido nr
+	inner join arribos_naves_puertos anp on (anp.omimatricula=nr.omimatricula) 
+group by nr.omimatricula, nr.nombrenave
 order by arribos desc limit 10
 /*----------------------------------------------------------------------------*/
