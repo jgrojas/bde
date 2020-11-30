@@ -14,7 +14,8 @@ Autores: Angie Montoya, Gabriel Rojas */
 /*----------------------------------------------------------------------------*/
 select nom_tiponave,count(nom_tiponave) as total
 from nave n
-    inner join tiponave t on (t.cod_tiponave=n.codigotiponave) inner join arribos_naves_puertos anp on (n.omimatricula=anp.omimatricula) 
+    inner join tiponave t on (t.cod_tiponave=n.codigotiponave) 
+    inner join arribos_naves_puertos anp on (n.omimatricula=anp.omimatricula) 
 group by nom_tiponave
 order by total desc
 limit 10
@@ -191,7 +192,8 @@ order by count(nom_puerto) desc limit 10
 /*----------------------------------------------------------------------------*/
 /*Rutas que intersectan con reservas naturales*/
 /*----------------------------------------------------------------------------*/
-select distinct(t2.geometry,t2.pto_origen),pt.nom_puerto,p.nom_parque,t2.geometry as ruta, p.geometry as parque
+create or replace view rutas_intersect as
+select t2.pto_origen,pt.nom_puerto,p.nom_parque,t2.geometry as ruta, p.geometry as parque
 from pnn p, trayectos t2 
 	inner join puertos pt on (pt.id_puerto =t2.pto_origen)
 where st_intersects(p.geometry, t2.geometry)
@@ -214,8 +216,8 @@ order by st_intersection desc limit 1;
 /*----------------------------------------------------------------------------*/
 /*Puerto más cercano según la ubicación de una nave*/
 /*----------------------------------------------------------------------------*/
-select nom_puerto, p.geometry, 
-	st_distance(ST_Transform(ST_SetSRID(ST_GeomFromText('POINT(-71.107 12.028)'),4326),3857),ST_Transform(p.geometry,3857)) 
+select nom_puerto, p.geometry, ST_GeomFromText('POINT(-73.107 13.028)'),
+	st_distance(ST_Transform(ST_SetSRID(ST_GeomFromText('POINT(-73.107 13.028)'),4326),3857),ST_Transform(p.geometry,3857)) 
 from puertos p
 order by st_distance limit 1;
 /*----------------------------------------------------------------------------*/
@@ -326,7 +328,7 @@ order by distancia limit 1;
 /*Ubicación de la nave en el Caribe*/
 /*----------------------------------------------------------------------------*/
 create or replace view nave_caribe as
-select ST_Buffer(gc.geometry, 0.4, 'endcap=round join=round')
+select ST_Buffer(gc.geometry, 1, 'endcap=round join=round')
 from grilla_caribe gc 
 order by random()
 limit 1 
@@ -340,15 +342,17 @@ create or replace view oleaje_dia as
 select o2.altura_ola,gc.point_id,gc.geometry 
 from grilla_caribe gc
 	inner join oleaje o2 on (o2.id_grilla =gc.point_id)
-where o2.fecha = '2020-09-10 12:00:00'
+where o2.fecha = '2020-09-11 12:00:00'
 /*----------------------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------------------*/
 /*Categoría del oleaje sobre la posición de una nave*/
 /*----------------------------------------------------------------------------*/
-select ST_Contains(nc.st_buffer, od.geometry) 
+select nc.st_buffer, avg(od.altura_ola)
 from nave_caribe nc, oleaje_dia od 
+where st_intersects(nc.st_buffer, od.geometry) 
+group by nc.st_buffer  
 /*----------------------------------------------------------------------------*/
 
 
@@ -367,11 +371,33 @@ order by p.nom_puerto
 
 
 /*----------------------------------------------------------------------------*/
-/*Nave que ha recorrido la ruta más larga*/
+/*Nave con track almacenado*/
 /*----------------------------------------------------------------------------*/
-select n.nombrenave, sum(ST_Length(ST_Transform(anp.geometry,3857))) as longitud
+create or replace view naves_recorrido as
+select n.nombrenave, n.omimatricula, anp.geometry 
 from nave n
 	inner join arribos_naves_puertos anp on (anp.omimatricula=n.omimatricula) 
-group by n.nombrenave 
-order by longitud desc
+where anp.geometry is not null
 
+
+
+
+/*----------------------------------------------------------------------------*/
+/*Nave que ha recorrido la ruta más larga*/
+/*----------------------------------------------------------------------------*/
+select nr.omimatricula, nr.nombrenave, sum(ST_Length(ST_Transform(nr.geometry,3857))) as longitud
+from naves_recorrido nr
+group by nr.omimatricula,nr.nombrenave 
+order by longitud desc limit 10
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
+/*Número de veces que ha arribado la nave al país*/
+/*----------------------------------------------------------------------------*/
+select nr.nombrenave, nr.omimatricula, count(anp.omimatricula) as arribos
+from naves_recorrido nr
+	inner join arribos_naves_puertos anp on (anp.omimatricula=nr.omimatricula) 
+group by nr.omimatricula, nr.nombrenave
+order by arribos desc limit 10
+/*----------------------------------------------------------------------------*/
