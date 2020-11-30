@@ -225,24 +225,21 @@
 
 				//Create the table with arribos values by year
 
-				var arribos=data[2];
+				var arribos=data[2];				
 
 				var content = '<table id="table_arribos_data" class="table table-hover">';
 				content += "<tr><th>Año</th><th>Arribos</th></tr>";
 
-				for(i=0; arribos.length; i++){
+				for (i = 0; i < arribos.length; i++){
+					
 					fecha=arribos[i].fecha;
-					arribos=arribos[i].arribos;
-				    content += '<tr><td>' + fecha + '</td><td>' + arribos + '</td></tr>';
+					arribos_temp=arribos[i].arribos;					
+				    content += '<tr><td>' + fecha + '</td><td>' + arribos_temp + '</td></tr>';
 				}
 
-				content += "</table>";
+				content += "</table>";				
 
-				console.log(content)
-
-				$('#table_arribos').append(content);
-
-				
+				$('#table_arribos').append(content);				
 
 			},
         error:function(){
