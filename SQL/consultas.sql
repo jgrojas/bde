@@ -14,8 +14,10 @@ Autores: Angie Montoya, Gabriel Rojas */
 /*----------------------------------------------------------------------------*/
 select nom_tiponave,count(nom_tiponave) as total
 from nave n
-    inner join tiponave t on (t.cod_tiponave=n.codigotiponave) inner join arribos_naves_puertos anp on (n.omimatricula=anp.omimatricula) 
+    inner join tiponave t on (t.cod_tiponave=n.codigotiponave) 
+    inner join arribos_naves_puertos anp on (n.omimatricula=anp.omimatricula) 
 group by nom_tiponave
+order by total desc
 ;
 /*----------------------------------------------------------------------------*/
 
