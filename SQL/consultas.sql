@@ -400,4 +400,11 @@ from naves_recorrido nr
 	inner join arribos_naves_puertos anp on (anp.omimatricula=nr.omimatricula) 
 group by nr.omimatricula, nr.nombrenave
 order by arribos desc limit 10
+
+
+select count(s.omimatricula) as arribos, s.fecha   
+from 
+	(select omimatricula, extract (year from anp.fecha_arribo) as fecha from arribos_naves_puertos anp
+	where omimatricula = '8003060') as s 
+group by fecha 
 /*----------------------------------------------------------------------------*/
