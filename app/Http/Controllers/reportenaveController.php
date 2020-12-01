@@ -42,9 +42,6 @@ class reportenaveController extends Controller
 
         $arribos=DB::SELECT(DB::RAW("select count(s.omimatricula) as arribos, s.fecha from (select omimatricula, extract (year from anp.fecha_arribo) as fecha from arribos_naves_puertos anp where omimatricula = '".$matricula."') as s group by fecha"));
 
-<<<<<<< Updated upstream
-        $rutas_parques=DB::TABLE('rutas_intersect')
-=======
         $dist_parque=DB::TABLE('distancia_parque')
                     ->select(DB::RAW('distancia_parque.omimatricula, distancia_parque.nombrenave, distancia_parque.nom_parque, distancia_parque.ruta, distancia_parque.parque, distancia_parque.linea_corta'))
                     ->where('distancia_parque.omimatricula','=',$matricula)
