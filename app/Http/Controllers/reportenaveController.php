@@ -36,6 +36,7 @@ class reportenaveController extends Controller
     	$track=DB::TABLE('arribos_naves_puertos')
     				->select(DB::RAW('ST_AsGeoJSON(geometry) as geometry,arribos_naves_puertos.pto_origen'))
     				->where('omimatricula','=',$matricula)
+                    ->whereNotNull ('geometry')
     				->orderby('fecha_arribo','DESC')
     				->limit(1)    				
     				->get(); 
@@ -43,6 +44,7 @@ class reportenaveController extends Controller
         $track1=DB::TABLE('arribos_naves_puertos')
                     ->select(DB::RAW('geometry,arribos_naves_puertos.pto_origen'))
                     ->where('omimatricula','=',$matricula)
+                    ->whereNotNull ('geometry')
                     ->orderby('fecha_arribo','DESC')
                     ->limit(1)                  
                     ->get();   
@@ -50,7 +52,7 @@ class reportenaveController extends Controller
         $arribos=DB::SELECT(DB::RAW("select count(s.omimatricula) as arribos, s.fecha from (select omimatricula, extract (year from anp.fecha_arribo) as fecha from arribos_naves_puertos anp where omimatricula = '".$matricula."') as s group by fecha"));
 
 
-        $dist_parque=DB::SELECT("select distinct(p2.nom_parque),nr.omimatricula,cp.nom_categoria,nr.geometry as ruta,p2.geometry as parque,ST_Length(ST_Transform(ST_ShortestLine('".$track1[0]->geometry."',p2.geometry),3857)) as linea_corta from naves_recorrido nr, pnn p2 inner join categoria_pnn cp on (cp.id_categoria=p2.id_categoria) where nr.omimatricula ='".$matricula."' order by linea_corta limit 5");
+        $dist_parque=DB::SELECT("select distinct(p2.nom_parque),nr.omimatricula,cp.nom_categoria,p2.geometry as parque,ST_Length(ST_Transform(ST_ShortestLine('".$track1[0]->geometry."',p2.geometry),3857)) as linea_corta from naves_recorrido nr, pnn p2 inner join categoria_pnn cp on (cp.id_categoria=p2.id_categoria) where nr.omimatricula ='".$matricula."' order by linea_corta limit 5");
 
         /*$rutas_parques=DB::TABLE('rutas_intersect')
                     ->select(DB::RAW('rutas_intersect.pto_origen, rutas_intersect.nom_puerto, rutas_intersect.nom_parque, rutas_intersect.ruta, rutas_intersect.parque'))

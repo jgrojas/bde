@@ -262,7 +262,7 @@ from "arribos_naves_puertos"
 where "omimatricula" = '8003060' 
 order by "fecha_arribo" desc limit 1
 
-select geometry 
+select geometry
 from "arribos_naves_puertos" 
 where "omimatricula" = '8003060' 
 order by "fecha_arribo" desc limit 1
@@ -350,30 +350,29 @@ order by distancia limit 1;
 /*Ubicación de la nave en el Caribe*/
 /*----------------------------------------------------------------------------*/
 create or replace view nave_caribe as
-select ST_Buffer(gc.geometry, 1, 'endcap=round join=round')
-from grilla_caribe gc 
-order by random()
-limit 1 
+select ST_Buffer(gc.geometry, 1, 'endcap=round join=round'),gc.point_id 
+from grilla_caribe gc  
 /*----------------------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------------------*/
 /*Oleaje en una fecha definida*/
 /*----------------------------------------------------------------------------*/
-create or replace view oleaje_dia as
-select o2.altura_ola,gc.point_id,gc.geometry 
-from grilla_caribe gc
-	inner join oleaje o2 on (o2.id_grilla =gc.point_id)
-where o2.fecha = '2020-09-11 12:00:00'
+--create or replace view oleaje_dia as
+--select o2.altura_ola,gc.point_id,gc.geometry 
+--from grilla_caribe gc
+--	inner join oleaje o2 on (o2.id_grilla =gc.point_id)
+--where o2.fecha = '2020-09-11 12:00:00'
 /*----------------------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------------------*/
 /*Categoría del oleaje sobre la posición de una nave*/
 /*----------------------------------------------------------------------------*/
-select nc.st_buffer, avg(od.altura_ola)
-from nave_caribe nc, oleaje_dia od 
-where st_intersects(nc.st_buffer, od.geometry) 
+select nc.st_buffer, avg(o.altura_ola)
+from nave_caribe nc, oleaje o
+ inner join grilla_caribe gc on (gc.point_id = o.id_grilla) 
+where st_intersects(nc.st_buffer, gc.geometry) and o.fecha = '2020-09-11 12:00:00' and nc.point_id=1
 group by nc.st_buffer  
 /*----------------------------------------------------------------------------*/
 
@@ -414,10 +413,7 @@ order by longitud desc limit 10
 /*----------------------------------------------------------------------------*/
 
 
-
-<<<<<<< Updated upstream
 /*----------------------------------------------------------------------------*/
-=======
 select count(s.omimatricula) as arribos, s.fecha   
 from 
 	(select omimatricula, extract (year from anp.fecha_arribo) as fecha from arribos_naves_puertos anp
@@ -431,14 +427,12 @@ group by fecha
 /*----------------------------------------------------------------------------*/
 create or replace view distancia_parque as
 select nr.omimatricula, nr.nombrenave,p2.nom_parque,nr.geometry as ruta,p2.geometry as parque, ST_Length(ST_Transform(ST_ShortestLine(nr.geometry,p2.geometry),3857)) as linea_corta
-from naves_recorrido nr, pnn p2 
+from naves_recorrido nr, pnn p2
 order by linea_corta 
 
+--con el último track
 select * 
 from distancia_parque
-where omimatricula = '1002342'
+where omimatricula = '00-00537'
 limit 3
 /*----------------------------------------------------------------------------*/
-
-	
-
