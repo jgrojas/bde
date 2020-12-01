@@ -50,7 +50,6 @@ class reportenaveController extends Controller
                     ->get();
 
         /*$rutas_parques=DB::TABLE('rutas_intersect')
->>>>>>> Stashed changes
                     ->select(DB::RAW('rutas_intersect.pto_origen, rutas_intersect.nom_puerto, rutas_intersect.nom_parque, rutas_intersect.ruta, rutas_intersect.parque'))
                     ->where('pto_origen','=',$puerto_origen)
                     ->get();
