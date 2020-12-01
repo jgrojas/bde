@@ -127,15 +127,11 @@
 								  		<h4 style="margin-bottom: 0px !important">Alertas Espaciales</h4>
 								  	</div>
 								  	<div class="card-body">
-								  		<table class="table table-hover">									  	
-										  	<tbody>
-										  		<tr>
-												  <td>Distancia a Parques Nacionales</td>
-												  <td id="r_pnn"></td>
-												</tr>									  														
-										  </tbody>
-										</table>
-								    	
+
+								  		<p>A continuación se presentan el análisis espacial del track basado en la estimación de la distancia entr el último recorrido de la nave y el Sistema de Parques Nacionales de Colombia</p>
+
+								  		<h4 style="margin-bottom: 0px !important">Distancia a Parques Nacionales</h4>
+								  		<div id="tabla_parques"></div>
 								  	</div>
 								</div>
 							</div>
@@ -198,7 +194,8 @@
 				try {	
 					//map.removeLayer(states);					
 					mapexplorer.removeLayer(track_geojson);
-					$("#table_arribos").empty();					
+					$("#table_arribos").empty();
+					$('#tabla_parques').empty();					
 				} catch(err) {    	  	
 				}
 
@@ -239,7 +236,25 @@
 
 				content += "</table>";				
 
-				$('#table_arribos').append(content);				
+				$('#table_arribos').append(content);
+
+
+				//Create the table with SNP
+
+				var parques=data[3];
+
+				var content = '<table id="table_arribos_data" class="table table-hover">';
+				content += "<tr><th>Parque Nacional</th><th>Categoría</th><th>Distancia Nave</th></tr>";
+
+				for (i = 0; i < parques.length; i++){
+					
+					parque_temp=parques[i].nom_parque;					
+					categoria_temp=parques[i].nom_categoria;
+					dist=Math.round(parques[i].linea_corta);
+				    content += '<tr><td>' + parque_temp + '</td><td>' + categoria_temp + '</td><td>' + dist + '</td></tr>';
+				}
+
+				$('#tabla_parques').append(content);				
 
 			},
         error:function(){
