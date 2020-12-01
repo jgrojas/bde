@@ -128,7 +128,7 @@
 								  	</div>
 								  	<div class="card-body">
 
-								  		<p>A continuación se presentan el análisis espacial del track basado en la estimación de la distancia entr el último recorrido de la nave y el Sistema de Parques Nacionales de Colombia</p>
+								  		<p>A continuación se presentan el análisis espacial del track basado en la estimación de la distancia entr el último recorrido de la nave y el Sistema de Parques Nacionales de Colombia. El campo de distancia se clasifica en 3 colores. Color Rojo: Cruce sobre un parque; Color Amarillo: Alerta de próximadad menor a 5 km; Color Verde: Distancia superior a 5 km</p>
 
 								  		<h4 style="margin-bottom: 0px !important">Distancia a Parques Nacionales</h4>
 								  		<div id="tabla_parques"></div>
@@ -251,7 +251,14 @@
 					parque_temp=parques[i].nom_parque;					
 					categoria_temp=parques[i].nom_categoria;
 					dist=Math.round(parques[i].linea_corta);
-				    content += '<tr><td>' + parque_temp + '</td><td>' + categoria_temp + '</td><td>' + dist + '</td></tr>';
+					if(dist>=5000){						
+						content += '<tr><td>' + parque_temp + '</td><td>' + categoria_temp + '</td><td><span class="badge badge-success">' + dist + 'm</span></td></tr>';
+					} else if (dist>0) {
+						content += '<tr><td>' + parque_temp + '</td><td>' + categoria_temp + '</td><td><span class="badge badge-warning">' + dist + 'm</span></td></tr>';
+					} else {
+						content += '<tr><td>' + parque_temp + '</td><td>' + categoria_temp + '</td><td><span class="badge badge-danger">' + dist + 'm</span></td></tr>';
+					}
+				    
 				}
 
 				$('#tabla_parques').append(content);				
