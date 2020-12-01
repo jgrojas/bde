@@ -67,8 +67,12 @@
 												  <td id="r_matricula"></td>
 												</tr>
 												<tr>
-												  <td>Agencia</td>
+												  <td>NIT Agencia</td>
 												  <td id="r_agencia"></td>
+												</tr>
+												<tr>
+												  <td>Agencia</td>
+												  <td id="r_idagencia"></td>
 												</tr>
 												<tr>
 												  <td>Eslora</td>
@@ -179,17 +183,18 @@
 				var eslora=data[1][0].eslora;
 				var trb=data[1][0].trb;
 				var construccion=data[1][0].anoconstru;
-				var agencia_nave=data[1][0].agencia_arribo;
+				var agencia_nave=data[1][0].id_agencia_arribo;
 				var bandera=data[1][0].nombre;
 				var dwt=data[1][0].dwt;
+				var agencias_nave=data[4][0].agencia_arribo;
 				$("#r_eslora").html(eslora);
 				$("#r_trb").html(trb);
 				$("#r_construccion").html(construccion);
 				$("#r_agencia").html(agencia_nave);
 				$("#r_origen").html(bandera);
                 $("#r_dwt").html(dwt);
-
-                
+                $("#r_idagencia").html(agencias_nave);
+      
 
 				try {	
 					//map.removeLayer(states);					

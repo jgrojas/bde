@@ -216,12 +216,24 @@ order by longitud desc limit 10
 /*----------------------------------------------------------------------------*/
 /*Características de la Nave*/
 /*----------------------------------------------------------------------------*/
-select paises.nombre as bandera, nave.eslora, nave.trb, nave.anoconstru, agencianave.agencia_arribo, nave.dwt
+select paises.nombre as bandera, nave.eslora, nave.trb, nave.anoconstru, 
+	agencianave.agencia_arribo, nave.dwt, agencianave.id_agencia_arribo 
 from nave 
 inner join agencianave on agencianave.id_agencia_arribo = nave.id_agencia_arribo 
 inner join paises on paises.abreviatura_pais = nave.codigo_pais
 inner join nave_agencianave na on nave.omimatricula = na.omimatricula 
 where nave.omimatricula = '8003060'
+;
+/*----------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------*/
+/*Agencias de una nave*/
+/*----------------------------------------------------------------------------*/
+select nave_agencianave.omimatricula, agencianave.id_agencia_arribo,agencianave.agencia_arribo 
+from nave_agencianave 
+	inner join agencianave on agencianave.id_agencia_arribo = nave_agencianave.id_agencia_arribo 
+where nave_agencianave.omimatricula = '030054-F'
+group by nave_agencianave.omimatricula,agencianave.id_agencia_arribo,agencianave.agencia_arribo
 ;
 /*----------------------------------------------------------------------------*/
 

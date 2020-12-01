@@ -29,8 +29,15 @@ class reportenaveController extends Controller
         $detalles_nave=DB::TABLE('nave')
                     ->join('agencianave','agencianave.id_agencia_arribo','=','nave.id_agencia_arribo')
                     ->join('paises','paises.abreviatura_pais','=','nave.codigo_pais')
-                    ->select(DB::RAW('paises.nombre, nave.eslora, nave.trb, nave.anoconstru, agencianave.agencia_arribo, paises.nombre, nave.dwt'))
+                    ->select(DB::RAW('paises.nombre, nave.eslora, nave.trb, nave.anoconstru, agencianave.id_agencia_arribo, paises.nombre, nave.dwt'))
                     ->where('omimatricula','=',$matricula)
+                    ->get();
+
+        $agencias_nave=DB::TABLE('nave_agencianave')
+                    ->join('agencianave','agencianave.id_agencia_arribo','=','nave_agencianave.id_agencia_arribo')
+                    ->select(DB::RAW('nave_agencianave.omimatricula, agencianave.id_agencia_arribo, agencianave.agencia_arribo'))
+                    ->where('omimatricula','=',$matricula)
+                    ->groupby('nave_agencianave.omimatricula','agencianave.id_agencia_arribo','agencianave.agencia_arribo')
                     ->get();
 
     	$track=DB::TABLE('arribos_naves_puertos')
@@ -69,7 +76,7 @@ class reportenaveController extends Controller
                     ->where('pto_origen','=',$puerto_origen)
                     ->get();*/
 
-    	$array=[$track,$detalles_nave,$arribos,$dist_parque];
+    	$array=[$track,$detalles_nave,$arribos,$dist_parque,$agencias_nave];
     	return $array;
     } 
 
