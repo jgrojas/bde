@@ -1,10 +1,10 @@
 # Por favor suministre sus datos de conexion aqui
 export PGPORT=5432
-export PGHOST=bde2020.cpzvmgzzg0iz.us-east-2.rds.amazonaws.com
+export PGHOST=172.18.152.116
 export PGUSER=postgres
-export SIMARDB=postgres
+export SIMARDB=prueba1
 export PGBIN=/usr/lib/postgresql/12/bin
-export PGPASSWORD=GoXA6LbecbxuZ4ipix9H
+export PGPASSWORD=postgres
 
 # cd to path of the shell script
 cd "$( cd "$( dirname "$0" )" && pwd )" > /dev/null

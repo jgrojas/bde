@@ -279,7 +279,7 @@ limit 1
 
 
 /*----------------------------------------------------------------------------*/
-/*Simulación de un punto en el Caribe Colombiano*/
+/*Oleaje en la zona de transito de la nave*/
 /*----------------------------------------------------------------------------*/
 /*Fechas posibles: 2020-09-10 12:00:00,2020-09-11 12:00:00,2020-09-12 12:00:00*/
 /*-------------------------------------2020-09-13 12:00:00,2020-09-14 12:00:00*/
@@ -296,3 +296,14 @@ group by nc.st_buffer
 /*----------------------------------------------------------------------------*/
 
 
+/*----------------------------------------------------------------------------*/
+/*Distancia a la costa de una nave*/
+/*----------------------------------------------------------------------------*/
+select c.nom_capitania, 
+	ST_Length(ST_Transform(ST_ShortestLine(ST_SetSRID(ST_GeomFromText('POINT(-73.107 13.028)'),4326) ,lc.geometry),3857)) as linea_corta 
+from linea_costa lc
+inner join capitanias c on (c.id_capitania=lc.id_capitania) 
+order by linea_corta
+limit 1
+;
+/*----------------------------------------------------------------------------*/
