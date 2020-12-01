@@ -38,12 +38,19 @@ class reportenaveController extends Controller
     				->where('omimatricula','=',$matricula)
     				->orderby('fecha_arribo','DESC')
     				->limit(1)    				
-    				->get();   
+    				->get(); 
+
+        $track1=DB::TABLE('arribos_naves_puertos')
+                    ->select(DB::RAW('geometry,arribos_naves_puertos.pto_origen'))
+                    ->where('omimatricula','=',$matricula)
+                    ->orderby('fecha_arribo','DESC')
+                    ->limit(1)                  
+                    ->get();   
 
         $arribos=DB::SELECT(DB::RAW("select count(s.omimatricula) as arribos, s.fecha from (select omimatricula, extract (year from anp.fecha_arribo) as fecha from arribos_naves_puertos anp where omimatricula = '".$matricula."') as s group by fecha"));
 
 
-        $dist_parque=DB::SELECT("select nr.omimatricula, nr.nombrenave,p2.nom_parque,nr.geometry as ruta,p2.geometry as parque, ST_Length(ST_Transform(ST_ShortestLine(".$track[0]->geometry.",p2.geometry),3857)) as linea_corta from naves_recorrido nr, pnn p2 order by linea_corta limit 3");
+        $dist_parque=DB::SELECT("select nr.omimatricula, nr.geometry as ruta, p2.geometry as parque, ST_Length(ST_Transform(ST_ShortestLine('".$track1[0]->geometry."',p2.geometry),3857)) as linea_corta from naves_recorrido nr, pnn p2 where nr.omimatricula ='".$matricula."' order by linea_corta limit 3");
 
         /*$rutas_parques=DB::TABLE('rutas_intersect')
                     ->select(DB::RAW('rutas_intersect.pto_origen, rutas_intersect.nom_puerto, rutas_intersect.nom_parque, rutas_intersect.ruta, rutas_intersect.parque'))
