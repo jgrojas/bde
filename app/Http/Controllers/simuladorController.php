@@ -15,16 +15,14 @@ class simuladorController extends Controller
     			->get();
 
     	$ubicacion_aleatoria=DB::TABLE('grilla_caribe')
-    			->select(DB::RAW("ST_Buffer(grilla_caribe.geometry, 1, 'endcap=round join=round')"))
+    			->select(DB::RAW("point_id"))
     			->inRandomOrder()
     			->limit(1)
     			->get();
 
-    	$oleaje_dia=DB::TABLE('grilla_caribe')
-    			->join('oleaje','oleaje.id_grilla','=','grilla_caribe.point_id')
-    			->select(DB::RAW('oleaje.altura_ola,grilla_caribe.point_id,grilla_caribe.geometry'))
-    			->where('oleaje.fecha','=','2020-09-11 12:00:00')
-    			->get();
+    	$fecha_oleaje="2020-09-11 12:00:00";
+
+    	$intersect=DB::select("select nc.st_buffer, avg(o.altura_ola) from nave_caribe nc, oleaje o inner join grilla_caribe gc on (gc.point_id = o.id_grilla) where st_intersects(nc.st_buffer, gc.geometry) and o.fecha = '".$fecha_oleaje."' and nc.point_id=".$ubicacion_aleatoria[0]->point_id." group by nc.st_buffer");
 
     	return view('pages.simulador', array('grilla'=>$grilla, 'ubicacion_aleatoria'=>$ubicacion_aleatoria));
     }
