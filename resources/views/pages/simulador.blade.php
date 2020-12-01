@@ -123,6 +123,13 @@
 	};
 
 	function simular(){
+
+		try {						
+			mapsimulator.removeLayer(geojson_buffer_layer);	
+			mapsimulator.removeLayer(marker);	
+		} catch(err) {    	  	
+		}
+		
 		$.ajax({		
 		url: "simulacionpost",		
 		beforeSend: function (xhr) {//This function is necessary to ajax 
@@ -134,11 +141,7 @@
 		type: "POST",
 		success:function(data){
 
-				try {						
-					mapsimulator.removeLayer(geojson_buffer_layer);	
-					mapsimulator.removeLayer(marker);	
-				} catch(err) {    	  	
-				}
+
 				
 				// Add point
 
