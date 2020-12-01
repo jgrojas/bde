@@ -42,12 +42,8 @@ class reportenaveController extends Controller
 
         $arribos=DB::SELECT(DB::RAW("select count(s.omimatricula) as arribos, s.fecha from (select omimatricula, extract (year from anp.fecha_arribo) as fecha from arribos_naves_puertos anp where omimatricula = '".$matricula."') as s group by fecha"));
 
-        $dist_parque=DB::TABLE('distancia_parque')
-                    ->select(DB::RAW('distancia_parque.omimatricula, distancia_parque.nombrenave, distancia_parque.nom_parque, distancia_parque.ruta, distancia_parque.parque, distancia_parque.linea_corta'))
-                    ->where('distancia_parque.omimatricula','=',$matricula)
-                    ->orderby('distancia_parque.linea_corta')
-                    ->limit(3)
-                    ->get();
+
+        $dist_parque=DB::SELECT("select nr.omimatricula, nr.nombrenave,p2.nom_parque,nr.geometry as ruta,p2.geometry as parque, ST_Length(ST_Transform(ST_ShortestLine(".$track[0]->geometry.",p2.geometry),3857)) as linea_corta from naves_recorrido nr, pnn p2 order by linea_corta limit 3");
 
         /*$rutas_parques=DB::TABLE('rutas_intersect')
                     ->select(DB::RAW('rutas_intersect.pto_origen, rutas_intersect.nom_puerto, rutas_intersect.nom_parque, rutas_intersect.ruta, rutas_intersect.parque'))
@@ -64,7 +60,7 @@ class reportenaveController extends Controller
                     ->where('pto_origen','=',$puerto_origen)
                     ->get();*/
 
-    	$array=[$track,$detalles_nave,$arribos];
+    	$array=[$track,$detalles_nave,$arribos,$dist_parque];
     	return $array;
     } 
 
