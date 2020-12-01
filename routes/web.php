@@ -20,7 +20,7 @@ Route::get('/',[home::class, 'index']);
 Route::get('reportenave',[reportenaveController::class, 'index']);
 Route::get('simulador',[simuladorController::class, 'index']);
 Route::post('reportenavepost',[reportenaveController::class, 'report']);
-
+Route::post('simulacionpost',[simuladorController::class, 'simulacion']);
 
 Route::get('mapa', function () {
     return view('pages/Mapa1');

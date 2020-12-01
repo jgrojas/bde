@@ -1,5 +1,21 @@
 @extends('master/master')
 
+@section('styles')
+<style type="text/css">
+	.info {
+	    padding: 6px 8px;
+	    font: 14px/16px Arial, Helvetica, sans-serif;
+	    background: white;
+	    background: rgba(255,255,255,0.8);
+	    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+	    border-radius: 5px;
+	}
+	.info h4 {
+	    margin: 0 0 5px;
+	    color: #777;
+	}
+</style>
+@endsection
 
 @section('content')
 		<!-- Content
@@ -79,16 +95,94 @@
 
 	mapsimulator.addLayer(marker_cluster_group);
 
-	mapsimulator.fitBounds(marker_cluster_group.getBounds());
+	mapsimulator.fitBounds(marker_cluster_group.getBounds());	
 
-	var tileIndex =geojsonvt(grilla);
-	// request a particular tile
-	var features = tileIndex.getTile(z, x, y).features;
-	console.log(tileIndex.tileCoords);
-	/*var ships = L.icon({
-	    iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Emoji_u1f6a2.svg/30px-Emoji_u1f6a2.svg.png',
-	    iconSize: [30, 30]
-	});*/
+	var button = L.control({position: 'bottomleft'});
+
+	button.onAdd = function (map) {
+	    this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+	    this.update();
+	    return this._div;
+	};
+
+	button.update = function (props) {
+	    this._div.innerHTML = '<a class="button button-3d button-rounded button-green" onclick="simular()"><i class="icon-repeat"></i>Generar Localización</a>';
+	};
+
+	button.addTo(mapsimulator);
+
+	var Icon = L.icon({
+	    iconUrl: 'images/ocean-transportation.png',
+	    iconSize:     [40, 40], // size of the icon	    
+	    iconAnchor:   [40, 40], // point of the icon which will correspond to marker's location	    	    
+	});
+
+	function interaccion_buffer(feature, layer) {	
+		text='Id punto: '+feature.properties.point_id+'<br>Promedio oleaje: '+feature.properties.avg
+		layer.bindTooltip(text);		
+	};
+
+	function simular(){
+		$.ajax({		
+		url: "simulacionpost",		
+		beforeSend: function (xhr) {//This function is necessary to ajax 
+					var token = $('meta[name="csrf_token"]').attr('content');
+					if (token) {
+						return xhr.setRequestHeader('X-CSRF-TOKEN', token);
+					}
+				},		
+		type: "POST",
+		success:function(data){
+
+				try {						
+					mapsimulator.removeLayer(geojson_buffer_layer);					
+				} catch(err) {    	  	
+				}
+				
+				// Add point
+
+				var point_id=data[0][0].point_id;
+
+				var geometry=jQuery.parseJSON(data[0][0].geometry);
+				var long=geometry.coordinates[0];
+				var lat=geometry.coordinates[1];
+				
+
+				L.marker([lat, long], {icon: Icon}).addTo(mapsimulator);
+
+
+				
+				//Add Bufer
+				var buffer=data[1];
+
+				objeto={
+					type: 'Feature',
+		   			properties: {
+					   	'point_id': point_id,
+		                'avg': buffer[0].avg	                
+				 	},
+				 	'geometry': jQuery.parseJSON(buffer[0].geometry)
+				}
+
+				geojson_buffer={
+					type: 'FeatureCollection',
+				    features: [objeto]
+				};
+
+				var geojson_buffer_layer=L.geoJson(geojson_buffer,{onEachFeature: interaccion_buffer}).addTo(mapsimulator);  
+				mapsimulator.fitBounds(geojson_buffer_layer.getBounds());
+
+
+
+
+			},
+        error:function(){
+	        	//map.spin(false);
+	        	alert('Error');
+        	} 
+		});	
+	}
+
 
 </script>
 
