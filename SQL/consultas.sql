@@ -415,4 +415,31 @@ order by longitud desc limit 10
 
 
 
+<<<<<<< Updated upstream
 /*----------------------------------------------------------------------------*/
+=======
+select count(s.omimatricula) as arribos, s.fecha   
+from 
+	(select omimatricula, extract (year from anp.fecha_arribo) as fecha from arribos_naves_puertos anp
+	where omimatricula = '8003060') as s 
+group by fecha 
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
+/*Distancia entre la ruta de la nave y el parque*/
+/*----------------------------------------------------------------------------*/
+create or replace view distancia_parque as
+select nr.omimatricula, nr.nombrenave,p2.nom_parque,nr.geometry as ruta,p2.geometry as parque, ST_Length(ST_Transform(ST_ShortestLine(nr.geometry,p2.geometry),3857)) as linea_corta
+from naves_recorrido nr, pnn p2 
+order by linea_corta 
+
+select * 
+from distancia_parque
+where omimatricula = '1002342'
+limit 3
+/*----------------------------------------------------------------------------*/
+
+	
+ 
+>>>>>>> Stashed changes
