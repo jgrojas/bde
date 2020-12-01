@@ -326,7 +326,7 @@
 	var arribos_anual_array=[];
 
 	for(i=0; i<arribos_anual.length; i++){
-		arribos_anual_array[i]=[arribos_anual[i].year,Math.round(parseInt(arribos_anual[i].sum))];
+		arribos_anual_array[i]=[arribos_anual[i].year,Math.round(parseInt(arribos_anual[i].count))];
 	}
 
 	Highcharts.chart('plot_arribos', {

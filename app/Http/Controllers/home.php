@@ -35,11 +35,16 @@ class home extends Controller
                             ->orderby('total','DESC')
                             ->get(); 
 
-        $arribos_anual=DB::TABLE('arribos_anual')
+        /*$arribos_anual=DB::TABLE('arribos_anual')
                             ->select(DB::RAW('year, sum(total)'))
                             ->groupby('year')
                             ->orderby('year')
-                            ->get(); 
+                            ->get(); */
+
+        $arribos_anual=DB::TABLE('arribos_naves_puertos')
+                            ->select(DB::RAW('count(id_capitania), extract (year from fecha_arribo) as year'))
+                            ->groupby('year')
+                            ->get();
 
         $principales_zarpes=DB::TABLE('arribos_naves_puertos') 
                             ->join('puertos','puertos.id_puerto','=','arribos_naves_puertos.pto_origen') 
