@@ -135,7 +135,8 @@
 		success:function(data){
 
 				try {						
-					mapsimulator.removeLayer(geojson_buffer_layer);					
+					mapsimulator.removeLayer(geojson_buffer_layer);	
+					mapsimulator.removeLayer(marker);	
 				} catch(err) {    	  	
 				}
 				
@@ -148,7 +149,7 @@
 				var lat=geometry.coordinates[1];
 				
 
-				L.marker([lat, long], {icon: Icon}).addTo(mapsimulator);
+				var marker=L.marker([lat, long], {icon: Icon}).addTo(mapsimulator);
 
 
 				
