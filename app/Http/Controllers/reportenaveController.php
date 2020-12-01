@@ -42,12 +42,12 @@ class reportenaveController extends Controller
 
         $arribos=DB::SELECT(DB::RAW("select count(s.omimatricula) as arribos, s.fecha from (select omimatricula, extract (year from anp.fecha_arribo) as fecha from arribos_naves_puertos anp where omimatricula = '".$matricula."') as s group by fecha"));
 
-        /*$rutas_parques=DB::TABLE('rutas_intersect')
+        $rutas_parques=DB::TABLE('rutas_intersect')
                     ->select(DB::RAW('rutas_intersect.pto_origen, rutas_intersect.nom_puerto, rutas_intersect.nom_parque, rutas_intersect.ruta, rutas_intersect.parque'))
                     ->where('pto_origen','=',$puerto_origen)
                     ->get();
 
-        $punto_aleatorio=DB::TABLE('buffer_tracks')
+        /*$punto_aleatorio=DB::TABLE('buffer_tracks')
                     ->select(DB::RAW('ST_GeneratePoints(ST_AsGeoJSON(geom),1) as geometry, buffer_tracks.pto_origen, buffer_tracks.nom_puerto'))
                     ->where('pto_origen','=',$puerto_origen)
                     ->get();*/

@@ -244,6 +244,16 @@ where arribos_naves_puertos.geometry is not null
 group by nave.omimatricula
 
 /*----------------------------------------------------------------------------*/
+/*Características de la Nave*/
+/*----------------------------------------------------------------------------*/
+
+select paises.nombre, nave.eslora, nave.trb, nave.anoconstru, agencianave.agencia_arribo, nave.dwt 
+from nave 
+inner join agencianave on agencianave.id_agencia_arribo = nave.id_agencia_arribo 
+inner join paises on paises.abreviatura_pais = nave.codigo_pais 
+where "omimatricula" = '8003060'
+
+/*----------------------------------------------------------------------------*/
 /*Último recorrido*/
 /*----------------------------------------------------------------------------*/
 
@@ -252,9 +262,21 @@ from "arribos_naves_puertos"
 where "omimatricula" = '8003060' 
 order by "fecha_arribo" desc limit 1
 
+select geometry 
+from "arribos_naves_puertos" 
+where "omimatricula" = '8003060' 
+order by "fecha_arribo" desc limit 1
 
 
+/*----------------------------------------------------------------------------*/
+/*Número de veces que ha arribado la nave al país*/
+/*----------------------------------------------------------------------------*/
 
+select count(s.omimatricula) as arribos, s.fecha   
+from 
+	(select omimatricula, extract (year from anp.fecha_arribo) as fecha from arribos_naves_puertos anp
+	where omimatricula = '8003060') as s 
+group by fecha
 
 /*----------------------------------------------------------------------------*/
 /*Naves por eslora*/
@@ -390,17 +412,6 @@ from naves_recorrido nr
 group by nr.omimatricula,nr.nombrenave 
 order by longitud desc limit 10
 /*----------------------------------------------------------------------------*/
-
-
-/*----------------------------------------------------------------------------*/
-/*Número de veces que ha arribado la nave al país*/
-/*----------------------------------------------------------------------------*/
-
-select count(s.omimatricula) as arribos, s.fecha   
-from 
-	(select omimatricula, extract (year from anp.fecha_arribo) as fecha from arribos_naves_puertos anp
-	where omimatricula = '8003060') as s 
-group by fecha 
 
 
 
