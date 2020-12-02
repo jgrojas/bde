@@ -61,6 +61,7 @@ class reportenaveController extends Controller
 
         $dist_parque=DB::SELECT("select distinct(p2.nom_parque),nr.omimatricula,cp.nom_categoria,p2.geometry as parque,ST_Length(ST_Transform(ST_ShortestLine('".$track1[0]->geometry."',p2.geometry),3857)) as linea_corta from naves_recorrido nr, pnn p2 inner join categoria_pnn cp on (cp.id_categoria=p2.id_categoria) where nr.omimatricula ='".$matricula."' order by linea_corta limit 5");
 
+
         /*$rutas_parques=DB::TABLE('rutas_intersect')
                     ->select(DB::RAW('rutas_intersect.pto_origen, rutas_intersect.nom_puerto, rutas_intersect.nom_parque, rutas_intersect.ruta, rutas_intersect.parque'))
                     ->where('pto_origen','=',$puerto_origen)

@@ -65,47 +65,6 @@ order by total desc limit 5
 ;
 /*----------------------------------------------------------------------------*/
 
-
-/*----------------------------------------------------------------------------*/
-/*---------------------CONSULTAS GLOBALES ADICIONALES-------------------------*/
-/*----------------------------------------------------------------------------*/
-
-/*----------------------------------------------------------------------------*/
-/*Tipos de naves arribadas al país en un periodo de tiempo definido*/
-/*----------------------------------------------------------------------------*/
-select nom_tiponave,count(nom_tiponave)
-from nave n
-    inner join tiponave t on (t.cod_tiponave=n.codigotiponave) 
-    inner join arribos_naves_puertos anp on (n.omimatricula=anp.omimatricula)
-where fecha_arribo <'2019-09-26' and fecha_arribo >'2015-09-26'
-group by nom_tiponave
-;
-/*----------------------------------------------------------------------------*/
-
-
-/*----------------------------------------------------------------------------*/
-/*Arribos mensual*/
-/*----------------------------------------------------------------------------*/
-select count(id_capitania), extract (month from fecha_arribo) as mes
-from arribos_naves_puertos anp
-group by mes
-;
-/*----------------------------------------------------------------------------*/
-
-
-/*----------------------------------------------------------------------------*/
-/*Arribos por capitanía en un periodo de tiempo definido*/
-/*----------------------------------------------------------------------------*/
-select nom_capitania, count(nom_capitania) 
-from capitanias c
-	inner join arribos_naves_puertos anp on (c.id_capitania=anp.id_capitania)
-where fecha_arribo <'2019-09-26' and fecha_arribo >'2015-09-26'
-group by nom_capitania
-order by count(nom_capitania) desc
-;
-/*----------------------------------------------------------------------------*/
-
-
 /*----------------------------------------------------------------------------*/
 /*Arribos totales*/
 /*----------------------------------------------------------------------------*/
@@ -113,7 +72,6 @@ select count(id_capitania)
 from arribos_naves_puertos anp
 ;
 /*----------------------------------------------------------------------------*/
-
 
 /*----------------------------------------------------------------------------*/
 /*Arribos para el año 2020*/
@@ -127,86 +85,7 @@ where year = 2020
 /*----------------------------------------------------------------------------*/
 
 
-/*----------------------------------------------------------------------------*/
-/*Rutas que intersectan con reservas naturales*/
-/*----------------------------------------------------------------------------*/
-select t2.pto_origen,pt.nom_puerto,p.nom_parque,t2.geometry as ruta, p.geometry as parque
-from pnn p, trayectos t2 
-	inner join puertos pt on (pt.id_puerto =t2.pto_origen)
-where st_intersects(p.geometry, t2.geometry)
-group by  p.nom_parque,t2.geometry,t2.pto_origen,pt.nom_puerto,p.geometry 
-;
-/*----------------------------------------------------------------------------*/
 
-
-/*----------------------------------------------------------------------------*/
-/*Naves por eslora*/
-/*----------------------------------------------------------------------------*/
-select count(nave.nombrenave) as total, tiponave.categoria_eslora
-from nave
-	inner join tiponave on (tiponave.cod_tiponave =nave.codigotiponave)
-	inner join arribos_naves_puertos on (arribos_naves_puertos.omimatricula =nave.omimatricula)
-group by tiponave.categoria_eslora
-;
-/*----------------------------------------------------------------------------*/
-
-
-/*----------------------------------------------------------------------------*/
-/*Naves por trb*/
-/*----------------------------------------------------------------------------*/
-select count(nave.nombrenave) as total, tiponave.categoria_trb 
-from nave
-	inner join tiponave on (tiponave.cod_tiponave =nave.codigotiponave)
-	inner join arribos_naves_puertos on (arribos_naves_puertos.omimatricula =nave.omimatricula)
-group by tiponave.categoria_trb
-;
-/*----------------------------------------------------------------------------*/
-
-
-/*----------------------------------------------------------------------------*/
-/*Puerto origen de las naves*/
-/*----------------------------------------------------------------------------*/
-select nave.nombrenave, puertos.nom_puerto, arribos_naves_puertos.fecha_arribo,puertos.geometry 
-from nave
-	inner join arribos_naves_puertos on (arribos_naves_puertos.omimatricula =nave.omimatricula)
-	inner join puertos on (puertos.id_puerto =arribos_naves_puertos.pto_origen)
-group by nave.nombrenave,puertos.nom_puerto,arribos_naves_puertos.fecha_arribo,puertos.geometry
-;
-/*----------------------------------------------------------------------------*/
-
-
-/*----------------------------------------------------------------------------*/
-/*Parque en el área de influencia de 10km de una nave en un punto definido*/
-/*----------------------------------------------------------------------------*/
-select st_intersection(
-	ST_Transform(st_buffer(ST_Transform(ST_SetSRID(ST_GeomFromText('POINT(-81.107 13.028)'),4326),3857),10000),4326),
-	p.geometry), nom_parque, p.geometry 
-from pnn p
-order by st_intersection desc limit 1
-;
-/*----------------------------------------------------------------------------*/
-
-
-/*----------------------------------------------------------------------------*/
-/*Puerto más cercano por emergencia de la nave*/
-/*----------------------------------------------------------------------------*/
-select nom_puerto, p.geometry, ST_GeomFromText('POINT(-73.107 13.028)'),
-	st_distance(ST_Transform(ST_SetSRID(ST_GeomFromText('POINT(-73.107 13.028)'),4326),3857),ST_Transform(p.geometry,3857)) 
-from puertos p
-order by st_distance limit 1
-;
-/*----------------------------------------------------------------------------*/
-
-
-/*----------------------------------------------------------------------------*/
-/*Nave que ha recorrido la ruta más larga*/
-/*----------------------------------------------------------------------------*/
-select nr.omimatricula, nr.nombrenave, sum(ST_Length(ST_Transform(nr.geometry,3857))) as longitud
-from naves_recorrido nr
-group by nr.omimatricula,nr.nombrenave 
-order by longitud desc limit 10
-;
-/*----------------------------------------------------------------------------*/
 
 
 /*----------------------------------------------------------------------------*/
@@ -262,7 +141,20 @@ group by fecha
 
 
 /*----------------------------------------------------------------------------*/
-/*Distancia entre el último trayecto de la nave y las zonas de reserva*/
+/*Puerto origen de las naves*/
+/*----------------------------------------------------------------------------*/
+select nave.omimatricula, nave.nombrenave, puertos.nom_puerto, arribos_naves_puertos.fecha_arribo,puertos.geometry 
+from nave
+	inner join arribos_naves_puertos on (arribos_naves_puertos.omimatricula =nave.omimatricula)
+	inner join puertos on (puertos.id_puerto =arribos_naves_puertos.pto_origen)
+where nave.omimatricula = '8003060'
+group by nave.omimatricula,nave.nombrenave,puertos.nom_puerto,arribos_naves_puertos.fecha_arribo,puertos.geometry
+;
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
+/*Distancia entre el último trayecto de la nave y las áreas de reserva natural*/
 /*----------------------------------------------------------------------------*/
 select distinct(p2.nom_parque),nr.omimatricula,cp.nom_categoria,p2.geometry as parque,
 	ST_Length(ST_Transform(ST_ShortestLine(nr.geometry ,p2.geometry),3857)) as linea_corta 
@@ -309,7 +201,82 @@ group by nc.st_buffer
 
 
 /*----------------------------------------------------------------------------*/
-/*Capitanía más cercana a una nave*/
+/*-------------------------FUTURAS IMPLEMENTACIONES---------------------------*/
+/*----------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------*/
+/*Rutas que intersectan con reservas naturales - Reporte global*/
+/*----------------------------------------------------------------------------*/
+select t2.pto_origen,pt.nom_puerto,p.nom_parque,t2.geometry as ruta, p.geometry as parque
+from pnn p, trayectos t2 
+	inner join puertos pt on (pt.id_puerto =t2.pto_origen)
+where st_intersects(p.geometry, t2.geometry)
+group by  p.nom_parque,t2.geometry,t2.pto_origen,pt.nom_puerto,p.geometry 
+;
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
+/*Naves por eslora - Reporte global*/
+/*----------------------------------------------------------------------------*/
+select count(nave.nombrenave) as total, tiponave.categoria_eslora
+from nave
+	inner join tiponave on (tiponave.cod_tiponave =nave.codigotiponave)
+	inner join arribos_naves_puertos on (arribos_naves_puertos.omimatricula =nave.omimatricula)
+group by tiponave.categoria_eslora
+;
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
+/*Naves por trb - Reporte global*/
+/*----------------------------------------------------------------------------*/
+select count(nave.nombrenave) as total, tiponave.categoria_trb 
+from nave
+	inner join tiponave on (tiponave.cod_tiponave =nave.codigotiponave)
+	inner join arribos_naves_puertos on (arribos_naves_puertos.omimatricula =nave.omimatricula)
+group by tiponave.categoria_trb
+;
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
+/*Puerto más cercano por emergencia de la nave - Simulador*/
+/*----------------------------------------------------------------------------*/
+select nom_puerto, p.geometry, ST_GeomFromText('POINT(-73.107 13.028)'),
+	st_distance(ST_Transform(ST_SetSRID(ST_GeomFromText('POINT(-73.107 13.028)'),4326),3857),ST_Transform(p.geometry,3857)) 
+from puertos p
+order by st_distance limit 1
+;
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
+/*Nave que ha recorrido la ruta más larga - Reporte global*/
+/*----------------------------------------------------------------------------*/
+select nr.omimatricula, nr.nombrenave, sum(ST_Length(ST_Transform(nr.geometry,3857))) as longitud
+from naves_recorrido nr
+group by nr.omimatricula,nr.nombrenave 
+order by longitud desc limit 10
+;
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
+/*Distancia entre el último trayecto de la nave y las capitanías de puerto más*/ 
+/*cercanas - Reporte nave*/
+/*----------------------------------------------------------------------------*/
+select distinct (aprox_costa.id_capitania), naves_recorrido.omimatricula,naves_recorrido.trb,aprox_costa.st_buffer,
+	ST_Length(ST_Transform(ST_ShortestLine(naves_recorrido.geometry ,aprox_costa.st_buffer),3857)) as linea_corta
+from naves_recorrido, aprox_costa
+where naves_recorrido.omimatricula ='8003060'
+order by linea_corta limit 5
+;
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
+/*Capitanía más cercana a una nave - Reporte por nave*/
 /*----------------------------------------------------------------------------*/
 select c.nom_capitania, 
 	ST_Length(ST_Transform(ST_ShortestLine(ST_SetSRID(ST_GeomFromText('POINT(-73.107 13.028)'),4326) ,lc.geometry),3857)) as linea_corta 

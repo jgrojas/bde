@@ -35,13 +35,12 @@ from arribos_naves_puertos anp
 /*que se cuenta un trayecto asociado----------------------------------------- */
 /*----------------------------------------------------------------------------*/
 create or replace view naves_recorrido as
-select n.nombrenave, n.omimatricula, anp.geometry 
+select n.nombrenave, n.omimatricula, n.trb, n.eslora, anp.geometry 
 from nave n
 	inner join arribos_naves_puertos anp on (anp.omimatricula=n.omimatricula) 
 where anp.geometry is not null
 ;
 /*----------------------------------------------------------------------------*/
-
 
 
 /*----------------------------------------------------------------------------*/
@@ -56,4 +55,14 @@ from grilla_caribe gc
 ;
 /*----------------------------------------------------------------------------*/
 
-
+/*----------------------------------------------------------------------------*/
+/*Zona de arribo al contintente*/
+/*----------------------------------------------------------------------------*/
+/*Vista generada para realizar consultas espaciales, define el área de llegada*/
+/*a la línea de costa.------------------------------------------------------- */
+/*----------------------------------------------------------------------------*/
+create or replace view aprox_costa as
+select lc.id_capitania, st_buffer(lc.geometry,0.008) 
+from linea_costa lc
+;
+/*----------------------------------------------------------------------------*/

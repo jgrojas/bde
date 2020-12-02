@@ -1,10 +1,10 @@
 # Por favor suministre sus datos de conexion aqui
 export PGPORT=5432
-export PGHOST=bde2020.cpzvmgzzg0iz.us-east-2.rds.amazonaws.com
-export PGUSER=postgres
-export SIMARDB=postgres
-export PGBIN=/usr/lib/postgresql/12/bin
-export PGPASSWORD=GoXA6LbecbxuZ4ipix9H
+export PGHOST=your_host_address
+export PGUSER=your_username
+export SIMARDB=your_database
+export PGBIN=path_to_pgsql.exe
+export PGPASSWORD=your_password
 
 # cd to path of the shell script
 cd "$( cd "$( dirname "$0" )" && pwd )" > /dev/null
@@ -22,7 +22,8 @@ cd "$( cd "$( dirname "$0" )" && pwd )" > /dev/null
 "$PGBIN/psql" -d "$SIMARDB" -f "table_lineacosta_g2.sql"
 "$PGBIN/psql" -d "$SIMARDB" -f "table_puertos_g2.sql"
 "$PGBIN/psql" -d "$SIMARDB" -f "table_razon_arribos_g2.sql"
-"$PGBIN/psql" -d "$SIMARDB" -f "table_arribos_naves_puertos_g2.sql"
+"$PGBIN/psql" -d "$SIMARDB" -f "table_arribos_naves_puertos1_g2.sql"
 "$PGBIN/psql" -d "$SIMARDB" -f "table_grilla_caribe_g2.sql"
 "$PGBIN/psql" -d "$SIMARDB" -f "table_oleaje_g2.sql"
+"$PGBIN/psql" -d "$SIMARDB" -f "vistas_simar_g2.sql"
 
