@@ -11,7 +11,7 @@
 						<nav class="custom-hero-nav">
 							<ul class="one-page-menu" data-easing="easeInOutExpo" data-speed="1300" data-offset="60">
 								<li class="active"><a href="/" data-href="#slider">Home</a></li>
-								<li><a href="#" data-offset="56" data-href="#service">Reporte Global</a></li>
+								<li><a href="/" data-offset="56" data-href="/">Reporte Global</a></li>
 								<li><a href="reportenave#about" data-href="reportenave">Reporte por Nave</a></li>
 								<li><a href="mapaframe#about" data-href="#shop">Mapa</a></li>
 								<li class="menu-item"><a class="menu-link" href="simulador" data-href="#testimonial">Simulador</a></li>

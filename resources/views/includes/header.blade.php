@@ -21,7 +21,7 @@
 						<nav class="primary-menu not-dark text-lg-center">
 							<ul class="menu-container one-page-menu" data-easing="easeInOutExpo" data-speed="1300" data-offset="60">
 								<li class="menu-item active"><a class="menu-link" href="/" data-href="#wrapper">Home</a></li>
-								<li class="menu-item"><a class="menu-link" href="#" data-offset="56" data-href="#global">Reporte Global</a></li>
+								<li class="menu-item"><a class="menu-link" href="/" data-offset="56" data-href="/">Reporte Global</a></li>
 								<li class="menu-item"><a class="menu-link" href="reportenave#about" data-href="reportenave">Reporte por Nave</a></li>
 								<li class="menu-item"><a class="menu-link" href="mapaframe#about" data-href="#shop">Mapa</a></li>
 								<li class="menu-item"><a class="menu-link" href="simulador" data-href="#testimonial">Simulador</a></li>								
